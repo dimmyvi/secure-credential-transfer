@@ -236,7 +236,7 @@ This API call consumes the following media types via the Content-Type request he
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
     - expirationTime (String, optional) - Mailbox expiration time (UTC). E.g. "2021-07-22T13:14:15Z". Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
 
-*Example of Create Mailbox Request*
+* Create Mailbox Request Example*
 ~~~
 {    "mailboxIdentifier" : "12345678-9...A-BCD",
     "displayInformation" : {
@@ -304,8 +304,7 @@ A complex structure, including:
 	* type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
 	* tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
 
-*ApplePushToken example* 
-
+*ApplePushToken Example* 
 ~~~
 {
    "notificationToken": {
@@ -315,8 +314,7 @@ A complex structure, including:
 }
 ~~~
 
-*Example of Update Mailbox Request* 
-
+*Update Mailbox Request Example* 
 ~~~
 {
     "displayInformation" : {
@@ -387,8 +385,7 @@ ResponseBody :
 
 - displayInformation (String, Required) - application-specific (e.g. OpenGraph, JSON) visual representation of digital credential.
 
-*ReadDisplayInformationResponseExample*
-
+*Read Display Information Response Example*
 ~~~
     "<html prefix="og: https://ogp.me/ns#">
      <head>
@@ -434,7 +431,7 @@ ResponseBody :
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
 
-*ReadSecureContentResponseExample*
+*Read Secure Content Response Example*
 ~~~
 {
     “displayInformation" : {
