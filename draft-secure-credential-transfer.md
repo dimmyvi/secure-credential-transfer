@@ -193,7 +193,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                         |                            |                            | Provision credentials
 
 # 4. API connection details {#connection-details}
-The Relay server API endpoint MUST be accessed over HTTP using an https URI [RFC2818] and SHOULD use the default https port. 
+The Relay server API endpoint MUST be accessed over HTTP using an https URI [RFC 2818] and SHOULD use the default https port. 
 Request and response bodies shall be formatted as either JSON or HTML (based on the API endpoint). The communication protocol used for all interfaces shall be HTTPs.
 All Strings shall be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version shall be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version shall be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
@@ -217,7 +217,7 @@ An application running on a remote device can invoke this API on Relay Server to
 #### 6.1.2.2 Header parameters
 
 - deviceAttestation (String, Optional) - optional remote device-specific attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology section).
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### 6.1.3. Consumes
 This API call consumes the following media types via the Content-Type request header: `application/json`
@@ -291,7 +291,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 #### 6.2.2.2 Header parameters
 - deviceAttestation (String, Optional) - optional remote device-specific attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology section).
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### 6.2.3. Consumes
 This API call consumes the following media types via the Content-Type request header: `application/json`
@@ -357,7 +357,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 #### 6.3.2.2 Header parameters
 - deviceAttestation (String, Optional) - optional remote device-specific attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology section).
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### 6.3.3. Responses
 #### 6.3.3.1. `200`
@@ -422,7 +422,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 #### 6.5.2.2 Header parameters
 - deviceAttestation (String, Optional) - optional remote device-specific attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology section).
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### 6.5.3. Responses
 
