@@ -120,7 +120,7 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
                       Sender              Relay                          Receiver
                         |                   |                               |
     Create and encrypt  |                   |                               |
-    Provisioning Info	|——---------------->|                               |
+    Provisioning Info   |——---------------->|                               |
                         |    CreateMailbox  |                               |
                         |<------------------|                               |
                         |URL link to mailbox|                               |
@@ -166,31 +166,31 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 *Sample flow of stateful process:*
 				
                      Sender                       Relay                     Receiver
-                        |                           |                           |
-    Create and encrypt  |    CreateMailbox          |                           |
-    Provisioning Info   |-------------------------->|                           |
-                        |    encrypted info         |                           |
-                        |<--------------------------|                           |
-                        |   URL link to mailbox     |                           |
-                        |                           |                           |
-    Send URL link       |------------------------------------------------------>|
-    and Secret          |                           |ReadSecureContentFromMailbox|
-                        |                           |                           |
-                        |                           |<--------------------------| Decrypt w Secret,
-                        |                           |    encrypted info	        |
-                        |                           |    UpdateMailbox          | TxInfo=Generate TxInfo,
-                        |                           |<--------------------------| encrypted info = 
-                        |ReadSecureContentFromMailbox|       encrypted info     | encrypt(ProvInfo,TxInfo)
-                        |                           |  (ProvInfo + TxInfo)      | with Secret
-    Sign TxInfo         |-------------------------->|                           |
-    with OwnerKey,      |	encrypted info      |                           |
-    encrypted info =    |                           |                           |
-    encrypt(ProvInfo, 	|     UpdateMailbox         |                           |
-    TxInfo,Signature)   |—-----------—------------->|ReadSecureContentFromMailbox|
-    with Secret         |    encrypted info         |                           |
-                        |                           |<--------------------------| Decrypt(ProvInfo,TxInfo,
-                        |                           | 	encrypted info          | Signature)	
-                        |                           |                           | Provision credentials
+                        |                            |                            |
+    Create and encrypt  |    CreateMailbox           |                            |
+    Provisioning Info   |--------------------------->|                            |
+                        |    encrypted info          |                            |
+                        |<---------------------------|                            |
+                        |   URL link to mailbox      |                            |
+                        |                            |                            |
+    Send URL link       |-------------------------------------------------------->|
+    and Secret          |                            |ReadSecureContentFromMailbox|
+                        |                            |                            |
+                        |                            |<---------------------------| Decrypt w Secret,
+                        |                            |    encrypted info	      |
+                        |                            |    UpdateMailbox           | TxInfo=Generate TxInfo,
+                        |                            |<---------------------------| encrypted info = 
+                        |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo,TxInfo)
+                        |                            |  (ProvInfo + TxInfo)       | with Secret
+    Sign TxInfo         |--------------------------->|                            |
+    with OwnerKey,      |	encrypted info           |                            |
+    encrypted info =    |                            |                            |
+    encrypt(ProvInfo,   |     UpdateMailbox          |                            |
+    TxInfo,Signature)   |—-----------—-------------->|ReadSecureContentFromMailbox|
+    with Secret         |    encrypted info          |                            |
+                        |                            |<---------------------------| Decrypt(ProvInfo,TxInfo,
+                        |                            | 	encrypted info        | Signature)	
+                        |                            |                            | Provision credentials
 
 # 4. API connection details {#connection-details}
 The Relay server API endpoint MUST be accessed over HTTP using an https URI [RFC2818] and SHOULD use the default https port. 
