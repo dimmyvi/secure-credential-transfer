@@ -14,27 +14,27 @@ smart_quotes: no
 pi: [toc, sortrefs, symrefs]
 
 author:
- -
-    name: Matt Byington
-    organization: Apple Inc
-    email: tbd@apple.com
 -
     name: Dmitry Vinokurov
     organization: Apple Inc
-    email: d.vinokurov@hotmail.com
- -
+    email: dvinokurov@dezcom.org
+    
+    name: Matt Byington
+    organization: Apple Inc
+    email: tbd@apple.com
+    
     name: Casey Astiz
     organization: Apple Inc
     email: tbd@apple.com
- -
+    
     name: B. Chester
     organization: Apple Inc
     email: tbd@apple.com
- -
+    
     name: A. Pelletier
     organization: Apple Inc
     email: tbd@apple.com
- -
+    
     name: Matthias Lerch
     organization: Apple Inc
     email: tbd@apple.com
@@ -120,7 +120,7 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
                       Sender              Relay                          Receiver
                         |                   |                               |
     Create and encrypt  |                   |                               |
-    Provisioning Info	  |——---------------->|                               |
+    Provisioning Info	|——---------------->|                               |
                         |    CreateMailbox  |                               |
                         |<------------------|                               |
                         |URL link to mailbox|                               |
@@ -183,13 +183,13 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                         |ReadSecureContentFromMailbox|       encrypted info     | encrypt(ProvInfo,TxInfo)
                         |                           |  (ProvInfo + TxInfo)      | with Secret
     Sign TxInfo         |-------------------------->|                           |
-    with OwnerKey,      |	encrypted info            |                           |
+    with OwnerKey,      |	encrypted info      |                           |
     encrypted info =    |                           |                           |
-    encrypt(ProvInfo, 	 |     UpdateMailbox         |                           |
+    encrypt(ProvInfo, 	|     UpdateMailbox         |                           |
     TxInfo,Signature)   |—-----------—------------->|ReadSecureContentFromMailbox|
     with Secret         |    encrypted info         |                           |
                         |                           |<--------------------------| Decrypt(ProvInfo,TxInfo,
-                        |                           | 	encrypted info           | Signature)	
+                        |                           | 	encrypted info          | Signature)	
                         |                           |                           | Provision credentials
 
 # 4. API connection details {#connection-details}
