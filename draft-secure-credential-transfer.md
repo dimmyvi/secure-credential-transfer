@@ -497,6 +497,7 @@ Currently proposed algorithm and mode:
     "data" : "<Ciphertext content>"
 }
 ~~~
+{: #secure-payload-format title="Secure Payload Format example"}
 
 
 # Security Considerations
