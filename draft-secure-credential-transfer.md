@@ -431,6 +431,69 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 Not Found - mailbox with provided mailboxIdentifier not found.
 
 
+## ReadSecureContentFromMailbox
+
+An application running on a remote device can invoke this API on Relay Server to to retrieve secure payload content from a mailbox (encrypted data specific to a Provisioning Information Provider).
+
+### Endpoint
+
+POST /{version}/mailbox/{mailboxIdentifier}
+
+### Request Parameters
+
+Path parameters:
+
+- version (String, Required) - the version of the API. At the time of writing this document, “v1”.
+- mailboxIdentifier(String, Required) - Sender device-defined unique identifier for the given mailbox. The value shall be a UUID of length 36 containing hyphens.
+
+Header parameters:
+
+- deviceAttestation (String, Optional) - optional remote device-specific attestation data.
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+
+### Responses
+
+`200`
+Status: “200” (OK)
+
+ResponseBody : 
+
+- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
+- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
+
+~~~
+{
+    “displayInformation" : {
+        "title" : "Hotel Pass",
+        "description" : "Some Hotel Pass",
+        "imageURL" : "https://hotel.com/sharingImage"
+    },
+    "payload" : “'type':'AES128','data': 'FDEC...987654321'"
+}
+~~~
+{: #read-secure-content-response title="Read Secure Content Response Example"}
+
+`401`
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+
+`404`
+Not Found - mailbox with provided mailboxIdentifier not found.
+
+# Encryption format
+
+The encrypted payload (Provisioning Information) should be prefixed with a string defining the encryption algorithm and mode used.
+Encrypted format tag is built into secure payload (refer to "payload" field in CreateMailbox Request Body).
+~~~
+{    
+    "type": "AES128",
+    "data": "FDEC...987654321"
+}
+~~~
+{: #payload-format title="Secure Payload format"}
+
+Currently proposed algorithm and mode: 
+- "AES128" - AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
+
 
 # Security Considerations
 
