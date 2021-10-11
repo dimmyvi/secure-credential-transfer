@@ -21,7 +21,7 @@ author:
  -
     name: B. Chester
     organization: Apple Inc
-    email: bchester@add_email_here.apple.com
+    email: bchester@apple.com
  -
     name: Matthias Lerch
     organization: Apple Inc
