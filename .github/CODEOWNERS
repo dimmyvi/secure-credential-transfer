@@ -1,0 +1,3 @@
+# Automatically generated CODEOWNERS
+# Regenerate with `make update-codeowners`
+draft-secure-credential-transfer.md dvinokurov@apple.com bchester@add_email_here.apple.com mlerch@add_email_here.apple.com
