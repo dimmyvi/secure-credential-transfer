@@ -17,7 +17,7 @@ author:
  -
     name: Dmitry Vinokurov
     organization: Apple Inc
-    email: dvinokurov@dezcom.org
+    email: dvinokurov@apple.com
  -
     name: Matt Byington
     organization: Apple Inc
@@ -508,7 +508,7 @@ Currently proposed formats:
 
 # Security Considerations
 
-TODO Security
+This section discusses security considerations for the protocol.
 
 
 # IANA Considerations
