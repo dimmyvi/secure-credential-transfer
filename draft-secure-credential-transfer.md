@@ -311,9 +311,11 @@ Header parameters:
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Consumes
+
 This API call consumes the following media types via the Content-Type request header: `application/json`
 
 ### Request body 
+
 Request body is a complex structure, including the following fields:
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
@@ -479,6 +481,7 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
 
+
 # Encryption format
 
 The encrypted payload (Provisioning Information) should be prefixed with a string defining the encryption algorithm and mode used.
@@ -492,7 +495,7 @@ Encrypted format tag is built into secure payload (refer to "payload" field in C
 {: #payload-format title="Secure Payload format"}
 
 Currently proposed algorithm and mode: 
-- "AES128" - AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
+ - "AES128" - AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
 
 
 # Security Considerations
