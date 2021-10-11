@@ -483,21 +483,6 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 Not Found - mailbox with provided mailboxIdentifier not found.
 
 
-# Encryption format
-
-The encrypted payload (Provisioning Information) should be prefixed with a string defining the encryption algorithm and mode used.
-Encrypted format "type" tag is built into secure payload (refer to "payload" field in CreateMailbox Request Body), so .
-~~~
-{
-    "type" : "AES128",
-    "data" : "<Ciphertext content>"
-}
-~~~
-{: #payload-format-example title="Secure Payload format"}
-
-Currently proposed algorithm and mode: 
-- "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
-
 
 # Security Considerations
 
