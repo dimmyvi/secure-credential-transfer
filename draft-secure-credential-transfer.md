@@ -1,7 +1,7 @@
 ---
 title: "Secure Credential Transfer"
 abbrev: "Secure Credential Transfer"
-docname: draft-securecredential-transfer-latest
+docname: draft-secure-credential-transfer-latest
 category: std
 
 ipr: trust200902
