@@ -491,6 +491,13 @@ Encrypted format "type" tag is built into secure payload (refer to "payload" fie
 Currently proposed algorithm and mode: 
 - "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
 
+~~~
+{
+    "type" : "AES128",
+    "data" : "<Ciphertext content>"
+}
+~~~
+
 
 # Security Considerations
 
