@@ -245,10 +245,12 @@ Request body is a complex structure, including the following fields:
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     - type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     - tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
-	"ApplePushToken example" 
+	"" 
 ~~~
     {"name":"com.apple.apns","tokenData":"APNS1234...QW"}
 ~~~
+{: #apple-push-token title="Apple Push Token Example"}
+
 - mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
     - accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
@@ -282,8 +284,6 @@ Status: “200” (OK)
 ResponseBody:
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox dientifier.
 
-**
-
 ~~~
 {
     "urlLink":"relay.com/mailbox/12345678-9...A-BCD"
@@ -296,6 +296,111 @@ Bad Request - invalid request has been passed (can not parse or required fields 
 
 `401`
 Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or mailbox with the provided mailboxIdentifier already exists.
+
+
+## UpdateMailbox
+
+An application running on a remote device can invoke this API on Relay Server to update secure data content in an existing mailbox (encrypted data specific to a Provisioning Partner).
+
+### Endpoint
+
+PUT  /{version}/mailbox/{mailboxIdentifier}
+
+### Request Parameters
+
+Path parameters:
+
+- version (String, Required) - the version of the API. At the time of writing this document, “v1”.
+- mailboxIdentifier(String, Required) - Sender device-defined unique identifier for the given mailbox. The value shall be a UUID of length 36 containing hyphens.
+
+Header parameters:
+
+- deviceAttestation (String, Optional) - optional remote device-specific attestation data.
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+
+### Consumes
+This API call consumes the following media types via the Content-Type request header: `application/json`
+
+### Request body 
+Request body is a complex structure, including the following fields:
+
+- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
+- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
+- notificationToken (Object, Optional) - Optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
+	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
+	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
+
+~~~
+{
+   "notificationToken": {
+        "name":"com.apple.apns",
+        "tokenData":"APNS1234...QW"
+    }
+}
+~~~
+{: #apple-push-token title="Apple Push Token Example"}
+
+~~~
+{
+    "displayInformation" : {
+        "title" : "Hotel Pass",
+        "description" : "Some Hotel Pass",
+        "imageURL" : "https://hotel.com/sharingImage"
+    },
+    "payload" : "FDEC...987654321",
+    "notificationToken":{
+        "type" : "com.apple.apns",
+        "tokenData" : “APNS...1234"
+    }
+}
+~~~
+{: #update-mailbox-request title="Update Mailbox Request Example"}
+
+### Responses
+
+`200 `
+Status: “200” (OK)
+
+`400`
+Bad Request - invalid request has been passed (can not parse or required fields missing).
+
+`401`
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+
+`404`
+Not Found - mailbox with provided mailboxIdentifier not found.
+
+
+## DeleteMailbox
+
+An application running on a remote device can invoke this API on Relay Server to close the existing mailbox after it served its purpose. Receiver or Sender device needs to present a deviceClaim in order to close the mailbox. Upon closure, the mailbox shall still respond to GET operations, returning the OpenGraph displayInformation.
+
+### Endpoint
+
+DELETE /{version}/mailbox/{mailboxIdentifier}
+
+### Request Parameters
+
+Path parameters:
+
+- version (String, Required) - the version of the API. At the time of writing this document, “v1”.
+- mailboxIdentifier(String, Required) - Sender device-defined unique identifier for the given mailbox. The value shall be a UUID of length 36 containing hyphens.
+
+Header parameters:
+
+- deviceAttestation (String, Optional) - optional remote device-specific attestation data.
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+
+### Responses
+
+`200`
+Status: “200” (OK)
+
+`401`
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+
+`404`
+Not Found - mailbox with provided mailboxIdentifier not found.
 
 
 
