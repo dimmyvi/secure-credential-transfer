@@ -468,7 +468,7 @@ ResponseBody :
         "description" : "Some Hotel Pass",
         "imageURL" : "https://hotel.com/sharingImage"
     },
-    "payload" : “'type':'AES128','data': 'FDEC...987654321'"
+    "payload" : “{'type':'AES128','data': 'FDEC...987654321'}"
 }
 ~~~
 {: #read-secure-content-response title="Read Secure Content Response Example"}
