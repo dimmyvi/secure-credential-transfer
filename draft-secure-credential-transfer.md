@@ -21,11 +21,11 @@ author:
  -
     name: B. Chester
     organization: Apple Inc
-    email: bchester@
+    email: bchester@add_email_here.apple.com
  -
     name: Matthias Lerch
     organization: Apple Inc
-    email: mlerch@
+    email: mlerch@add_email_here.apple.com
 
 normative:
 
@@ -156,7 +156,6 @@ Once the Receiver device has successfully provisioned credentials, it deletes th
 Sender device may terminate the secure credential transfer by deleting the mailbox it created at any time. Deletion of the mailbox on Relay server stops any on-going credential transfer process.
 
 ~~~
-
                      Sender                       Relay                     Receiver
                         |                            |                            |
     Create and encrypt  |    CreateMailbox           |                            |
@@ -169,19 +168,19 @@ Sender device may terminate the secure credential transfer by deleting the mailb
     and Secret          |                            |ReadSecureContentFromMailbox|
                         |                            |                            |
                         |                            |<---------------------------| Decrypt w Secret,
-                        |                            |    encrypted info	      |
+                        |                            |    encrypted info	  |
                         |                            |    UpdateMailbox           | TxInfo=Generate TxInfo,
                         |                            |<---------------------------| encrypted info = 
                         |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo,TxInfo)
                         |                            |  (ProvInfo + TxInfo)       | with Secret
     Sign TxInfo         |--------------------------->|                            |
-    with OwnerKey,      |	encrypted info        |                            |
+    with OwnerKey,      |	encrypted info       |                            |
     encrypted info =    |                            |                            |
     encrypt(ProvInfo,   |     UpdateMailbox          |                            |
     TxInfo,Signature)   |—-----------—-------------->|ReadSecureContentFromMailbox|
     with Secret         |    encrypted info          |                            |
                         |                            |<---------------------------| Decrypt(ProvInfo,TxInfo,
-                        |                            | 	encrypted info        | Signature)	
+                        |                            | 	encrypted info            | Signature)	
                         |                            |                            | Provision credentials
 ~~~
 {: #stateful-flow-image title="Sample flow of stateful process"}
@@ -219,7 +218,7 @@ Header parameters
 - deviceAttestation (String, Optional) - optional remote device-specific attestation data.
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
-###  Consumes
+### Consumes
 
 This API call consumes the following media types via the Content-Type request header: `application/json`
 
@@ -227,12 +226,18 @@ This API call consumes the following media types via the Content-Type request he
 
 Request body is a complex structure, including the following fields:
 
-- mailboxIdentifier (String, Required) - a unique identifier of the mailbox to be created
+- mailboxIdentifier (String, Required) - a unique identifier of the mailbox to be created.
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
-    - type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
-    - tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
+    1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
+    2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
+
+- mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
+    1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
+Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
+    2. expirationTime (String, optional) - Mailbox expiration time (UTC). E.g. "2021-07-22T13:14:15Z". Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
+
 ~~~
 {
    "notificationToken": {
@@ -242,11 +247,6 @@ Request body is a complex structure, including the following fields:
 }
 ~~~
 {: #apple-push-token title="Apple Push Token Example"}
-
-- mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
-    - accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
-Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
-    - expirationTime (String, optional) - Mailbox expiration time (UTC). E.g. "2021-07-22T13:14:15Z". Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
 
 ~~~
 {    "mailboxIdentifier" : "12345678-9...A-BCD",
