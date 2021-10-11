@@ -227,9 +227,9 @@ This API call consumes the following media types via the Content-Type request he
 Request body is a complex structure, including the following fields:
 
 - mailboxIdentifier (String, Required) - a unique identifier of the mailbox to be created.
-- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider. The following 2 key-value pairs are built into payload field:
+- payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consistes of the following 2 key-value pairs:
     1. "type": "AES128" (refer to Encryption Format section).
-    2. "data": valur of ciphertext.
+    2. "data": HEX or BASE64-encoded binary value of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
@@ -256,7 +256,10 @@ Value is defined as a combination of the following values: "R" - for read access
         "description" : "Some Hotel Pass",
         "imageURL" : "https://hotel.com/sharingImage" 
     },
-    "payload" : "FDEC...987654321",
+    "payload" : {
+        "type": "AES128",
+        "data": "FDEC...987654321"
+    },
     "notificationToken" : {
         "type" : "com.apple.apns",
         "tokenData" : “APNS...1234"
@@ -332,7 +335,10 @@ Request body is a complex structure, including the following fields:
         "description" : "Some Hotel Pass",
         "imageURL" : "https://hotel.com/sharingImage"
     },
-    "payload" : "FDEC...987654321",
+    "payload" : {
+        "type": "AES128",
+        "data": "FDEC...987654321"
+    },
     "notificationToken":{
         "type" : "com.apple.apns",
         "tokenData" : “APNS...1234"
@@ -471,7 +477,10 @@ ResponseBody :
         "description" : "Some Hotel Pass",
         "imageURL" : "https://hotel.com/sharingImage"
     },
-    "payload" : “{'type':'AES128','data': 'FDEC...987654321'}"
+    "payload" : {
+        "type": "AES128",
+        "data": "FDEC...987654321"
+    }
 }
 ~~~
 {: #read-secure-content-response title="Read Secure Content Response Example"}
@@ -485,10 +494,10 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 # Encryption format
 
-The encrypted payload (Provisioning Information) should be prefixed with a string defining the encryption algorithm and mode used.
-Encrypted format "type" tag is built into secure payload (refer to "payload" field in CreateMailbox Request Body), the resulting data example is below.
+The encrypted payload (Provisioning Information) should be a data structure having the following key-value pairs:
+"type", which defines the encryption algorithm and mode used and "data", which contains the HEX or BASE-64 encoded binary value of ciphertext.
 
-Currently proposed algorithm and mode: 
+Currently proposed "type" includes the following algorithm and mode: 
 - "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
 
 ~~~
