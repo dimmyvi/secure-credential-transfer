@@ -19,25 +19,13 @@ author:
     organization: Apple Inc
     email: dvinokurov@apple.com
  -
-    name: Matt Byington
-    organization: Apple Inc
-    email: 
- -
-    name: Casey Astiz
-    organization: Apple Inc
-    email: 
- -
     name: B. Chester
     organization: Apple Inc
-    email: 
- -
-    name: A. Pelletier
-    organization: Apple Inc
-    email: 
+    email: bchester@
  -
     name: Matthias Lerch
     organization: Apple Inc
-    email: 
+    email: mlerch@
 
 normative:
 
@@ -245,9 +233,13 @@ Request body is a complex structure, including the following fields:
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     - type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     - tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
-	"" 
 ~~~
-    {"name":"com.apple.apns","tokenData":"APNS1234...QW"}
+{
+   "notificationToken": {
+        "name":"com.apple.apns",
+        "tokenData":"APNS1234...QW"
+    }
+}
 ~~~
 {: #apple-push-token title="Apple Push Token Example"}
 
@@ -329,16 +321,6 @@ Request body is a complex structure, including the following fields:
 - notificationToken (Object, Optional) - Optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
 	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
 	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
-
-~~~
-{
-   "notificationToken": {
-        "name":"com.apple.apns",
-        "tokenData":"APNS1234...QW"
-    }
-}
-~~~
-{: #apple-push-token title="Apple Push Token Example"}
 
 ~~~
 {
