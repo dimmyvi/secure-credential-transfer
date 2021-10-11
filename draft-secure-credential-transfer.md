@@ -385,6 +385,52 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 Not Found - mailbox with provided mailboxIdentifier not found.
 
 
+## ReadDisplayInformationFromMailbox
+
+An application running on a remote device can invoke this API on Relay Server to to retrieve public display information content from a mailbox. Application-specific (e.g. OpenGraph, JSON).
+
+### Endpoint
+
+GET /{version}/mailbox/{mailboxIdentifier}
+
+### Request Parameters
+
+Path parameters:
+
+- version (String, Required)- the version of the API. At the time of writing this document, “v1”.
+- mailboxIdentifier(String, Required) - Sender device-defined unique identifier for the given mailbox. The value shall be a UUID of length 36 containing hyphens.
+
+### Responses
+
+`200`
+Status: “200” (OK)
+
+ResponseBody :
+
+- displayInformation (String, Required) - application-specific (e.g. OpenGraph, JSON) visual representation of digital credential.
+
+~~~
+    "<html prefix="og: https://ogp.me/ns#">
+     <head>
+     <title>Hotel Pass</title>
+     <meta property="og:title" content="Hotel Pass" />
+     <meta property="og:type" content="image/jpeg" />
+     <meta property="og:description" content="Some Hotel Pass" />
+     <meta property="og:url" content="share://" />
+     <meta property="og:image" content="https://website.com/photos/photo.jpg" />
+     <meta property="og:image:width" content="612" />
+     <meta property="og:image:height" content="408" /></head>
+     </html>"
+~~~
+{: #read-display-information-response title="Read Display Information Response Example"}
+
+`401`
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+
+`404`
+Not Found - mailbox with provided mailboxIdentifier not found.
+
+
 
 # Security Considerations
 
