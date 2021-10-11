@@ -21,23 +21,23 @@ author:
  -
     name: Matt Byington
     organization: Apple Inc
-    email: tbd@apple.com
+    email: 
  -
     name: Casey Astiz
     organization: Apple Inc
-    email: tbd@apple.com
+    email: 
  -
     name: B. Chester
     organization: Apple Inc
-    email: tbd@apple.com
+    email: 
  -
     name: A. Pelletier
     organization: Apple Inc
-    email: tbd@apple.com
+    email: 
  -
     name: Matthias Lerch
     organization: Apple Inc
-    email: tbd@apple.com
+    email: 
 
 normative:
 
@@ -205,7 +205,7 @@ Request and response bodies shall be formatted as either JSON or HTML (based on 
 All Strings shall be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version shall be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version shall be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
 
-# HTTP Headers: X-Correlation-ID {#http-headers}
+# HTTP Headers: X-Correlation-ID
 
 All requests to and from Relay server will have an HTTP header "X-Correlation-ID". The corresponding response to the API will have the same HTTP header "X-Correlation-ID", which should echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value shall be a UUID of length 36 containing hyphens.
 
