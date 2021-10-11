@@ -187,7 +187,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                         |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo,TxInfo)
                         |                            |  (ProvInfo + TxInfo)       | with Secret
     Sign TxInfo         |--------------------------->|                            |
-    with OwnerKey,      |	encrypted info           |                            |
+    with OwnerKey,      |	encrypted info        |                            |
     encrypted info =    |                            |                            |
     encrypt(ProvInfo,   |     UpdateMailbox          |                            |
     TxInfo,Signature)   |—-----------—-------------->|ReadSecureContentFromMailbox|
@@ -208,6 +208,95 @@ An API version shall be included in the URI for all interfaces. The version at t
 # HTTP Headers: X-Correlation-ID
 
 All requests to and from Relay server will have an HTTP header "X-Correlation-ID". The corresponding response to the API will have the same HTTP header "X-Correlation-ID", which should echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value shall be a UUID of length 36 containing hyphens.
+
+
+# HTTP access methods
+
+## CreateMailbox
+
+An application running on a remote device can invoke this API on Relay Server to create a mailbox and store secure data content to it (encrypted data specific to a provisioning partner).
+
+### Endpoint
+
+POST  /{version}/mailbox
+
+### Request Parameters:
+
+Path parameters
+
+- version (String, Required) - the version of the API. At the time of writing this document, “v1”.
+
+Header parameters
+
+- deviceAttestation (String, Optional) - optional remote device-specific attestation data.
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+
+###  Consumes
+
+This API call consumes the following media types via the Content-Type request header: `application/json`
+
+### Request body 
+
+Request body is a complex structure, including the following fields:
+
+- mailboxIdentifier (String, Required) - a unique identifier of the mailbox to be created
+- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
+- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
+- notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
+    - type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
+    - tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
+	"ApplePushToken example" 
+~~~
+    {"name":"com.apple.apns","tokenData":"APNS1234...QW"}
+~~~
+- mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
+    - accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
+Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
+    - expirationTime (String, optional) - Mailbox expiration time (UTC). E.g. "2021-07-22T13:14:15Z". Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
+
+~~~
+{    "mailboxIdentifier" : "12345678-9...A-BCD",
+    "displayInformation" : {
+        "title" : "Hotel Pass",
+        "description" : "Some Hotel Pass",
+        "imageURL" : "https://hotel.com/sharingImage" 
+    },
+    "payload" : "FDEC...987654321",
+    "notificationToken" : {
+        "type" : "com.apple.apns",
+        "tokenData" : “APNS...1234"
+    },
+    "mailboxConfiguration" : {
+        "accessRights" : "RWD",
+        "expirationTime" : "2021-01-01 01:01:01”
+    }
+}
+~~~
+{: #create-mailbox-request title="Create Mailbox Request Example"}
+
+### Responses
+
+`200`
+Status: “200” (OK)
+
+ResponseBody:
+- urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox dientifier.
+
+**
+
+~~~
+{
+    "urlLink":"relay.com/mailbox/12345678-9...A-BCD"
+}
+~~~
+{: #create-mailbox-response title="Create Mailbox Response Example"}
+
+`400`
+Bad Request - invalid request has been passed (can not parse or required fields missing).
+
+`401`
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or mailbox with the provided mailboxIdentifier already exists.
+
 
 
 # Security Considerations
