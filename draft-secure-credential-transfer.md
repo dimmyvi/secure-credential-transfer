@@ -227,12 +227,13 @@ This API call consumes the following media types via the Content-Type request he
 Request body is a complex structure, including the following fields:
 
 - mailboxIdentifier (String, Required) - a unique identifier of the mailbox to be created.
-- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
+- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider. The following 2 key-value pairs are built into payload field:
+    1. "type": "AES128" (refer to Encryption Format section).
+    2. "data": valur of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
-
 - mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
     1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
@@ -485,17 +486,17 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 # Encryption format
 
 The encrypted payload (Provisioning Information) should be prefixed with a string defining the encryption algorithm and mode used.
-Encrypted format tag is built into secure payload (refer to "payload" field in CreateMailbox Request Body).
+Encrypted format "type" tag is built into secure payload (refer to "payload" field in CreateMailbox Request Body), so .
 ~~~
-{    
-    "type": "AES128",
-    "data": "FDEC...987654321"
+{
+    "type" : "AES128",
+    "data" : "<Ciphertext content>"
 }
 ~~~
-{: #payload-format title="Secure Payload format"}
+{: #payload-format-example title="Secure Payload format"}
 
 Currently proposed algorithm and mode: 
- - "AES128" - AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
+- "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding. MailboxIdetifier value is used as IV to encrypt the content of corresponding mailbox.
 
 
 # Security Considerations
