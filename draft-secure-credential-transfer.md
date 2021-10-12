@@ -19,13 +19,17 @@ author:
     organization: Apple Inc
     email: dvinokurov@apple.com
  -
-    name: B. Chester
+    name: Matt Byington
+    organization: Apple Inc
+    email: mbyington@apple.com
+ -
+    name: Ben Chester
     organization: Apple Inc
     email: bchester@apple.com
  -
     name: Matthias Lerch
     organization: Apple Inc
-    email: mlerch@add_email_here.apple.com
+    email: mlerch@apple.com
 
 normative:
 
