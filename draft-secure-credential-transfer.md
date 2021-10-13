@@ -509,9 +509,10 @@ Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 ~~~
 {
     "type" : "AES128",
-    "data" : "<IV> || <ciphertext> || <tag>"
+    "data" : "IV || ciphertext || tag"
 }
 ~~~
+{: #secure-payload-format title="Secure Payload Format example"}
 
 
 # IANA Considerations
