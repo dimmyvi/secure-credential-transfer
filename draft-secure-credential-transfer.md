@@ -519,17 +519,7 @@ Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 
 # Security Considerations
 
-Security of the credential transfer is based on two factors - the unique MailboxIdentifier in the mailbox URL and cryptographic quality of the Secret. 
-It is recommended to send URL to the mailbox and the Secret over diffetrent channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMesage).
-
-If, for some reason, Sender device chooses to send both URL and the Secret over the same channel as a ULR,
-the sender MUST send the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
-~~~
-“http://relayserver.com/mailbox/{mailboxIdentifier}#{Secret}”
-~~~
-Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
-Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
-This guaranties privacy of the payload information.
+This section discusses security considerations for the protocol.
 
 
 # IANA Considerations
