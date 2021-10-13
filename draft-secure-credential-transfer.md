@@ -56,7 +56,7 @@ The Relay server solves this problem by creating and managing temporary mailbox 
 Each mailbox can be referenced by devices from a unique mailbox identifier in a URL.
 The URL pointing to encrypted Provisioning Information is to be passed between devices directly 
 over various channels (e.g. SMS, email, messaging applications).
-The exchange of the URL is outside of the scope of this document.
+The Security Considerations section provides recommendations on passing the URL and the Secret securely.
 
 This document describes a Hypertext (HTTP) Application Programming Interface (API) that allows 
 Sender and Receiver devices to interact with a Relay server in order to perform secure credential transfer.
@@ -68,47 +68,48 @@ Sender and Receiver devices to interact with a Relay server in order to perform 
 
 General terms:
 
-- Relay Server - Web application exposing Secure Credential Transfer API to remote devices. It serves to securily transfer Provisioning Information between two remote devices.
+- Relay Server - Web application exposing Secure Credential Transfer API to devices. It serves to securely transfer Provisioning Information between two devices (Sender and Receiver).
 
-- Sender device - a remote device initiating a transfer of Provisioning Information to another remote device (Receiver) so that Receiver can provision these credentials.
+- Sender device - a device initiating a transfer of Provisioning Information to a Receiver device so that Receiver can register or provision this credential.
 
-- Receiver device - a remote device that receives Provisioning Information from Sender and uses it to provision Credentials Information to an application running on it.
+- Receiver device - a device that receives Provisioning Information from Sender device and uses it to register or provision Credential Information.
 
-- Provisioning Partner - Third party Partner who facilitates Credential Information lifecycle on a remote device.
+- Provisioning Partner - an entity which facilitates Credential Information lifecycle on a device.
 
 - Provisioning Information - a set of data fields, allowing a device to receive Credential Information from Provisioning Partner and install it locally. The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to Relay Server.
+The structure of Provisioning Information is specific to Provisioning Partner and out of the scope of this document.
 
-- Credential Information - a set of data fields used to facilitate credential on the receiver's device.
+- Credential Information - a set of data fields used to facilitate registration or provisioning of Credential Information on the Receiver's device.
 
-- Secret - a symmetric encryption key shared by a pair of a Sender and a Receiver devices, used to encrypt Provisioning Information stored on a Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). All information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices throug Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
+- Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on a Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
 
 API parameters:
 
-- Device Claim - a unique token allowing caller to read from /write to data the mailbox. Exactly one sender device and one receiver device should be able to read from/write secure payload to the mailbox. Sender device provides a deviceClaim in order to create a mailbox or update mailbox data and Relay server binds this Sender's Device Claim to the mailbox. When the receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from/write to it). Only Sender/Receiver devices that can present valid Device Claims are allowed to send subsequent read/write/update/delete calls to the mailbox. The value shall be a UUID {{!RFC4122}}.
+- Device Claim - a unique token allowing caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device should be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox or update mailbox data and Relay server binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/write/update/delete calls to the mailbox. The value shall be a UUID {{!RFC4122}}.
  
-- Notification Token - a short or long-lived unique token stored by the Sender or Receiver device in a mailbox on the Relay server, which allows Relay server to send a push notification message to the Sender or Receiver device, informing them on data update in the mailbox.
+- Notification Token - a short or long-lived unique token stored by the Sender or Receiver device in a mailbox on the Relay server, which allows Relay server to send a push notification to the Sender or Receiver device, informing them of updates in the mailbox.
 
 - MailboxIdentifier - Sender device-defined unique identifier for the given mailbox. The value shall be a UUID {{!RFC4122}}.
 
 # Credential transfer workflows
 
-We define two flows for credential transfer: 1. Stateless (Relay server facilitates a single credential data transfer: Sender -> Relay -> Receiver) and 2. Stateful (Relay facilitates additional datat transfers - there are 3 data exchanges in this flow to prepare credential data for provisioning by Receiver). The details are provided below.
+We define two flows for credential transfer: 1. Stateless (Relay server facilitates a single credential data transfer: Sender -> Relay -> Receiver) and 2. Stateful (Relay facilitates additional data transfers - there are multiple data transfers in this flow to prepare credential data for registering or provisioning by Receiver). The details are provided below.
 
 ## Stateless workflow
 
-Stateless process starts with a Sender device composing a set of Provisioning Information, encrypting it with a Secret (symmetric data encryption key) and storing encrypted Provisioning Information on a Relay server in a mailbox. A unique mailbox identifier is generated by a Sender device as UUID that conforms to RFC 4122 version 4, created using good source of entropy (peferrably hardware-based entropy). Sender device generates a unique token - a Sender Device Claim - and stores it to the mailbox. Device Claim allows the Sender device presenting it to read and write data to/from the mailbox, thus binding it to the mailbox.
+Stateless process starts with a Sender device composing a set of Provisioning Information, encrypting it with a Secret and storing encrypted Provisioning Information on a Relay server in a mailbox. A unique Mailbox Identifier is generated by the Sender device, created using good source of entropy (peferrably hardware-based entropy). Sender device generates a unique token - a Sender Device Claim - and stores it to the mailbox. Device Claim allows the Sender device presenting it to read and write data to / from the mailbox, thus binding it to the mailbox.
 
-Sender device sends mailboxIdentifier to the Relay server as a part of CreateMailbox request.
+Sender device sends MailboxIdentifier to the Relay server as a part of CreateMailbox request.
 Once mailbox is created, it has limited time to live. When expired, mailbox shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
 
 Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/mailbox/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
-In addition to that, Sender device passes the Secret to the Receiver device either through the same channel (in the same message as the URL) or over a different channel. Please refer to section "Security Considerations" for more details.
+Please refer to section "Security Considerations" for more details.
 
-Receiver device, having obtained both the URL link and the Secret,  generates a unique token - Receiver Device Claim - and passes it to the Relay server in order to reads the encrypted Provisioning Information from the mailbox. 
+Receiver device, having obtained both the URL link and the Secret, generates a unique token - a Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
 
-Relay server now binds a given pair of Sender a Receiver devices to the mailbox by provided Sender and Receiver Device Claims. Only bound devices are allowed to read or write data to the mailbox or to delete the mailbox.
+Relay server now binds a given pair of Sender and Receiver devices to the mailbox by provided Sender and Receiver Device Claims. Only bound devices are allowed to read or write data to the mailbox or to delete the mailbox.
 
-Receiver device, having read the encrypted Provisioning Information from the Relay mailbox, decrypts it with the Secret received  from the Sender and starts credential provisioning process on the device. Once the Receiver device has successfully provisioned credentials, it deletes the mailbox by sending a DeleteMailbox call to the Relay server.
+Receiver device, having read the encrypted Provisioning Information from the Relay mailbox, decrypts it with the Secret received from the Sender and starts credential registering or provisioning process on the device. Once the Receiver device has successfully provisioned credentials, it deletes the mailbox by sending a DeleteMailbox call to the Relay server.
 
 ~~~
                       Sender              Relay                          Receiver
@@ -130,38 +131,40 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
 
 ## Stateful workflow
 
-Stateful process includes additional steps to exchange the Provisioning Information, resulting in multiple data exchanges between Sender and Receiver. 
+Stateful process includes additional steps to exchange the Provisioning Information, resulting in multiple data transfers between Sender and Receiver. 
 
 The process starts with a Sender device building and encrypting Provisioning Information with the Secret and storing it on a Relay server in a unique mailbox. A unique MailboxIdentifier is generated by the Sender device, created from random data with good source of entropy (preferrably hardware-based entropy).
 
-In addition to encrypted Provisioning Information, Sender stores a Sender Notification Token in the mailbox, which allows Relay server to send a notification message to the Sender device. Sender device generates a unique token - a Sender Device Claim - and stores it to the mailbox. Device Claim allows the Sender device presenting it to read and write data to/from the mailbox, thus binding it to the mailbox.
+In addition to encrypted Provisioning Information, Sender stores a Sender Notification Token in the mailbox, which allows Relay server to send a notification to the Sender device. Sender device generates a unique token - a Sender Device Claim - and stores it to the mailbox. Device Claim allows the Sender device presenting it to read and write data to / from the mailbox, thus binding it to the mailbox.
 
-Sender device sends mailboxIdentifier to the Relay server as a part of CreateMailbox request.
+Sender device sends MailboxIdentifier to the Relay server as a part of CreateMailbox request.
 Once mailbox is created, it has limited time to live. When expired, mailbox shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
 
-Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/mailbox/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
-In addition to the URL link, Sender device passes a Secret (e.g. symmetric encryption key) to the Receiver device either through the same channel (in the same message as the URL) or over a different channel. Please refer to section "Security Considerations" for more details.
+Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/mailbox/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, messaging application).
+In addition to the URL link, Sender device passes a Secret to the Receiver device either through the same channel (in the same message as the URL) or over a different channel. Please refer to section "Security Considerations" for more details.
 
-Receiver device, having obtained both the URL link and the Secret,  generates a unique token - Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
+Receiver device, having obtained both the URL link and the Secret, generates a unique token - Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
 
-Relay server now binds a given pair of Sender a Receiver devices to the mailbox by provided Sender and Receiver Device Claims. Only bound devices are allowed to read or write data to the mailbox or to delete the mailbox.
+Relay server now binds a given pair of Sender and Receiver devices to the mailbox by provided Sender and Receiver Device Claims. Only bound devices are allowed to read or write data to the mailbox or to delete the mailbox.
 
-Then the Receiver device, having downloaded the encrypted Provisioning Information from the mailbox by URL and decrypted it with the Secret, generates a new structure of Provisioning Information, e.g. a digital key, and encrypts it with the same Secret, received from the Sender device. It then stores the payload in the same mailbox on the Relay server, overwriting the original Provisioning Information payload. In addition to the encrypted payload, Receiver stores a Receiver Notification Token in the given mailbox.
+TODO: unify statless and statefull - intro section
+
+Then the Receiver device, having downloaded the encrypted Provisioning Information from the mailbox by URL and decrypted it with the Secret, generates a new structure of Provisioning Information, e.g. a digital key, and encrypts it with the same Secret, received from the Sender device. It then stores the payload in the same mailbox on the Relay server. In addition to the encrypted payload, Receiver stores a Receiver Notification Token in the given mailbox.
 
 Having received the encrypted Provisioning Information, the Relay server sends a Notification to the Sender device using the Sender Notification Token. 
 
-Sender device, having received the notification from the Relay server, reads secure content from the mailbox and decrypts all using the same Secret. Sender device generates a digital signature over the Receiver’s Provisioning Information, appends the signature to the Provisioning Information, encrypts all fields using the Secret and stores all data in the same  mailbox on the Relay server, overwriting the original Provisioning Information payload.
+Sender device, having received the notification from the Relay server, reads secure content from the mailbox and decrypts all using the same Secret. Sender device generates new Provisioning Information, encrypts all fields using the Secret and stores all data in the same  mailbox on the Relay server.
 
-Relay server, having stored the data above, sends a notification to the Receiver device using Receiver Notification Token. Receiver device, having received the notification, reads the encrypted Provisioning Information along with the Sender’s Signature over the Provisioning Information, decrypts the data using the same Secret and uses this data to finalize credential provisioning on device. 
+Relay server, having stored the data above, sends a notification to the Receiver device using Receiver Notification Token. Receiver device, having received the notification, reads the encrypted Provisioning Information, decrypts the data using the same Secret and uses this data to finalize credential registration or provisioning on device. 
 
-Once the Receiver device has successfully provisioned credentials, it deletes the mailbox by sending a DeleteMailbox call to the Relay server.
+Once the Receiver device has successfully registered or provisioned credentials, it deletes the mailbox by sending a DeleteMailbox call to the Relay server.
 Sender device may terminate the secure credential transfer by deleting the mailbox it created at any time. Deletion of the mailbox on Relay server stops any on-going credential transfer process.
 
 ~~~
                      Sender                       Relay                     Receiver
                         |                            |                            |
     Create and encrypt  |    CreateMailbox           |                            |
-    Provisioning Info   |--------------------------->|                            |
+    Provisioning Info 1 |--------------------------->|                            |
                         |    encrypted info          |                            |
                         |<---------------------------|                            |
                         |   URL link to mailbox      |                            |
@@ -170,18 +173,17 @@ Sender device may terminate the secure credential transfer by deleting the mailb
     and Secret          |                            |ReadSecureContentFromMailbox|
                         |                            |                            |
                         |                            |<---------------------------| Decrypt w Secret,
-                        |                            |    encrypted info	  |
-                        |                            |    UpdateMailbox           | ProvInfo= new ProvInfo,
+                        |                          |    encrypted info	      |
+                        |                            |    UpdateMailbox           | ProvInfo 2 = new Provisioning Info,
                         |                            |<---------------------------| encrypted info = 
-                        |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo)
-                        |                            |  (ProvInfo + TxInfo)       | with Secret
-    Sign ProvInfo       |--------------------------->|                            |
-    with OwnerKey,      |	encrypted info       |                            |
+                        |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo2)
+                        |                            |                            | with Secret
+    ProvInfo 3 = new    |--------------------------->|                            |
+    ProvisioningInfo    |	encrypted info           |                            |
     encrypted info =    |                            |                            |
-    encrypt(ProvInfo,   |     UpdateMailbox          |                            |
-    Signature)          |—-----------—-------------->|ReadSecureContentFromMailbox|
+    encrypt(ProvInfo3)  |—-----------—-------------->|ReadSecureContentFromMailbox|
     with Secret         |    encrypted info          |                            |
-                        |                            |<---------------------------| Decrypt(ProvInfo, Signature)
+                        |                            |<---------------------------| Decrypt(ProvInfo3)
                         |                            | 	encrypted info            | 	
                         |                            |                            | Provision or Register credentials
 ~~~
@@ -232,7 +234,11 @@ Request body is a complex structure, including the following fields:
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consistes of the following 2 key-value pairs:
     1. "type": "AES128" (refer to Encryption Format section).
     2. "data": HEX or BASE64-encoded binary value of ciphertext.
-- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
+- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
+The data structure contains the following fields:
+    1. title - a String with the title of the credential (e.g. "Car Key")
+    2. description - a String with brief description of the credential (e.g. "a key to my personal car")
+    3. imageURL - a link to a picture representing the credential visually.
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
@@ -298,7 +304,7 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 
 ## UpdateMailbox
 
-An application running on a remote device can invoke this API on Relay Server to update secure data content in an existing mailbox (encrypted data specific to a Provisioning Partner).
+An application running on a remote device can invoke this API on Relay Server to update secure data content in an existing mailbox (encrypted data specific to a Provisioning Partner). The update effectively overwrites the secure payload previously stored in the mailbox.
 
 ### Endpoint
 
@@ -325,19 +331,13 @@ This API call consumes the following media types via the Content-Type request he
 Request body is a complex structure, including the following fields:
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
-- displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
 - notificationToken (Object, Optional) - Optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
 	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
 	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
 
 ~~~
 {
-    "displayInformation" : {
-        "title" : "Hotel Pass",
-        "description" : "Some Hotel Pass",
-        "imageURL" : "https://hotel.com/sharingImage"
-    },
-    "payload" : {
+     "payload" : {
         "type": "AES128",
         "data": "FDEC...987654321"
     },
@@ -501,7 +501,11 @@ The encrypted payload (Provisioning Information) should be a data structure havi
 
 Currently proposed "type" includes the following algorithm and mode: 
 
-- "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+- "AES128": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
+Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
+
+- "AES256": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
 The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
 Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 
@@ -517,10 +521,12 @@ Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 # Security Considerations
 
 Security of the credential transfer is based on two factors - the unique MailboxIdentifier in the mailbox URL and cryptographic quality of the Secret. 
-It is recommended to send URL to the mailbox and the Secret over diffetrent channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMesage).
+It is recommended to send URL to the mailbox and the Secret over diffetrent channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
 
-If, for some reason, Sender device chooses to send both URL and the Secret over the same channel as a ULR,
-the sender MUST send the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
+TODO: have this section reviewed by SEAR, adding clauses about unique MailboxIdentifier and length of the Secret. 
+
+If the Sender device sends both URL and the Secret over the same channel as a single URL,
+the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
 
 ~~~
 “http://relayserver.com/mailbox/{mailboxIdentifier}#{Secret}”
@@ -531,6 +537,11 @@ Receiver device, upon receipt of such URL, must remove the Fragment (Secret) bef
 Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
 This guaranties privacy of the payload information.
 
+The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to Relay Server.
+
+At no time Relay server shall store or track the identities of both Sender and Receiver devices.
+
+Relay server shall be trusted by both Sender and Receiver devices, but the content of the mailbox shall be only visible to devices having Secret.
 
 # IANA Considerations
 
