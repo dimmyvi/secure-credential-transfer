@@ -506,13 +506,32 @@ Currently proposed "type" includes the following algorithm and mode:
 - "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
 The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
 Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
+
 ~~~
 {
     "type" : "AES128",
-    "data" : "IV || ciphertext || tag"
+    "data" : "IV  ciphertext  tag"
 }
 ~~~
 {: #secure-payload-format title="Secure Payload Format example"}
+
+
+# Security Considerations
+
+Security of the credential transfer is based on two factors - the unique MailboxIdentifier in the mailbox URL and cryptographic quality of the Secret. 
+It is recommended to send URL to the mailbox and the Secret over diffetrent channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMesage).
+
+If, for some reason, Sender device chooses to send both URL and the Secret over the same channel as a ULR,
+the sender MUST send the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
+
+~~~
+“http://relayserver.com/mailbox/{mailboxIdentifier}#{Secret}”
+~~~
+{: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
+
+Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
+Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
+This guaranties privacy of the payload information.
 
 
 # IANA Considerations
