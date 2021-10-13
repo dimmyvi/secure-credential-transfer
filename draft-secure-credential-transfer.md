@@ -524,13 +524,9 @@ It is recommended to send URL to the mailbox and the Secret over diffetrent chan
 
 If, for some reason, Sender device chooses to send both URL and the Secret over the same channel as a ULR,
 the sender MUST send the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
-
 ~~~
 “http://relayserver.com/mailbox/{mailboxIdentifier}#{Secret}”
 ~~~
-
-{: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
-
 Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
 Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
 This guaranties privacy of the payload information.
