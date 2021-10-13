@@ -496,6 +496,18 @@ Unauthorized - calling device is not authorized to create a mailbox. E.g. a devi
 Not Found - mailbox with provided mailboxIdentifier not found.
 
 
+# Encryption format
+
+The encrypted payload (Provisioning Information) should be a data structure having the following key-value pairs:
+"type", which defines the encryption algorithm and mode used and "data", which contains the HEX or BASE-64 encoded binary value of ciphertext.
+
+Currently proposed "type" includes the following algorithm and mode: 
+
+- "AES128": AES symmetric encryption algorithm with key length 128 bit, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
+Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
+
+
 # IANA Considerations
 
 This document has no IANA actions.
