@@ -31,6 +31,17 @@ author:
     organization: Apple Inc
     email: mlerch@apple.com
 
+normative:
+  ECMA262:
+    author:
+      ins: M. Dworkin
+      name: Morris Dworkin
+      org: European Computer Manufacturers Association
+    title: ECMAScript Language Specification 5.1 Edition
+    date: 2011-06
+    target: http://www.ecma-international.org/publications/files/ecma-st/ECMA-262.pdf
+    seriesinfo:
+      ECMA: Standard ECMA-262
 
 informative:
 
