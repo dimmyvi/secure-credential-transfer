@@ -172,14 +172,14 @@ Sender device may terminate the secure credential transfer by deleting the mailb
     Send URL link       |-------------------------------------------------------->|
     and Secret          |                            |ReadSecureContentFromMailbox|
                         |                            |                            |
-                        |                            |<---------------------------| Decrypt w Secret,
-                        |                          |    encrypted info	      |
+                        |                            |<---------------------------| Decrypt w Secret
+                        |                            |    encrypted info	  |
                         |                            |    UpdateMailbox           | ProvInfo 2 = new Provisioning Info,
                         |                            |<---------------------------| encrypted info = 
                         |ReadSecureContentFromMailbox|       encrypted info       | encrypt(ProvInfo2)
                         |                            |                            | with Secret
     ProvInfo 3 = new    |--------------------------->|                            |
-    ProvisioningInfo    |	encrypted info           |                            |
+    ProvisioningInfo    |	encrypted info       |                            |
     encrypted info =    |                            |                            |
     encrypt(ProvInfo3)  |—-----------—-------------->|ReadSecureContentFromMailbox|
     with Secret         |    encrypted info          |                            |
@@ -191,7 +191,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 
 # API connection details
 
-The Relay server API endpoint MUST be accessed over HTTP using an https URI {{!RFC2818}} and SHOULD use the default https port. 
+The Relay server API endpoint MUST be accessed over HTTP using an https URI {{?RFC2818}} and SHOULD use the default https port. 
 Request and response bodies shall be formatted as either JSON or HTML (based on the API endpoint). The communication protocol used for all interfaces shall be HTTPs.
 All Strings shall be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version shall be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version shall be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
