@@ -33,12 +33,13 @@ author:
 
 normative:
   NIST SP-800-38D:
-    author: Morris Dworkin
+    author:
+      name: Morris Dworkin
       org: National Institute of Standards and Technology
     title: Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC
     date: 2007-11
     target: https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf
-      
+    seriesinfo:
 
 informative:
 
