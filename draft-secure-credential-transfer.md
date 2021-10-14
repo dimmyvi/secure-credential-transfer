@@ -502,11 +502,11 @@ Currently proposed "type" includes the following algorithm and mode:
 
 - "AES128": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
 The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
-Please refer to {{!NIST SP-800-38D}} for the details of the encryption algorithm.
+Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 
 - "AES256": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
 The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
-Please refer to {{!NIST SP-800-38D}} for the details of the encryption algorithm.
+Please refer to "NIST SP-800-38D" for the details of the encryption algorithm.
 
 ~~~
 {
