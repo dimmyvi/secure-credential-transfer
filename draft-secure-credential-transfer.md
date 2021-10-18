@@ -227,7 +227,7 @@ This API call consumes the following media types via the Content-Type request he
 Request body is a complex structure, including the following fields:
 
 - mailboxIdentifier (String, Required) - MailboxIdentifier (refer to Terminology).
-- payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consistes of the following 2 key-value pairs:
+- payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
     1. "type": "AES128" (refer to Encryption Format section).
     2. "data": HEX or BASE64-encoded binary value of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
@@ -282,7 +282,7 @@ Value is defined as a combination of the following values: "R" - for read access
 Status: “200” (OK)
 
 ResponseBody:
-- urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox dientifier.
+- urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
 
 ~~~
 {
@@ -327,7 +327,7 @@ This API call consumes the following media types via the Content-Type request he
 Request body is a complex structure, including the following fields:
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
-- notificationToken (Object, Optional) - Optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
+- notificationToken (Object, Required) - Mandatory notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
 	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
 	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
 
@@ -362,7 +362,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 ## DeleteMailbox
 
-An application running on a remote device can invoke this API on Relay Server to close the existing mailbox after it served its purpose. Receiver or Sender device needs to present a deviceClaim in order to close the mailbox. Upon closure, the mailbox shall still respond to GET operations, returning the OpenGraph displayInformation.
+An application running on a remote device can invoke this API on Relay Server to close the existing mailbox after it served its purpose. Receiver or Sender device needs to present a deviceClaim in order to close the mailbox.
 
 ### Endpoint
 
@@ -386,7 +386,7 @@ Header parameters:
 Status: “200” (OK)
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to delete a mailbox. E.g. a device presented the incorrect deviceClaim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
@@ -394,7 +394,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 ## ReadDisplayInformationFromMailbox
 
-An application running on a remote device can invoke this API on Relay Server to to retrieve public display information content from a mailbox. Display Information shall be returned in OpenGraph format (please refer to https://ogp.me for details).
+An application running on a remote device can invoke this API on Relay Server to retrieve public display information content from a mailbox. Display Information shall be returned in OpenGraph format (please refer to https://ogp.me for details).
 
 ### Endpoint
 
@@ -414,7 +414,7 @@ Status: “200” (OK)
 
 ResponseBody :
 
-- displayInformation (String, Required) - application-specific (e.g. OpenGraph, JSON) visual representation of digital credential.
+- displayInformation (String, Required) - visual representation of digital credential in OpenGraph format (please refer to https://ogp.me for details).
 
 ~~~
     "<html prefix="og: https://ogp.me/ns#">
@@ -440,7 +440,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 ## ReadSecureContentFromMailbox
 
-An application running on a remote device can invoke this API on Relay Server to to retrieve secure payload content from a mailbox (encrypted data specific to a Provisioning Information Provider).
+An application running on a remote device can invoke this API on Relay Server to retrieve secure payload content from a mailbox (encrypted data specific to a Provisioning Information Provider).
 
 ### Endpoint
 
@@ -517,7 +517,7 @@ Please refer to {{NIST-SP800-38D}} for the details of the encryption algorithm.
 # Security Considerations
 
 Security of the credential transfer is based on two factors - the unique MailboxIdentifier in the mailbox URL and cryptographic quality of the Secret. 
-It is recommended to send URL to the mailbox and the Secret over diffetrent channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
+It is recommended to send the URL to the mailbox and the Secret over different channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
 
 TODO: have this section reviewed by SEAR, adding clauses about unique MailboxIdentifier and length of the Secret. 
 
