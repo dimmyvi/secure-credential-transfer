@@ -62,7 +62,7 @@ belonging to the same platform or two different platforms. This document propose
 by introducing a Relay server which allows devices to exchange encrypted Provisioning Information securely.
 The Relay server solves this problem by creating and managing temporary mailbox storage.
 
-Each mailbox can be referenced by devices from a unique mailbox identifier in a URL.
+Each mailbox can be referenced by devices using a unique mailbox identifier in a URL.
 The URL pointing to encrypted Provisioning Information is to be passed between devices directly 
 over various channels (e.g. SMS, email, messaging applications).
 The Security Considerations section provides recommendations on passing the URL and the Secret securely.
@@ -85,16 +85,16 @@ General terms:
 
 - Provisioning Partner - an entity which facilitates Credential Information lifecycle on a device.
 
-- Provisioning Information - a set of data fields, allowing a device to receive Credential Information from Provisioning Partner and install it locally. The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to Relay Server.
-The structure of Provisioning Information is specific to Provisioning Partner and out of the scope of this document.
+- Provisioning Information - a set of data fields, allowing a device to receive Credential Information from Provisioning Partner and install it locally. The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to the Relay Server.
+The structure of Provisioning Information is specific to Provisioning Partner or type of Credential and out of the scope of this document.
 
 - Credential Information - a set of data fields used to facilitate registration or provisioning of Credential Information on the Receiver's device.
 
-- Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on a Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
+- Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on a the Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
 
 API parameters:
 
-- Device Claim - a unique token allowing caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device should be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox or update mailbox data and Relay server binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/write/update/delete calls to the mailbox. The value shall be a UUID {{!RFC4122}}.
+- Device Claim - a unique token allowing the caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device should be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox or update mailbox data and Relay server binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/write/update/delete calls to the mailbox. The value shall be a UUID {{!RFC4122}}.
  
 - Notification Token - a short or long-lived unique token stored by the Sender or Receiver device in a mailbox on the Relay server, which allows Relay server to send a push notification to the Sender or Receiver device, informing them of updates in the mailbox.
 
