@@ -59,7 +59,7 @@ Credentials transfer needs to be performed securely due to the sensitive nature 
 
 Today, there is no standard way of transferring digital credentials securely between two devices 
 belonging to the same platform or two different platforms. This document proposes a solution to this problem 
-by introducing a Relay server which allows devices to exchange encrypted Provisioning Information securely.
+by introducing a Relay server which allows two devices to exchange encrypted Provisioning Information securely.
 The Relay server solves this problem by creating and managing temporary mailbox storage.
 
 Each mailbox can be referenced by devices using a unique mailbox identifier in a URL.
@@ -83,9 +83,9 @@ General terms:
 
 - Receiver device - a device that receives Provisioning Information from Sender device and uses it to register or provision Credential Information.
 
-- Provisioning Partner - an entity which facilitates Credential Information lifecycle on a device.
+- Provisioning Partner - an entity which facilitates Credential Information lifecycle on a device. Lifecycle may include provisioning of credential, credential termination, credential update. API to Provisioning Partner is out of scope for this document.
 
-- Provisioning Information - a set of data fields, allowing a device to receive Credential Information from Provisioning Partner and install it locally. The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to the Relay Server.
+- Provisioning Information - a set of data fields, allowing a device to generate Credential Information or receive it from Provisioning Partner and install it locally. The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to the Relay Server.
 The structure of Provisioning Information is specific to Provisioning Partner or type of Credential and out of the scope of this document.
 
 - Credential Information - a set of data fields used to facilitate registration or provisioning of Credential Information on the Receiver's device.
