@@ -205,7 +205,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 ### Endpoint
 
-POST  /{version}/mailbox
+POST  /{version}/m
 
 ### Request Parameters:
 
@@ -286,7 +286,7 @@ ResponseBody:
 
 ~~~
 {
-    "urlLink":"relay.com/mailbox/12345678-9...A-BCD"
+    "urlLink":"relayserver.com/m/12345678-9...A-BCD"
 }
 ~~~
 {: #create-mailbox-response title="Create Mailbox Response Example"}
@@ -304,7 +304,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 ### Endpoint
 
-PUT  /{version}/mailbox/{mailboxIdentifier}
+PUT  /{version}/m/{mailboxIdentifier}
 
 ### Request Parameters
 
@@ -366,7 +366,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 ### Endpoint
 
-DELETE /{version}/mailbox/{mailboxIdentifier}
+DELETE /{version}/m/{mailboxIdentifier}
 
 ### Request Parameters
 
@@ -398,7 +398,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 ### Endpoint
 
-GET /{version}/mailbox/{mailboxIdentifier}
+GET /{version}/m/{mailboxIdentifier}
 
 ### Request Parameters
 
@@ -444,7 +444,7 @@ An application running on a remote device can invoke this API on Relay Server to
 
 ### Endpoint
 
-POST /{version}/mailbox/{mailboxIdentifier}
+POST /{version}/m/{mailboxIdentifier}
 
 ### Request Parameters
 
@@ -525,7 +525,7 @@ If the Sender device sends both URL and the Secret over the same channel as a si
 the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
 
 ~~~
-“http://relayserver.com/mailbox/{mailboxIdentifier}#{Secret}”
+“http://relayserver.com/v1/{mailboxIdentifier}#{Secret}”
 ~~~
 {: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
 
