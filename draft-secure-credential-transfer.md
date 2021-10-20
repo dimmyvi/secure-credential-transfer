@@ -110,7 +110,7 @@ The processes start with a Sender device composing a set of Provisioning Informa
 Sender device sends MailboxIdentifier to the Relay server as a part of CreateMailbox request.
 Once a mailbox is created, it has limited time to live. When expired, the mailbox shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server, expirationTime configuration is recommended to use with the CreateMailbox call (refer to mailboxConfiguration request parameter).
 
-Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/mailbox/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
+Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/m/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
 Please refer to section "Security Considerations" for more details.
 
 Receiver device, having obtained both the URL link and the Secret, generates a unique token - a Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
@@ -197,7 +197,7 @@ An API version shall be included in the URI for all interfaces. The version at t
 All requests to and from Relay server will have an HTTP header "X-Correlation-ID". The corresponding response to the API will have the same HTTP header "X-Correlation-ID", which should echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value shall be a UUID of length 36 containing hyphens.
 The request originator shall match the value of "X-Correlation-ID" in the response with one sent in the request.
 If response is not received, sender may retry sending the same request with the same value of "X-Correlation-ID".
-Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim and in case of receiving a request with duplicated "X-Correlation-ID" respond to the caller with status code 201.
+Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim and, in case of receiving a request with duplicated "X-Correlation-ID", respond to the caller with status code 201.
 
 
 # HTTP access methods
@@ -295,7 +295,7 @@ ResponseBody:
 {: #create-mailbox-response title="Create Mailbox Response Example"}
 
 `201`
-Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicted requests with 201 without creation of a new mailbox. "X-Correlation-Id" passed in the first CreateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not create a new mailbox, but respond with 201 instead. The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
+Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicated requests with 201 without creation of a new mailbox. "X-Correlation-Id" passed in the first CreateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not create a new mailbox, but respond with 201 instead. The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
 
 ResponseBody:
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
@@ -368,7 +368,7 @@ The value of "X-Correlation-Id" of the last successfully completed request shoul
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to update the mailbox. E.g. a device presented the incorrect deviceClaim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
