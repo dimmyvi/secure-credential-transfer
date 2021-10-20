@@ -195,6 +195,9 @@ An API version shall be included in the URI for all interfaces. The version at t
 # HTTP Headers: X-Correlation-ID
 
 All requests to and from Relay server will have an HTTP header "X-Correlation-ID". The corresponding response to the API will have the same HTTP header "X-Correlation-ID", which should echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value shall be a UUID of length 36 containing hyphens.
+The request originator shall match the value of "X-Correlation-ID" in the response with one sent in the request.
+If response is not received, sender may retry sending the same request with the same value of "X-Correlation-ID".
+Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim and in case of receiving a request with duplicated "X-Correlation-ID" respond to the caller with status code 201.
 
 
 # HTTP access methods
@@ -291,6 +294,13 @@ ResponseBody:
 ~~~
 {: #create-mailbox-response title="Create Mailbox Response Example"}
 
+`201`
+Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicted requests with 201 without creation of a new mailbox. "X-Correlation-Id" passed in the first CreateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not create a new mailbox, but respond with 201 instead. The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
+
+ResponseBody:
+- urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
+
+
 `400`
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
@@ -350,6 +360,10 @@ Request body is a complex structure, including the following fields:
 `200 `
 Status: “200” (OK)
 
+`201`
+Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicted requests with 201 without performing mailbox update. "X-Correlation-Id" passed in the first UpdateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not perform mailbox update, but respond with 201 instead.
+The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
+
 `400`
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
@@ -389,7 +403,7 @@ Status: “200” (OK)
 Unauthorized - calling device is not authorized to delete a mailbox. E.g. a device presented the incorrect deviceClaim.
 
 `404`
-Not Found - mailbox with provided mailboxIdentifier not found.
+Not Found - mailbox with provided mailboxIdentifier not found. Relay server may respond with 404 if the Mailbox Identifier passed by the caller is invalid or mailbox has already been deleted (as a result of duplicate DeleteMailbox request).
 
 
 ## ReadDisplayInformationFromMailbox
