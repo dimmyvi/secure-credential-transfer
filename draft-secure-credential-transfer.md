@@ -138,7 +138,7 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
                         |                   |<------------------------------|
                         |                   |     DeleteMailbox             | Provision credentials
 ~~~
-{: #stateless-flow-image title="Sample flow of stateless process"}
+{: #stateless-flow-image title="Sample stateless workflow"}
 
 ## Stateful workflow
 
@@ -183,7 +183,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                         |                            |<---------------------------| 
                         |                            |   DeleteMailbox            | Provision or Register credentials
 ~~~
-{: #stateful-flow-image title="Sample flow of stateful process"}
+{: #stateful-flow-image title="Sample stateful workflow"}
 
 # API connection details
 
@@ -232,7 +232,7 @@ Request body is a complex structure, including the following fields:
 - mailboxIdentifier (String, Required) - MailboxIdentifier (refer to Terminology).
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
     1. "type": "AES128" (refer to Encryption Format section).
-    2. "data": HEX or BASE64-encoded binary value of ciphertext.
+    2. "data": BASE64-encoded binary value of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
 The data structure contains the following fields:
     1. title - a String with the title of the credential (e.g. "Car Key")
@@ -244,7 +244,7 @@ The data structure contains the following fields:
 - mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. Data structure includes the following:
     1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
-    2. expirationTime (String, optional) - Mailbox expiration time (UTC). E.g. "2021-07-22T13:14:15Z". Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint. Default expiration period has to be configured on the Relay server.
+    2. timeToLive (String, required) - Mailbox time to live in seconds. E.g. "8640" for 24 hours. Mailbox has a limited time to live. Once expired, it shall be deleted - refer to DeleteMailbox endpoint.
 
 ~~~
 {
@@ -273,7 +273,7 @@ Value is defined as a combination of the following values: "R" - for read access
     },
     "mailboxConfiguration" : {
         "accessRights" : "RWD",
-        "expirationTime" : "2021-01-01 01:01:01”
+        "timeToLive" : "8640”
     }
 }
 ~~~
@@ -507,7 +507,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 # Encryption format
 
 The encrypted payload (Provisioning Information) should be a data structure having the following key-value pairs:
-"type", which defines the encryption algorithm and mode used and "data", which contains the HEX or BASE-64 encoded binary value of ciphertext.
+"type", which defines the encryption algorithm and mode used and "data", which contains BASE-64 encoded binary value of ciphertext.
 
 Currently proposed "type" includes the following algorithm and mode: 
 
@@ -529,29 +529,53 @@ Please refer to {{NIST-SP800-38D}} for the details of the encryption algorithm.
 
 
 # Security Considerations
+The following threats and mitigations have been considered:
+- Sender shares with the wrong receiver
+    - Sender should be encouraged to share Secret over a channel allowing authentication of the receiver (e.g. voice).
+    - Provisioning Partners shall allow senders to cancel existing shares.
+- Malicious receiver forwards the share to 3rd party without redeeming it or the Receiver's device is compromised. 
+    - No mitigation, the Sender should only share with receivers they trust.
+- Malicious receiver attempts re-use share
+	- Provisioning Partners shall ensure that the Provisioning Information of a share can only be redeemed once.
+- Share URL accidental disclosure. (e.g. share URL sent as a message which gets displayed on a locked screen)
+    - Knowledge of Secret is required to access Provisioning Information and it should have been sent in a separate channel.
+    - Device Claim is required (if sender and receiver have already both contacted the Relay server)
+- Network attacks
+    - Machine-in-the-middle
+        - Relay server shall only allow TLS connections
+	    - URLs displayed to user should include the https scheme
+	- MailboxIdentifier guessing
+	    - The MailboxIdentifier is a version 4 UUID {{!RFC4122}} which should contain 122-bits of cryptographic entropy, making brute-force attacks impractical
 
-Security of the credential transfer is based on two factors - the unique MailboxIdentifier in the mailbox URL and cryptographic quality of the Secret. 
-It is recommended to send the URL to the mailbox and the Secret over different channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
+## Sender and Receiver safety
 
-TODO: have this section reviewed by SEAR, adding clauses about unique MailboxIdentifier and length of the Secret. 
+- Relay server shall be trusted by both Sender and Receiver devices.
+- Receiver must be notified by Relay server in case integrity of provided URL was altered.
 
-If the Sender device sends both URL and the Secret over the same channel as a single URL,
-the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below.
+## Sender/Receiver privacy
+
+- At no time Relay server shall store or track the identities of both Sender and Receiver devices.
+- The value of the Notification Token shall not contain information allowing the identification of the device providing it. It should also be different for every new share to prevent the Relay server from correlating different sharing. 
+- Notification token should only inform the corresponding device that there has been a data update on the mailbox associated to it (by Device Claim). Each device should keep track of all mailboxes associated with it and make read calls to appropriate mailboxes.
+- Both Sender and Receiver devices should store the URL of the Relay server they use for an active act of credential transfer. 
+- The value of DeviceAttestation header parameter shall not contain information allowing the identification of the device providing it. It should also be different for every new share to prevent the Relay server from correlating different sharing.  
+- Display Information is not encrypted, therefore, it should not contain any information allowing to identify Sender or Receiver devices.
+
+## Credential's confidentiality and integrity
+
+- Content of the mailbox shall be only visible to devices having Secret.
+- It is recommended to send URL to the mailbox and the Secret over different channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
+- Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
+- Content of the mailbox must guaranty it's integrity with cryptographic checksum (e.g. MAC, AES-GCM tag).
+- Relay server shall periodically check and delete expired mailboxes ( refer to timeToLive parameter in the CreateMailbox request).
+- If the Sender device sends both URL and the Secret over the same channel as a single URL,
+the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
 
 ~~~
 “http://relayserver.com/v1/{mailboxIdentifier}#{Secret}”
 ~~~
 {: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
 
-Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
-Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
-This guaranties privacy of the payload information.
-
-The entire content of Provisioning Information is encrypted by Sender or Receiver device. Therefore, it is not visible to Relay Server.
-
-At no time Relay server shall store or track the identities of both Sender and Receiver devices.
-
-Relay server shall be trusted by both Sender and Receiver devices, but the content of the mailbox shall be only visible to devices having Secret.
 
 # IANA Considerations
 
