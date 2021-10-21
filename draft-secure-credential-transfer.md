@@ -30,6 +30,19 @@ author:
     name: Matthias Lerch
     organization: Apple Inc
     email: mlerch@apple.com
+-
+    name: Crystal Qin
+    organization: Alphabet Inc
+    email: crystalyq@google.com
+-
+    name: Adam Bar-Niv
+    organization: Alphabet Inc
+    email: adambn@google.com
+-
+    name: Nick Sha
+    organization: Alphabet Inc
+    email: nicksha@google.com
+    
 
 normative:
   NIST-SP800-38D:
