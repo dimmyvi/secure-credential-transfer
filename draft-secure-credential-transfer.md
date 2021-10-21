@@ -37,17 +37,17 @@ author:
  -
     ins: C. Qin
     name: Crystal Qin
-    organization: Alpabet Inc
+    organization: Alphabet Inc
     email: crystalyq@google.com
  -
     ins: A. Bar-Niv
     name: Adam Bar-Niv
-    organization: Alpabet Inc
+    organization: Alphabet Inc
     email: adambn@google.com
  -
     ins: N. Sha
     name: Nick Sha
-    organization: Alpabet Inc
+    organization: Alphabet Inc
     email: nicksha@google.com
     
     
@@ -71,7 +71,7 @@ This document describes a mechanism to transfer digital credentials securely bet
 Secure credentials may represent a digital key to a hotel room, a digital key to a door lock in a house 
 or a digital key to a car. Devices that share credentials may belong to the same or two different platforms (e.g. iOS and Android).
 Secure transfer may include one or more write and read operations.
-Credentials transfer needs to be performed securely due to the sensitive nature of the information.
+Credential transfer needs to be performed securely due to the sensitive nature of the information.
 
 --- middle
 
@@ -114,7 +114,7 @@ The structure of Provisioning Information is specific to Provisioning Partner or
 
 API parameters:
 
-- Device Claim - a unique token allowing the caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device should be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox. When the Relay server, having received a request from the Sender device, creates a mailbox, it binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/update/delete calls to the mailbox. The value SHALL be a UUID {{!RFC4122}}.
+- Device Claim - a unique token allowing the caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device SHOULD be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox. When the Relay server, having received a request from the Sender device, creates a mailbox, it binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/update/delete calls to the mailbox. The value SHALL be a UUID {{!RFC4122}}.
  
 - Notification Token - a short or long-lived unique token stored by the Sender or Receiver device in a mailbox on the Relay server, which allows Relay server to send a push notification to the Sender or Receiver device, informing them of updates in the mailbox.
 
@@ -568,11 +568,6 @@ The following threats and mitigations have been considered:
 	- MailboxIdentifier guessing
 	    - The MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
 
-## Sender and Receiver safety
-
-- Relay server SHALL be trusted by both Sender and Receiver devices.
-- Receiver must be notified by Relay server in case integrity of provided URL was altered.
-
 ## Sender/Receiver privacy
 
 - At no time Relay server SHALL store or track the identities of both Sender and Receiver devices.
@@ -590,7 +585,7 @@ The following threats and mitigations have been considered:
 - Content of the mailbox MUST guaranty it's integrity with cryptographic checksum (e.g. MAC, AES-GCM tag).
 - Relay server SHALL periodically check and delete expired mailboxes ( refer to timeToLive parameter in the CreateMailbox request).
 - If the Sender device sends both URL and the Secret over the same channel as a single URL,
-the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, must remove the Fragment (Secret) before calling the Relay server API.
+the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, MUST remove the Fragment (Secret) before calling the Relay server API.
 
 ~~~
 “http://relayserver.com/v1/{mailboxIdentifier}#{Secret}”
