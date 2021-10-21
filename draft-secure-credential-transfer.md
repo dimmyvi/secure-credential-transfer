@@ -212,13 +212,13 @@ Request and response bodies shall be formatted as either JSON or HTML (based on 
 All Strings SHOULD be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version SHOULD be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version shall be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
 
-# HTTP Headers: Correlation-ID
+# HTTP Headers: Mailbox-Correlation-ID
 
-All requests to and from Relay server will have an HTTP header "Correlation-ID". The corresponding response to the API will have the same HTTP header, which SHOULD echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value SHOULD be a UUID {{!RFC4122}}.
-The request originator shall match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "Correlation-ID".
-Relay server SHOULD store the value of the last successfully processed "Correlation-ID" for each device based on the caller's Device Claim.
-A key-value pair of "Device Claim" to "Correlation-ID" is suggested to store the last successfully processed request for each device. 
-In case of receiving a request with duplicated "Correlation-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
+All requests to and from Relay server will have an HTTP header "Mailbox-Correlation-ID". The corresponding response to the API will have the same HTTP header, which SHOULD echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value SHOULD be a UUID {{!RFC4122}}.
+The request originator shall match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "Mailbox-Correlation-ID".
+Relay server SHOULD store the value of the last successfully processed "Mailbox-Correlation-ID" for each device based on the caller's Device Claim.
+A key-value pair of "Device Claim" to "Mailbox-Correlation-ID" is suggested to store the last successfully processed request for each device. 
+In case of receiving a request with duplicated "Mailbox-Correlation-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
 
 
 # HTTP access methods
