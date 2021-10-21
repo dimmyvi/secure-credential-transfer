@@ -316,7 +316,7 @@ ResponseBody:
 {: #create-mailbox-response title="Create Mailbox Response Example"}
 
 `201`
-Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicated requests with 201 without creation of a new mailbox. "X-Correlation-Id" passed in the first CreateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not create a new mailbox, but respond with 201 instead. The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
+Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Correlation-Id"). Relay server should respond to duplicated requests with 201 without creation of a new mailbox. "Mailbox-Correlation-Id" passed in the first CreateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not create a new mailbox, but respond with 201 instead. The value of "Mailbox-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
 
 ResponseBody:
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
@@ -382,8 +382,8 @@ Request body is a complex structure, including the following fields:
 Status: “200” (OK)
 
 `201`
-Status: “201” (Created) - response to a duplicated request (duplicated "X-Correlation-Id"). Relay server should respond to duplicted requests with 201 without performing mailbox update. "X-Correlation-Id" passed in the first UpdateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not perform mailbox update, but respond with 201 instead.
-The value of "X-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
+Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Correlation-Id"). Relay server should respond to duplicted requests with 201 without performing mailbox update. "Mailbox-Correlation-Id" passed in the first UpdateMailbox request's header shall be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay shall not perform mailbox update, but respond with 201 instead.
+The value of "Mailbox-Correlation-Id" of the last successfully completed request should be stored based on the Device Claim passed by the caller.
 
 `400`
 Bad Request - invalid request has been passed (can not parse or required fields missing).
