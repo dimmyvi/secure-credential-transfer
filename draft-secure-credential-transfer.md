@@ -34,23 +34,23 @@ author:
     name: Matthias Lerch
     organization: Apple Inc
     email: mlerch@apple.com
--
+ -
     ins: C. Qin
     name: Crystal Qin
-    organization: Alphabet Inc
-    email: crystalyq@google.com
--
+    organization: Alpabet Inc
+    email: crystalyq@goggle.com
+ -
     ins: A. Bar-Niv
     name: Adam Bar-Niv
-    organization: Alphabet Inc
-    email: adambn@google.com
--
+    organization: Alpabet Inc
+    email: adambn@goggle.com
+ -
     ins: N. Sha
     name: Nick Sha
-    organization: Alphabet Inc
-    email: nicksha@google.com
+    organization: Alpabet Inc
+    email: nicksha@goggle.com
     
-
+    
 normative:
   NIST-SP800-38D:
     author:
