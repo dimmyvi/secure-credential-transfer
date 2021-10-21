@@ -195,9 +195,10 @@ An API version shall be included in the URI for all interfaces. The version at t
 # HTTP Headers: X-Correlation-ID
 
 All requests to and from Relay server will have an HTTP header "X-Correlation-ID". The corresponding response to the API will have the same HTTP header, which should echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value shall be a UUID {{!RFC4122}}.
-The request originator shall match the value of "X-Correlation-ID" in the response with the one sent in the request.
-If response is not received, caller may retry sending the request with the same value of "X-Correlation-ID".
-Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim and, in case of receiving a request with duplicated "X-Correlation-ID", respond to the caller with status code 201.
+The request originator shall match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "X-Correlation-ID".
+Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim.
+A key-value pair of "Device Claim" to "X-Correlation-ID" is suggested to store the last successfully processed request for each device. 
+In case of receiving a request with duplicated "X-Correlation-ID", Relay should respond to the caller with status code 201, ignoring the duplicate request's body content.
 
 
 # HTTP access methods
