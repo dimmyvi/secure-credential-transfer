@@ -15,30 +15,37 @@ pi: [toc, sortrefs, symrefs]
 
 author:
  -
+    ins: D. Vinokurov
     name: Dmitry Vinokurov
     organization: Apple Inc
     email: dvinokurov@apple.com
  -
+    ins: M. Byington
     name: Matt Byington
     organization: Apple Inc
     email: mbyington@apple.com
  -
+    ins: B. Chester
     name: Ben Chester
     organization: Apple Inc
     email: bchester@apple.com
  -
+    ins: M. Lerch
     name: Matthias Lerch
     organization: Apple Inc
     email: mlerch@apple.com
 -
+    ins: C. Qin
     name: Crystal Qin
     organization: Alphabet Inc
     email: crystalyq@google.com
 -
+    ins: A. Bar-Niv
     name: Adam Bar-Niv
     organization: Alphabet Inc
     email: adambn@google.com
 -
+    ins: N. Sha
     name: Nick Sha
     organization: Alphabet Inc
     email: nicksha@google.com
