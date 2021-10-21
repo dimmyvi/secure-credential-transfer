@@ -218,7 +218,7 @@ All requests to and from Relay server will have an HTTP header "X-Correlation-ID
 The request originator shall match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "X-Correlation-ID".
 Relay server should store the value of the last successfully processed "X-Correlation-ID" for each device based on the caller's Device Claim.
 A key-value pair of "Device Claim" to "X-Correlation-ID" is suggested to store the last successfully processed request for each device. 
-In case of receiving a request with duplicated "X-Correlation-ID", Relay should respond to the caller with status code 201, ignoring the duplicate request's body content.
+In case of receiving a request with duplicated "X-Correlation-ID", Relay should respond to the caller with status code 201, ignoring the duplicate request body content.
 
 
 # HTTP access methods
