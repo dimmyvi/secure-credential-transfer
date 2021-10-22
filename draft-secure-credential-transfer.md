@@ -110,7 +110,7 @@ The structure of Provisioning Information is specific to Provisioning Partner or
 
 - Credential Information - a set of data fields used to facilitate registration or provisioning of Credential Information on the Receiver's device.
 
-- Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on a the Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
+- Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on the Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
 
 API parameters:
 
@@ -212,13 +212,13 @@ Request and response bodies SHALL be formatted as either JSON or HTML (based on 
 All Strings SHOULD be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version SHOULD be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version SHALL be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
 
-# HTTP Headers: Mailbox-Correlation-ID
+# HTTP Headers: Mailbox-Request-ID
 
-All requests to and from Relay server will have an HTTP header "Mailbox-Correlation-ID". The corresponding response to the API will have the same HTTP header, which SHALL echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value SHOULD be a UUID {{!RFC4122}}.
-The request originator SHALL match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "Mailbox-Correlation-ID".
-Relay server SHOULD store the value of the last successfully processed "Mailbox-Correlation-ID" for each device based on the caller's Device Claim.
-A key-value pair of "Device Claim" to "Mailbox-Correlation-ID" is suggested to store the last successfully processed request for each device. 
-In case of receiving a request with duplicated "Mailbox-Correlation-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
+All requests to and from Relay server will have an HTTP header "Mailbox-Request-ID". The corresponding response to the API will have the same HTTP header, which SHALL echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value SHOULD be a UUID {{!RFC4122}}.
+The request originator SHALL match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "Mailbox-Request-ID".
+Relay server SHOULD store the value of the last successfully processed "Mailbox-Request-ID" for each device based on the caller's Device Claim.
+A key-value pair of "Device Claim" to "Mailbox-Request-ID" is suggested to store the last successfully processed request for each device. 
+In case of receiving a request with duplicated "Mailbox-Request-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
 
 
 # HTTP access methods
@@ -316,7 +316,7 @@ ResponseBody:
 {: #create-mailbox-response title="Create Mailbox Response Example"}
 
 `201`
-Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Correlation-Id"). Relay server SHALL respond to duplicated requests with 201 without creation of a new mailbox. "Mailbox-Correlation-Id" passed in the first CreateMailbox request's header SHOULD be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay SHALL not create a new mailbox, but respond with 201 instead. The value of "Mailbox-Correlation-Id" of the last successfully completed request SHOULD be stored based on the Device Claim passed by the caller.
+Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Request-Id"). Relay server SHALL respond to duplicated requests with 201 without creation of a new mailbox. "Mailbox-Request-Id" passed in the first CreateMailbox request's header SHOULD be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay SHALL not create a new mailbox, but respond with 201 instead. The value of "Mailbox-Request-Id" of the last successfully completed request SHOULD be stored based on the Device Claim passed by the caller.
 
 ResponseBody:
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
@@ -382,8 +382,8 @@ Request body is a complex structure, including the following fields:
 Status: “200” (OK)
 
 `201`
-Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Correlation-Id"). Relay server SHALL respond to duplicted requests with 201 without performing mailbox update. "Mailbox-Correlation-Id" passed in the first UpdateMailbox request's header SHOULD be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay SHALL not perform mailbox update, but respond with 201 instead.
-The value of "Mailbox-Correlation-Id" of the last successfully completed request SHOULD be stored based on the Device Claim passed by the caller.
+Status: “201” (Created) - response to a duplicate request (duplicate "Mailbox-Request-Id"). Relay server SHALL respond to duplicate requests with 201 without performing mailbox update. "Mailbox-Request-Id" passed in the first UpdateMailbox request's header SHALL be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicate requests. If duplicate is found, Relay SHALL not perform mailbox update, but respond with 201 instead.
+The value of "Mailbox-Request-Id" of the last successfully completed request SHALL be stored based on the Device Claim passed by the caller.
 
 `400`
 Bad Request - invalid request has been passed (can not parse or required fields missing).
@@ -595,7 +595,17 @@ the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resu
 
 # IANA Considerations
 
-This document has no IANA actions.
+This document registers a new header, "Mailbox-Request-ID",
+in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignments/message-headers)>.
+
+~~~
+    +--------------------+----------+--------+---------------+
+    | Header Field Name  | Protocol | Status |   Reference   |
+    +--------------------+----------+--------+---------------+
+    | Mailbox-Request-ID |   http   |  std   | This document |
+    +--------------------+----------+--------+---------------+
+ ~~
+{: #iana-header-type-table title="Registered HTTP Header"}
 
 
 --- back
