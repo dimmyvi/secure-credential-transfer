@@ -557,16 +557,16 @@ The following threats and mitigations have been considered:
 - Malicious receiver forwards the share to 3rd party without redeeming it or the Receiver's device is compromised. 
     - No mitigation, the Sender SHOULD only share with receivers they trust.
 - Malicious receiver attempts re-use share
-	- Provisioning Partners SHALL ensure that the Provisioning Information of a share can only be redeemed once.
+    - Provisioning Partners SHALL ensure that the Provisioning Information of a share can only be redeemed once.
 - Share URL accidental disclosure. (e.g. share URL sent as a message which gets displayed on a locked screen)
     - Knowledge of Secret is required to access Provisioning Information and it SHOULD have been sent in a separate channel.
     - Device Claim is required (if sender and receiver have already both contacted the Relay server)
 - Network attacks
     - Machine-in-the-middle
         - Relay server SHALL only allow TLS connections
-	    - URLs displayed to user SHOULD include the https scheme
-	- MailboxIdentifier guessing
-	    - The MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
+        - URLs displayed to user SHOULD include the https scheme
+    - MailboxIdentifier guessing
+        - The MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
 
 ## Sender/Receiver privacy
 
@@ -604,7 +604,7 @@ in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignmen
     +--------------------+----------+--------+---------------+
     | Mailbox-Request-ID |   http   |  std   | This document |
     +--------------------+----------+--------+---------------+
- ~~
+~~~
 {: #iana-header-type-table title="Registered HTTP Header"}
 
 
