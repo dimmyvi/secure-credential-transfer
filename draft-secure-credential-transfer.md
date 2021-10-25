@@ -550,7 +550,9 @@ Please refer to {{NIST-SP800-38D}} for the details of the encryption algorithm.
 
 
 # Security Considerations
+
 The following threats and mitigations have been considered:
+
 - Sender shares with the wrong receiver
     - Sender SHOULD be encouraged to share Secret over a channel allowing authentication of the receiver (e.g. voice).
     - Provisioning Partners SHALL allow senders to cancel existing shares.
@@ -562,11 +564,11 @@ The following threats and mitigations have been considered:
     - Knowledge of Secret is required to access Provisioning Information and it SHOULD have been sent in a separate channel.
     - Device Claim is required (if sender and receiver have already both contacted the Relay server)
 - Network attacks
-    - Machine-in-the-middle
-        - Relay server SHALL only allow TLS connections
-        - URLs displayed to user SHOULD include the https scheme
-    - MailboxIdentifier guessing
-        - The MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
+    - Machine-in-the-middle:
+      Relay server SHALL only allow TLS connections.
+      URLs displayed to user SHOULD include the https scheme.
+    - MailboxIdentifier guessing:
+      the MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
 
 ## Sender/Receiver privacy
 
