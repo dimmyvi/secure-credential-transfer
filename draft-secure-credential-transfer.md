@@ -466,9 +466,6 @@ ResponseBody :
 ~~~
 {: #read-display-information-response title="Read Display Information Response Example"}
 
-`401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
-
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
 
@@ -519,7 +516,7 @@ ResponseBody :
 {: #read-secure-content-response title="Read Secure Content Response Example"}
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to read the secure content of the mailbox. E.g. a device presented the incorrect deviceClaim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
