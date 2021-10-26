@@ -52,14 +52,6 @@ author:
     
     
 normative:
-  NIST-SP800-38D:
-    author:
-      ins: M. Dworkin
-      name: Morris Dworkin
-      org: National Institute of Standards and Technology
-    title: "NIST Special Publication 800-38D. Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC"
-    date: 2007-11
-    target: http://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf
       
 
 informative:
@@ -252,7 +244,7 @@ Request body is a complex structure, including the following fields:
 
 - mailboxIdentifier (String, Required) - MailboxIdentifier (refer to Terminology).
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
-    1. "type": "AES128" (refer to Encryption Format section).
+    1. "type": "AEAD_AES_128_GCM" (refer to Encryption Format section).
     2. "data": BASE64-encoded binary value of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
 The data structure contains the following fields:
@@ -285,7 +277,7 @@ Value is defined as a combination of the following values: "R" - for read access
         "imageURL" : "https://hotel.com/sharingImage" 
     },
     "payload" : {
-        "type": "AES128",
+        "type": "AEAD_AES_128_GCM",
         "data": "FDEC...987654321"
     },
     "notificationToken" : {
@@ -365,7 +357,7 @@ Request body is a complex structure, including the following fields:
 ~~~
 {
      "payload" : {
-        "type": "AES128",
+        "type": "AEAD_AES_128_GCM",
         "data": "FDEC...987654321"
     },
     "notificationToken":{
@@ -511,7 +503,7 @@ ResponseBody :
         "imageURL" : "https://hotel.com/sharingImage"
     },
     "payload" : {
-        "type": "AES128",
+        "type": "AEAD_AES_128_GCM",
         "data": "FDEC...987654321"
     }
 }
@@ -530,19 +522,17 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 The encrypted payload (Provisioning Information) should be a data structure having the following key-value pairs:
 "type", which defines the encryption algorithm and mode used and "data", which contains BASE-64 encoded binary value of ciphertext.
 
-Currently proposed "type" includes the following algorithm and mode: 
+Please refer to {{!RFC5116}} for the details of the encryption algorithm.
 
-- "AES128": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
-The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
-Please refer to {{NIST-SP800-38D}} for the details of the encryption algorithm.
+The following algorithms and modes are mandatory to implement: 
 
-- "AES256": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
-The IV shall be prepended to the payload, and the tag shall be appended to the payload before sending (the resulting format is IV || encrypted payload || tag).
-Please refer to {{NIST-SP800-38D}} for the details of the encryption algorithm.
+- "AEAD_AES_128_GCM": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+
+- "AEAD_AES_256_GCM": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
 
 ~~~
 {
-    "type" : "AES128",
+    "type" : "AEAD_AES_128_GCM",
     "data" : "IV  ciphertext  tag"
 }
 ~~~
