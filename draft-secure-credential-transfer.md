@@ -141,17 +141,19 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
     Provisioning Info   |——---------------->|                               |
     encrypted w Secret  |<<-.-.-.-.-.-.-.-.-|                               |
                         |URL link to mailbox|                               |
+                        |                   |                               | 
     Send URL link to    |                   |     URL link and Secret       |
-      mailbox and Secret|-------------------------------------------------->|
+    mailbox and Secret  |-------------------------------------------------->|
+                        |                   |                               | 
                         |                   | ReadSecureContentFromMailbox  |
-                        |                   |<------------------------------|
-                        |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
-                        |                   |  encrypted info               |
-                        |                   |                               | Decrypt w Secret to get Prov Info
-                        |                   |<------------------------------|
-                        |                   |     DeleteMailbox             |
+                        |                   |<------------------------------| 
+                        |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>| Decrypt w Secret to get Prov Info
+                        |                   |         encrypted info        |
+                        |                   |                               | 
+                        |                   |         DeleteMailbox         |
+                        |                   |<------------------------------| Provision or Register credentials
                         |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>| 
-                        |                   |            OK                 | Provision or Register credentials
+                        |                   |              OK               |
 ~~~
 {: #stateless-flow-image title="Sample stateless workflow"}
 
@@ -173,35 +175,39 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 ~~~
                      Sender                       Relay                         Receiver
                        |                             |                             |
-    Create and encrypt |    CreateMailbox            |                             |
+    Create and encrypt |       CreateMailbox         |                             |
     Provisioning Info 1|---------------------------->|                             |
     encrypted w Secret |<<-.-.-.-.-.-.-.-.-.-.-.-.-.-|                             |
-                       |   URL link to mailbox       |                             |
+                       |    URL link to mailbox      |                             |
+                       |                             |                             |
                        |                             |    URL link and Secret      |
     Send URL link to   |---------------------------------------------------------->|
-    mailbox and Secret |                             |ReadSecureContentFromMailbox |
-                       |                             |<----------------------------| Decrypt w Secret for ProvInfo1
-                       |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
-                       |                             |    encrypted info	   |
-                       |                             |                             | Update with ProvInfo2
-                       |                             |UpdateMailbox(encrypted info)| encrypted with Secret
-                       |                             |<----------------------------| ProvInfo2 = new Provisioning Info
-                       |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| 
-                       |                             |          OK                 |
-                       |ReadSecureContentFromMailbox |                             | 
+    mailbox and Secret |                             |                             |
+                       |                             |ReadSecureContentFromMailbox |
+                       |                             |<----------------------------|
+                       |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| Decrypt w Secret for ProvInfo1
+                       |                             |       encrypted info        |
+                       |                             |                             | 
+                       |                             |UpdateMailbox(encrypted info)| Update with ProvInfo2
+                       |                             |<----------------------------| encrypted with Secret
+                       |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| ProvInfo2 = new Provisioning Info
+                       |                             |             OK              |
+                       |ReadSecureContentFromMailbox |                             |
                        |---------------------------->|                             |
    Decrypt w Secret to |<<-.-.-.-.-.-.-.-.-.-.-.-.-.-|                             |
-    get ProvInfo2      |       encrypted info        |                             |
+   get ProvInfo2       |       encrypted info        |                             |
+                       |                             |                             |
                        |UpdateMailbox(encrypted info)|                             |
    Update w ProvInfo3  |—-----------—--------------->|                             |
    encrypted w Secret  |<<-.-.-.-.-.-.-.-.-.-.-.-.-.-|ReadSecureContentFromMailbox |
-   ProvInfo3 = new     |            OK               |<----------------------------| 
-   Provisioning Info   |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
-                       |                             |  	encrypted info     | Decrypt w Secret for ProvInfo3
-                       |                             |<----------------------------| 
-                       |                             |   DeleteMailbox             | 
+   ProvInfo3 = new     |             OK              |<----------------------------|
+   Provisioning Info   |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| Decrypt w Secret for ProvInfo3
+                       |                             |        encrypted info       |
+                       |                             |                             |
+                       |                             |        DeleteMailbox        |
+                       |                             |<----------------------------| Provision or Register credentials 
                        |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
-                       |                             |         OK                  |Provision or Register credentials
+                       |                             |             OK              |
 ~~~
 {: #stateful-flow-image title="Sample stateful workflow"}
 
