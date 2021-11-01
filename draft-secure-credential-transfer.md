@@ -26,7 +26,7 @@ author:
     email: mbyington@apple.com
  -
     ins: B. Chester
-    name: Ben Chester
+    name: 
     organization: Apple Inc
     email: bchester@apple.com
  -
@@ -239,7 +239,7 @@ Path parameters
 
 Header parameters
 
-- deviceAttestation (String, Optional) - optional remote OEM device praprietary attestation data.
+- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Consumes
@@ -349,7 +349,7 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device praprietary attestation data.
+- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Consumes
@@ -419,7 +419,7 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device praprietary attestation data.
+- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Responses
@@ -499,7 +499,7 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device praprietary attestation data.
+- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
 - deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Produces
@@ -536,6 +536,42 @@ Unauthorized - calling device is not authorized to read the secure content of th
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
+
+
+## RelinquishMailbox
+
+An application running on a remote device can invoke this API on Relay Server to relinquish their ownership of the mailbox. Receiver device needs to present the currently established Receiver deviceClaim in order to relinquish their ownership of the mailbox. Once relinquished, the mailbox can be bound to a different Receiver device that presents its deviceClaim in a ReadSecureContentFromMailbox call.
+
+### Endpoint
+
+PATCH /{version}/m/{mailboxIdentifier}
+
+### Request Parameters
+
+Path parameters:
+
+- version (String, Required) - the version of the API. At the time of writing this document, “v1”.
+- mailboxIdentifier(String, Required) - MailboxIdentifier (refer to Terminology).
+
+Header parameters:
+
+- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+
+### Responses
+
+`200`
+Status: “200” (OK)
+
+`201`
+Status: “201” (Created) - response to a duplicate request (duplicate "Mailbox-Request-Id"). Relay server SHALL respond to duplicate requests with 201 without performing mailbox relinquish. "Mailbox-Request-Id" passed in the first RelinquishMailbox request's header SHALL be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicate requests. If duplicate is found, Relay SHALL not perform mailbox relinquish, but respond with 201 instead.
+The value of "Mailbox-Request-Id" of the last successfully completed request SHALL be stored based on the Device Claim passed by the caller.
+
+`401`
+Unauthorized - calling device is not authorized to relinquish a mailbox. E.g. a device presented the incorrect deviceClaim, or the device is not bound to the mailbox.
+
+`404`
+Not Found - mailbox with provided mailboxIdentifier not found. Relay server may respond with 404 if the Mailbox Identifier passed by the caller is invalid.
 
 
 # Encryption format
@@ -622,6 +658,17 @@ in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignmen
 
 
 --- back
+
+# Contributors
+
+The following people provided substantive contributions to this document:
+
+- Alex Pelletier
+- Casey Astiz
+- Jean-Luc Giraud
+- Yogesh Karandikar
+- Alexey Bulgakov
+- Tommy Pauly
 
 # Acknowledgments
 
