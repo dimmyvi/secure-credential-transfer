@@ -333,7 +333,7 @@ ResponseBody:
 
 
 `400`
-Bad Request - invalid request has been passed (can not parse or required fields missing).
+Bad Request - invalid request has been passed (can not parse or required fields missing).TEST
 
 `401`
 Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or mailbox with the provided mailboxIdentifier already exists.
