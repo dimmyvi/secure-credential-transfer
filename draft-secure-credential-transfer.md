@@ -26,7 +26,7 @@ author:
     email: mbyington@apple.com
  -
     ins: B. Chester
-    name: 
+    name: Ben Chester
     organization: Apple Inc
     email: bchester@apple.com
  -
