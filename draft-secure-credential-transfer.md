@@ -521,6 +521,7 @@ ResponseBody :
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
+- expiration (String, Required) - the date that the mailbox will expire. The mailbox expiration is set during mailbox creation. This expiration should be a complete {{!ISO8601}} date string, and can be used to allow receiving clients to show when a share will expire.
 
 ~~~
 {
@@ -532,7 +533,8 @@ ResponseBody :
     "payload" : {
         "type": "AEAD_AES_128_GCM",
         "data": "FDEC...987654321"
-    }
+    },
+    "expiration": "2021-11-03T20:32:34+0000"
 }
 ~~~
 {: #read-secure-content-response title="Read Secure Content Response Example"}
@@ -607,7 +609,7 @@ The following threats and mitigations have been considered:
 the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, MUST remove the Fragment (Secret) before calling the Relay server API.
 
 ~~~
-“http://relayserver.com/v1/{mailboxIdentifier}#{Secret}”
+“http://relayserver.com/v1/m/{mailboxIdentifier}#{Secret}”
 ~~~
 {: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
 
