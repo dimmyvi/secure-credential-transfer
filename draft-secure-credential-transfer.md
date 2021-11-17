@@ -262,13 +262,13 @@ Request body is a complex structure, including the following fields:
 
 - mailboxIdentifier (String, Required) - MailboxIdentifier (refer to Terminology).
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
-    1. "type": "AEAD_AES_128_GCM" (refer to Encryption Format section).
+    1. "type": "AEAD\_AES\_128_GCM" (refer to Encryption Format section).
     2. "data": BASE64-encoded binary value of ciphertext.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
 The data structure contains the following fields:
-    1. title - a String with the title of the credential (e.g. "Car Key")
-    2. description - a String with brief description of the credential (e.g. "a key to my personal car")
-    3. imageURL - a link to a picture representing the credential visually.
+    1. title (String, Required) - the title of the credential (e.g. "Car Key")
+    2. description (String, Required) - a brief description of the credential (e.g. "a key to my personal car")
+    3. imageURL (String, Required) - a link to a picture representing the credential visually.
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
@@ -371,7 +371,10 @@ This API call produces a response with empty body, no content type is required
 
 Request body is a complex structure, including the following fields:
 
-- payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
+- payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
+    1. "type": "AEAD\_AES\_128_GCM" (refer to Encryption Format section).
+    2. "data": BASE64-encoded binary value of ciphertext.
+
 - notificationToken (Object, Required) - Mandatory notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
 	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
 	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
