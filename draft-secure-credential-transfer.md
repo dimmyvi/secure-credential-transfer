@@ -375,8 +375,8 @@ Request body is a complex structure, including the following fields:
     2. "data": BASE64-encoded binary value of ciphertext.
 
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following (if notificationToken is provided it should include both fields):
-    - type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
-	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
+    1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
+    2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
 
 ~~~
 {
