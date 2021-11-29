@@ -524,7 +524,7 @@ ResponseBody :
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
-- expiration (String, Required) - the date that the mailbox will expire. The mailbox expiration is set during mailbox creation. This expiration should be a complete {{!ISO8601}} date string, and can be used to allow receiving clients to show when a share will expire.
+- expiration (String, Required) - the date that the mailbox will expire. The mailbox expiration is set during mailbox creation. This expiration should be a complete {{!RFC3339}} date string, and can be used to allow receiving clients to show when a share will expire.
 
 ~~~
 {
