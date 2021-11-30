@@ -317,7 +317,7 @@ Status: “200” (OK)
 ResponseBody:
 
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
-- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses boolean to decide whether it should listen on the push topic or do long-polling.
+- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.
 
 ~~~
 {
