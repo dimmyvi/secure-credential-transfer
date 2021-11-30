@@ -25,30 +25,20 @@ author:
     organization: Apple Inc
     email: mbyington@apple.com
  -
-    ins: B. Chester
-    name: Ben Chester
-    organization: Apple Inc
-    email: bchester@apple.com
- -
     ins: M. Lerch
     name: Matthias Lerch
     organization: Apple Inc
     email: mlerch@apple.com
  -
-    ins: C. Qin
-    name: Crystal Qin
-    organization: Alphabet Inc
-    email: crystalyq@google.com
+    ins: A. Pelletier
+    name: Alex Pelletier
+    organization: Apple Inc
+    email: a_pelletier@apple.com
  -
     ins: A. Bar-Niv
     name: Adam Bar-Niv
     organization: Alphabet Inc
-    email: adambn@google.com
- -
-    ins: N. Sha
-    name: Nick Sha
-    organization: Alphabet Inc
-    email: nicksha@google.com
+    email: adambn@google.com    
     
     
 normative:
@@ -268,7 +258,7 @@ The data structure contains the following fields:
     1. title (String, Required) - the title of the credential (e.g. "Car Key")
     2. description (String, Required) - a brief description of the credential (e.g. "a key to my personal car")
     3. imageURL (String, Required) - a link to a picture representing the credential visually.
-- notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
+- notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following (if notificationToken is provided it should include both fields):
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
 - mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expirationTime. Required at the time of the mailbox creation. OEM device may provide this data in the request, Relay server shall define a default configuration, if it is not provided in the incoming request. Data structure includes the following:
@@ -374,9 +364,9 @@ Request body is a complex structure, including the following fields:
     1. "type": "AEAD\_AES\_128_GCM" (refer to Encryption Format section).
     2. "data": BASE64-encoded binary value of ciphertext.
 
-- notificationToken (Object, Required) - Mandatory notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following:
-	- type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
-	- tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification
+- notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following (if notificationToken is provided it should include both fields):
+    1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
+    2. tokenData (String, Required) - notification token data (Hex or Base64 encoded based on the concrete implementation) - application-specific - refer to appropriate Push Notification System specification.
 
 ~~~
 {
@@ -524,7 +514,7 @@ ResponseBody :
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (String, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
-- expiration (String, Required) - the date that the mailbox will expire. The mailbox expiration is set during mailbox creation. This expiration should be a complete {{!ISO8601}} date string, and can be used to allow receiving clients to show when a share will expire.
+- expiration (String, Required) - the date that the mailbox will expire. The mailbox expiration is set during mailbox creation. This expiration should be a complete {{!RFC3339}} date string, and can be used to allow receiving clients to show when a share will expire.
 
 ~~~
 {
@@ -674,12 +664,15 @@ in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignmen
 
 The following people provided substantive contributions to this document:
 
-- Alex Pelletier
+- Ben Chester
 - Casey Astiz
 - Jean-Luc Giraud
 - Yogesh Karandikar
 - Alexey Bulgakov
 - Tommy Pauly
+- Crystal Qin
+- Nick Sha
+- Manuel Gerster
 
 # Acknowledgments
 
