@@ -395,7 +395,7 @@ Request body is a complex structure, including the following fields:
 
 ResponseBody:
 
-- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses boolean to decide whether it should listen on the push topic or do long-polling.
+- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.
 
 ~~~
 {
