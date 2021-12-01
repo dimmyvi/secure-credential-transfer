@@ -217,7 +217,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 
 When a user interacts with a share url on a Receiver device it can be helpful to know what Credential Vertical this share is for. This is particularly important if the Receiver device has multiple apps that can handle a share url. For example, a Receiver device might want to handle a general access share in their wallet app, but handle car key shares in a special car app.
 
-To allow for this kind of share url universal link routing the sender can include the Credential Vertical in the share url as a query parameter. The Credential Vertical can't be included in the encrypted payload because the Receiver device might need to open the right app before retrieving the secure payload. The Credential Vertical query parameter uses the "v" key and supports the below types. If no Credential Vertical is provided it will be assumed that this is a general access share url.
+To properly route a share URL, the sender can include the Credential Vertical in the share URL as a query parameter. The Credential Vertical can't be included in the encrypted payload because the Receiver device might need to open the right application before retrieving the secure payload. The Credential Vertical query parameter uses the "v" key and supports the below types. If no Credential Vertical is provided it will be assumed that this is a general access share URL.
 
 | Vertical       | Value |
 | --------       | ----- |
