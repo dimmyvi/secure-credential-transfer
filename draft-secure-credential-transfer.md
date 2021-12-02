@@ -277,7 +277,7 @@ Value is defined as a combination of the following values: "R" - for read access
 {: #apple-push-token title="Apple Push Token Example"}
 
 ~~~
-{    "mailboxIdentifier" : "12345678-9...A-BCD",
+{
     "displayInformation" : {
         "title" : "Hotel Pass",
         "description" : "Some Hotel Pass",
