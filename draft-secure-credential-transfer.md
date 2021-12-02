@@ -305,21 +305,20 @@ Value is defined as a combination of the following values: "R" - for read access
 Status: “200” (OK)
 
 ResponseBody:
+
 - urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
+- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.
 
 ~~~
 {
-    "urlLink":"relayserver.com/m/12345678-9...A-BCD"
+    "urlLink":"relayserver.com/m/12345678-9...A-BCD",
+    "isPushNotificationSupported":true
 }
 ~~~
 {: #create-mailbox-response title="Create Mailbox Response Example"}
 
 `201`
 Status: “201” (Created) - response to a duplicated request (duplicated "Mailbox-Request-Id"). Relay server SHALL respond to duplicated requests with 201 without creating a new mailbox. "Mailbox-Request-Id" passed in the first CreateMailbox request's header SHOULD be stored by the Relay server and compared to the same value in the subsequent requests to identify duplicated requests. If duplicate is found, Relay SHALL not create a new mailbox, but respond with 201 instead. The value of "Mailbox-Request-Id" of the last successfully completed request SHOULD be stored based on the Device Claim passed by the caller.
-
-ResponseBody:
-- urlLink (String, Required) - a full URL link to the mailbox including fully qualified domain name and mailbox Identifier.
-
 
 `400`
 Bad Request - invalid request has been passed (can not parse or required fields missing).
@@ -383,6 +382,17 @@ Request body is a complex structure, including the following fields:
 {: #update-mailbox-request title="Update Mailbox Request Example"}
 
 ### Responses
+
+ResponseBody:
+
+- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.
+
+~~~
+{
+    "isPushNotificationSupported":true
+}
+~~~
+{: #update-mailbox-response title="Create Mailbox Response Example"}
 
 `200 `
 Status: “200” (OK)
