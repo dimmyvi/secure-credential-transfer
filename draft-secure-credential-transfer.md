@@ -35,10 +35,10 @@ author:
     organization: Apple Inc
     email: a_pelletier@apple.com
  -
-    ins: A. Bar-Niv
-    name: Adam Bar-Niv
+    ins: N. Sha
+    name: Nick Sha
     organization: Alphabet Inc
-    email: adambn@google.com    
+    email: nicksha@google.com   
     
     
 normative:
@@ -690,7 +690,7 @@ The following people provided substantive contributions to this document:
 - Alexey Bulgakov
 - Tommy Pauly
 - Crystal Qin
-- Nick Sha
+- Adam Bar-Niv
 - Manuel Gerster
 
 # Acknowledgments
