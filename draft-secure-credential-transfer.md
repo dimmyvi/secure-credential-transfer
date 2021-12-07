@@ -94,6 +94,8 @@ The structure of Provisioning Information is specific to Provisioning Partner or
 
 - Secret - a symmetric encryption key shared by a pair of Sender and Receiver devices, used to encrypt Provisioning Information stored on the Relay server. Secret stays the same for the entire credential transfer flow (one Secret per complete transfer). Provisioning Information stored on Relay server is always encrypted using the Secret. In Stateful flow all information exchanged by Sender and Receiver devices through Relay server is encrypted with the same Secret. Thus, effectively, Secret has a one-to-one relation with the mailbox.
 
+- Credential Vertical - The broad industry vertical that the credential belongs to. For example, the credential could belong to the car or home vertical.
+
 API parameters:
 
 - Device Claim - a unique token allowing the caller to read from / write data to the mailbox. Exactly one Sender device and one Receiver device SHOULD be able to read from / write secure payload to the mailbox. Sender device provides a Device Claim in order to create a mailbox. When the Relay server, having received a request from the Sender device, creates a mailbox, it binds this Sender's Device Claim to the mailbox. When the Receiver device first reads data from the mailbox it presents its Device Claim to the Relay Server, which binds the mailbox to the given Receiver device. Thus, both Sender and Receiver devices are bound to the mailbox (allowed to read from / write to it). Only Sender and Receiver devices that present valid Device Claims are allowed to send subsequent read/update/delete calls to the mailbox. The value SHALL be a UUID {{!RFC4122}}.
@@ -200,6 +202,42 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                        |                             |             OK              |
 ~~~
 {: #stateful-flow-image title="Sample stateful workflow"}
+
+## Share URL
+
+A share url is the url a Sender sends to the Receiver allowing them to retreive the Credential Information stored on the Relay Server. A share url is made up of the following fields:
+
+```
+http://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertical}#{Secret}
+```
+
+| Field              | Location           | Required |
+| -----------------  | ------------------ | -------- |
+| RelayServerHost    | URL Host           | Yes      |
+| ApiVersion         | URI Path Parameter | Yes      |
+| MailboxIdentifier  | URI Path Parameter | Yes      | 
+| CredentialVertical | Query Parameter    | No       |
+| Secret             | Fragment           | No       |
+
+### Credential Vertical in share url
+
+When a user interacts with a share URL on a Receiver device it can be helpful to know what Credential Vertical this share is for. This is particularly important if the Receiver device has multiple applications that can handle a share URL. For example, a Receiver device might want to handle a general access share in their wallet app, but handle car key shares in a specific car application.
+
+To properly route a share URL, the sender can include the Credential Vertical in the share URL as a query parameter. The Credential Vertical can't be included in the encrypted payload because the Receiver device might need to open the right application before retrieving the secure payload. The Credential Vertical query parameter uses the "v" key and supports the below types. If no Credential Vertical is provided it will be assumed that this is a general access share URL.
+
+| Vertical       | Value       |
+| --------       | ----------- |
+| General Access | a or *None* |
+| Home Key       | h           |
+| Car Key        | c           |
+
+
+Example car key share url:
+```
+http://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
+```
+
+The Credential Vertical query parameter can be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.
 
 # API connection details
 
