@@ -247,7 +247,7 @@ Example car key share url:
 http://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
 ```
 
-The Credential Vertical query parameter should be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.
+The Credential Vertical query parameter can be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.
 
 # API connection details
 
