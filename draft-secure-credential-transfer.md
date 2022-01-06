@@ -203,9 +203,56 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 ~~~
 {: #stateful-flow-image title="Sample stateful workflow"}
 
+## Provisioning Information Structure
+
+The Provisioning Information is the data transfered via the Relay Server between the Sender device and Receiver device. Each use case defines its own specalized Provisioning Information format, but all formats must at least ahead to the following structure.
+
+| Key    | Type   | Description 
+| ------ | ------ | --- 
+| format | String | The Provisioning Information format that the message follows. This is used by the Sender device and Receiver device to know how to parse the message.
+
+##### Provisioning Information Format
+
+Each Provisioning Information format must have the message structure defined in an external specification.
+
+| Format Type                      | Spec Link | Description 
+| -------------------------------- | --------- | ---
+| digitalwallet.carkey.ccc         | [Link]()  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
+| digitalwallet.authorizationToken | [Link]()  | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
+
+~~~
+{
+    "format" : "digitalwallet.carkey.ccc",
+    // Additional use case specific fields
+}
+~~~
+
+### Provisioning Information Encryption
+
+Provisioning Information will be stored on the Relay Server encrypted. The Secret used to encrypt the Provisioning Information should given to the Receiver Device via [Share URL](#Share-URL). The encrypted payload should be a data structure having the following key-value pairs:
+
+- "type" (String, Required) - the encryption algorithm and mode used.
+- "data" (String, Required) - Base64 encoded binary value of the encrypted Provisioning Information, aka the ciphertext.
+
+Please refer to {{!RFC5116}} for the details of the encryption algorithm.
+
+The following algorithms and modes are mandatory to implement:
+
+- "AEAD_AES_128_GCM": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+
+- "AEAD_AES_256_GCM": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
+
+~~~
+{
+    "type" : "AEAD_AES_128_GCM",
+    "data" : "IV  ciphertext  tag"
+}
+~~~
+{: #secure-payload-format title="Secure Payload Format example"}
+
 ## Share URL
 
-A share url is the url a Sender sends to the Receiver allowing them to retreive the Credential Information stored on the Relay Server. A share url is made up of the following fields:
+A share url is the url a Sender device sends to the Receiver device allowing them to retreive the Provisioning Information stored on the Relay Server. A share url is made up of the following fields:
 
 ```
 http://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertical}#{Secret}
@@ -231,13 +278,14 @@ To properly route a share URL, the sender can include the Credential Vertical in
 | Home Key       | h           |
 | Car Key        | c           |
 
-
 Example car key share url:
 ```
 http://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
 ```
 
 The Credential Vertical query parameter can be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.
+
+{: #secure-payload-format title="Credential Vertical in share url"}
 
 # API connection details
 
@@ -621,29 +669,6 @@ Unauthorized - calling device is not authorized to relinquish a mailbox. E.g. a 
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found. Relay server may respond with 404 if the Mailbox Identifier passed by the caller is invalid.
-
-
-# Encryption format
-
-The encrypted payload (Provisioning Information) should be a data structure having the following key-value pairs:
-"type", which defines the encryption algorithm and mode used and "data", which contains BASE-64 encoded binary value of ciphertext.
-
-Please refer to {{!RFC5116}} for the details of the encryption algorithm.
-
-The following algorithms and modes are mandatory to implement: 
-
-- "AEAD_AES_128_GCM": AES symmetric encryption algorithm with key length 128 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
-
-- "AEAD_AES_256_GCM": AES symmetric encryption algorithm with key length 256 bits, in GCM mode with no padding.  Initialization Vector (IV) has the length of 96 bits randomly generated and tag length of 128 bits.
-
-~~~
-{
-    "type" : "AEAD_AES_128_GCM",
-    "data" : "IV  ciphertext  tag"
-}
-~~~
-{: #secure-payload-format title="Secure Payload Format example"}
-
 
 # Security Considerations
 
