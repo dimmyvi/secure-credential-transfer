@@ -21,6 +21,8 @@ The solution the WG comes up with must:
 
 - Allow a sender to initiate a share
 - Allow a recipient to view the share request, and provision the credential associated with the share upon receipt
+- Allow dynamic message formats based on the credential type
+- Allow sender device and receiver device to quickly perform multiple round trip communications
 
 Out of scope topics for the proposed WG are:
 
@@ -28,6 +30,8 @@ Out of scope topics for the proposed WG are:
 - The WG will define the full set of different credential types that could be shared. A subset of these credential types adhere to a public standard. For these credential types, the format of the Provisioning Information shall be defined by the appropriate standard. Other credential types may be proprietary. For these credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the Provisioning Information.
 - The User Interface (UI) that is displayed to the sender or receiver during sending or receiving - this will depend on the device OEM’s UI and HI guidelines.
 
+
 The WG will deliver a set of APIs and workflows to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. Privacy-preserving algorithms such as field-level encryption will be used to protect data in transit.
+
 
 The starting point for Secure Credential Transfer WG discussions shall be draft-secure-credential-transfer.
