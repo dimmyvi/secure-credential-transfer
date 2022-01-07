@@ -207,10 +207,10 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 
 The Provisioning Information is the data transfered via the Relay Server between the Sender device and Receiver device. Each use case defines its own specalized Provisioning Information format, but all formats must at least adhear to the following structure. Formats are free to define new top level keys, so clients shouldn't be surprised if a message of an unexpected format has specalized top level keys.
 
-| Key                | Type       | Description 
-| ------             | ---        | --- 
-| format             | String     | The Provisioning Information format that the message follows. This is used by the Sender device and Receiver device to know how to parse the message.
-| genericSharingData | Dictionary | A dictionary of generic sharing data that can be used for cross platform credential transfers. See each format's specification for exact fields.
+| Key           | Type       | Description 
+| ------        | ---        | --- 
+| format        | String     | The Provisioning Information format that the message follows. This is used by the Sender device and Receiver device to know how to parse the message.
+| genericData   | Dictionary | A dictionary of generic sharing data that can be used for cross platform credential transfers. See each format's specification for exact fields.
 
 ##### Provisioning Information Format
 
