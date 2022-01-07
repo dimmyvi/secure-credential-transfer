@@ -42,7 +42,21 @@ author:
     
     
 normative:
-      
+  CCC-Digital-Key-30:
+    author:
+      org: Car Connectivity Consortium
+    title: "Digital Key – The Future of Vehicle Access"
+    date: 2021-11
+    target: https://global-carconnectivity.org/wp-content/uploads/2021/11/CCC_Digital_Key_Whitepaper_Approved.pdf      
+
+
+  ISO-18013-5:
+    author:
+      org: Cards and security devices for personal identification
+    title: "Personal identification — ISO-compliant driving licence — Part 5: Mobile driving licence (mDL) application"
+    date: 2021-09
+    target: https://www.iso.org/standard/69084.html
+
 
 informative:
 
@@ -216,10 +230,10 @@ The Provisioning Information is the data transfered via the Relay Server between
 
 Each Provisioning Information format must have the message structure defined in an external specification.
 
-| Format Type                      | Spec Link | Description 
-| -------------------------------- | --------- | ---
-| digitalwallet.carkey.ccc         | [Link]()  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
-| digitalwallet.authorizationToken | [Link]()  | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
+| Format Type                      | Spec Link               | Description 
+| -------------------------------- | ----------------------- | ---
+| digitalwallet.carkey.ccc         | {{CCC-Digital-Key-30}}  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
+| digitalwallet.authorizationToken | {{ISO-18013-5}}         | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
 
 ~~~
 {
@@ -227,10 +241,12 @@ Each Provisioning Information format must have the message structure defined in 
     // Additional use case specific fields
 }
 ~~~
+{: #provisioning-info-format title="Provisioning Information format"}
+
 
 ### Provisioning Information Encryption
 
-Provisioning Information will be stored on the Relay Server encrypted. The Secret used to encrypt the Provisioning Information should given to the Receiver Device via [Share URL](#Share-URL). The encrypted payload should be a data structure having the following key-value pairs:
+Provisioning Information will be stored on the Relay Server encrypted. The Secret used to encrypt the Provisioning Information should given to the Receiver Device via a "Share URL" (a URL link to a mailbox). The encrypted payload should be a data structure having the following key-value pairs:
 
 - "type" (String, Required) - the encryption algorithm and mode used.
 - "data" (String, Required) - Base64 encoded binary value of the encrypted Provisioning Information, aka the ciphertext.
@@ -253,11 +269,13 @@ The following algorithms and modes are mandatory to implement:
 
 ## Share URL
 
-A share url is the url a Sender device sends to the Receiver device allowing them to retreive the Provisioning Information stored on the Relay Server. A share url is made up of the following fields:
+A "Share URL" is the url a Sender device sends to the Receiver device allowing them to retreive the Provisioning Information stored on the Relay Server. A Share URL is made up of the following fields:
 
-```
+~~~
 http://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertical}#{Secret}
-```
+~~~
+{: #share-url-example title="Share URL example"}
+
 
 | Field              | Location           | Required |
 | -----------------  | ------------------ | -------- |
@@ -267,7 +285,7 @@ http://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertic
 | CredentialVertical | Query Parameter    | No       |
 | Secret             | Fragment           | No       |
 
-### Credential Vertical in share url
+### Credential Vertical in Share URL
 
 When a user interacts with a share URL on a Receiver device it can be helpful to know what Credential Vertical this share is for. This is particularly important if the Receiver device has multiple applications that can handle a share URL. For example, a Receiver device might want to handle a general access share in their wallet app, but handle car key shares in a specific car application.
 
@@ -279,14 +297,13 @@ To properly route a share URL, the sender can include the Credential Vertical in
 | Home Key       | h           |
 | Car Key        | c           |
 
-Example car key share url:
-```
+~~~
 http://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
-```
+~~~
+{: #car-key-share-url-example title="Car Key Share URL example"}
 
 The Credential Vertical query parameter can be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.
 
-{: #secure-payload-format title="Credential Vertical in share url"}
 
 # API connection details
 
