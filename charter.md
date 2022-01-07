@@ -1,6 +1,6 @@
 #Charter for Working Group
 
-There are many situations in which it is desirable to share a digital credential with another person. For example, you may want to provide access to your vehicle to a Valet. You may also want to provide access to your home to your cat sitter. Or, you may want to share a hotel key with your spouse. Today, no such standardized method exists in a cross-platform, multidisciplinary capacity. 
+There are many situations in which it is desirable to share a digital credential with another person. For example, you may want to provide access to your vehicle to a friend or a family member. You may also want to provide access to your home to your cat sitter. Or, you may want to share a hotel key with your spouse. Today, no such standardized method exists in a cross-platform, multidisciplinary capacity. 
 
 The WG charter includes the definition and standardization of a protocol that will facilitate such credential transfers from individual to individual. The protocol will leverage a “relay server” to transfer data from sender to recipient. The scope of the transfer is limited to a single origin device and a single destination device.
 
