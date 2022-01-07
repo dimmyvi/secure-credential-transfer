@@ -9,7 +9,6 @@ Privacy goals include:
 - The relay server should not see sensitive details of the share
 - The relay server should not be able to provision the credential itself, acting as an intermediary for the recipient (MiTM)
 - The relay server should not persist the identity of the sender nor receiver
-- Device OEMs should not be able to identity the social graph of whom has shared with whom
 
 Sufficient security measures should be embedded in the protocol in an effort to:
 
