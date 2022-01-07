@@ -224,21 +224,23 @@ The Provisioning Information is the data transfered via the Relay Server between
 | Key           | Type       | Description 
 | ------        | ---        | --- 
 | format        | String     | The Provisioning Information format that the message follows. This is used by the Sender device and Receiver device to know how to parse the message.
-| genericData   | Dictionary | A dictionary of generic sharing data that can be used for cross platform credential transfers. See each format's specification for exact fields.
+| content       | Dictionary | A dictionary of content to be used for the credential transfer. See each format's specification for exact fields.
 
 ##### Provisioning Information Format
 
 Each Provisioning Information format must have the message structure defined in an external specification.
 
-| Format Type                      | Spec Link               | Description 
-| -------------------------------- | ----------------------- | ---
-| digitalwallet.carkey.ccc         | {{CCC-Digital-Key-30}}  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
-| digitalwallet.authorizationToken | {{ISO-18013-5}}         | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
+| Format Type                              | Spec Link               | Description 
+| ---------------------------------------- | ----------------------- | ---
+| digitalwallet.carkey.ccc                 | {{CCC-Digital-Key-30}}  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
+| digitalwallet.generic.authorizationToken | {{ISO-18013-5}}         | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
 
 ~~~
 {
-    "format" : "digitalwallet.carkey.ccc",
-    // Additional use case specific fields
+   "format" : "digitalwallet.carkey.ccc",
+   "content": {
+      // Format specific fields
+   }
 }
 ~~~
 {: #provisioning-info-format title="Provisioning Information format"}
