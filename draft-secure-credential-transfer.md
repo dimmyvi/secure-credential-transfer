@@ -775,6 +775,7 @@ The following people provided substantive contributions to this document:
 - Crystal Qin
 - Adam Bar-Niv
 - Manuel Gerster
+- Igor Gariev
 
 # Acknowledgments
 
