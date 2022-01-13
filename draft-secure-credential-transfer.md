@@ -128,7 +128,7 @@ The processes start with a Sender device composing a set of Provisioning Informa
 Sender device calls CreateMailbox API endpoint on a Relay server in order to create a mailbox.
 Once a mailbox is created, it has limited time to live. When expired, the mailbox SHALL be deleted - refer to DeleteMailbox endpoint. TimeToLive mailbox configuration in the request is required to use with the CreateMailbox call (refer to mailboxConfiguration request parameter). Relay server is responsible to periodically check for mailboxes with expired TimeToLive and delete them.
 
-Relay server builds a unique URL link to a mailbox (for example, “http://relayserver.com/m/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
+Relay server builds a unique URL link to a mailbox (for example, “https://relayserver.com/m/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
 Please refer to section "Security Considerations" for more details.
 
 Receiver device, having obtained both the URL link and the Secret, generates a unique token - a Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
@@ -274,7 +274,7 @@ The following algorithms and modes are mandatory to implement:
 A "Share URL" is the url a Sender device sends to the Receiver device allowing them to retreive the Provisioning Information stored on the Relay Server. A Share URL is made up of the following fields:
 
 ~~~
-http://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertical}#{Secret}
+https://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVertical}#{Secret}
 ~~~
 {: #share-url-example title="Share URL example"}
 
@@ -300,7 +300,7 @@ To properly route a share URL, the sender can include the Credential Vertical in
 | Car Key        | c           |
 
 ~~~
-http://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
+https://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
 ~~~
 {: #car-key-share-url-example title="Car Key Share URL example"}
 
@@ -731,7 +731,7 @@ The following threats and mitigations have been considered:
 the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, MUST remove the Fragment (Secret) before calling the Relay server API.
 
 ~~~
-“http://relayserver.com/v1/m/{mailboxIdentifier}#{Secret}”
+“https://relayserver.com/v1/m/{mailboxIdentifier}#{Secret}”
 ~~~
 {: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
 
