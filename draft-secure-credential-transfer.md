@@ -128,7 +128,7 @@ The processes start with a Sender device composing a set of Provisioning Informa
 Sender device calls CreateMailbox API endpoint on a Relay server in order to create a mailbox.
 Once a mailbox is created, it has limited time to live. When expired, the mailbox SHALL be deleted - refer to DeleteMailbox endpoint. TimeToLive mailbox configuration in the request is required to use with the CreateMailbox call (refer to mailboxConfiguration request parameter). Relay server is responsible to periodically check for mailboxes with expired TimeToLive and delete them.
 
-Relay server builds a unique URL link to a mailbox (for example, “https://relayserver.com/m/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
+Relay server builds a unique URL link to a mailbox (for example, “https://relayserver.example.com/v1/m/1234567890”) and returns it to the Sender device, which sends the link directly to the Receiver device over communication channel (e.g. SMS, email, iMessage).
 Please refer to section "Security Considerations" for more details.
 
 Receiver device, having obtained both the URL link and the Secret, generates a unique token - a Receiver Device Claim - and passes it to the Relay server in order to read the encrypted Provisioning Information from the mailbox. 
