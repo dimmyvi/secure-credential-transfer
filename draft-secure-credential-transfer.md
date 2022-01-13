@@ -300,7 +300,7 @@ To properly route a share URL, the sender can include the Credential Vertical in
 | Car Key        | c           |
 
 ~~~
-https://relayserver.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
+https://relayserver.example.com/v1/m/2bba630e-519b-11ec-bf63-0242ac130002?v=c#hXlr6aRC7KgJpOLTNZaLsw==
 ~~~
 {: #car-key-share-url-example title="Car Key Share URL example"}
 
@@ -387,7 +387,7 @@ Value is defined as a combination of the following values: "R" - for read access
     "displayInformation" : {
         "title" : "Hotel Pass",
         "description" : "Some Hotel Pass",
-        "imageURL" : "https://hotel.com/sharingImage" 
+        "imageURL" : "https://example.com/sharingImage" 
     },
     "payload" : {
         "type": "AEAD_AES_128_GCM",
@@ -417,7 +417,7 @@ ResponseBody:
 
 ~~~
 {
-    "urlLink":"relayserver.com/m/12345678-9...A-BCD",
+    "urlLink":"https://relayserver.example.com/m/12345678-9...A-BCD",
     "isPushNotificationSupported":true
 }
 ~~~
@@ -586,7 +586,7 @@ ResponseBody :
      <meta property="og:type" content="image/jpeg" />
      <meta property="og:description" content="Some Hotel Pass" />
      <meta property="og:url" content="share://" />
-     <meta property="og:image" content="https://website.com/photos/photo.jpg" />
+     <meta property="og:image" content="https://example.com/photos/photo.jpg" />
      <meta property="og:image:width" content="612" />
      <meta property="og:image:height" content="408" /></head>
      </html>"
@@ -637,7 +637,7 @@ ResponseBody :
     “displayInformation" : {
         "title" : "Hotel Pass",
         "description" : "Some Hotel Pass",
-        "imageURL" : "https://hotel.com/sharingImage"
+        "imageURL" : "https://example.com/sharingImage"
     },
     "payload" : {
         "type": "AEAD_AES_128_GCM",
@@ -731,7 +731,7 @@ The following threats and mitigations have been considered:
 the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, MUST remove the Fragment (Secret) before calling the Relay server API.
 
 ~~~
-“https://relayserver.com/v1/m/{mailboxIdentifier}#{Secret}”
+“https://relayserver.example.com/v1/m/{mailboxIdentifier}#{Secret}”
 ~~~
 {: #link-with-fragment title="Example of URL with Secret as URI Fragment"}
 
