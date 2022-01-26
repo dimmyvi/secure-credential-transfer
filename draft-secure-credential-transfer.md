@@ -434,7 +434,7 @@ Status: “201” (Created) - response to a duplicated request (duplicated "Mail
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or mailbox with the provided mailboxIdentifier already exists.
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or deviceAttestation provided is invalid.
 
 
 ## UpdateMailbox
@@ -463,7 +463,7 @@ This API call consumes the following media types via the Content-Type request he
 
 ### Produces
 
-This API call produces a response with empty body, no content type is required
+This API call produces following media types via the Content-Type request header: `application/json`
 
 ### Request body 
 
@@ -729,7 +729,7 @@ The following threats and mitigations have been considered:
 - Content of the mailbox SHALL be only visible to devices having Secret.
 - It is recommended to send URL to the mailbox and the Secret over different channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).
 - Relay server MUST not receive the Secret with the MailboxIdentifier at any time.
-- Content of the mailbox MUST guaranty it's integrity with cryptographic checksum (e.g. MAC, AES-GCM tag).
+- Content of the mailbox MUST guaranty its integrity with cryptographic checksum (e.g. MAC, AES-GCM tag).
 - Relay server SHALL periodically check and delete expired mailboxes ( refer to timeToLive parameter in the CreateMailbox request).
 - If the Sender device sends both URL and the Secret over the same channel as a single URL,
 the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resulting URL shall look as in the example below. Receiver device, upon receipt of such URL, MUST remove the Fragment (Secret) before calling the Relay server API.
