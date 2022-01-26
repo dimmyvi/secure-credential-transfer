@@ -434,7 +434,7 @@ Status: “201” (Created) - response to a duplicated request (duplicated "Mail
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented the incorrect deviceClaim or deviceAttestation provided is invalid.
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented an invalid deviceClaim or deviceAttestation.
 
 
 ## UpdateMailbox
