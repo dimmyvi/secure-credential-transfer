@@ -370,10 +370,10 @@ The data structure contains the following fields:
 - notificationToken (Object, Optional) - optional notification token used to notify an appropriate remote device that the mailbox data has been updated. Data structure includes the following (if notificationToken is provided it should include both fields):
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (Base64 encoded data) - application-specific - refer to appropriate Push Notification System specification.
-- mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox time to live. Required at the time of the mailbox creation. OEM device may provide this data in the request, Relay server shall define a default configuration, if it is not provided in the incoming request. Data structure includes the following:
+- mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expiration time. Required at the time of the mailbox creation. OEM device may provide this data in the request, Relay server shall define a default configuration, if it is not provided in the incoming request. Data structure includes the following:
     1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
-    2. expiration (String, Required) - Mailbox expiration time in "YYYY-MM-DDThh:mm:ssZ" format (UTC time zone) {{!RFC3339}}. Mailbox has limited expiration time. Once expired, it SHALL be deleted - refer to DeleteMailbox endpoint. Relay server SHOULD periodically check for expired mailboxes and delete them.
+    2. expiration (String, Required) - Mailbox expiration time in "YYYY-MM-DDThh:mm:ssZ" format (UTC time zone) {{!RFC3339}}. Mailbox has limited livetime. Once expired, it SHALL be deleted - refer to DeleteMailbox endpoint. Relay server SHOULD periodically check for expired mailboxes and delete them.
 
 ~~~
 {
