@@ -8,8 +8,7 @@ Privacy goals include:
 
 - The relay server should not see sensitive details of the share
 - The relay server should not be able to provision the credential itself, acting as an intermediary for the recipient (MiTM)
-- The relay server should not persist the identity of the sender nor receiver
-- The relay server should only retain the Provisioning Information for a limited amount of time
+- Aside from potentially the IP address, the relay server should not learn the identity of the sender or receiver 
 
 Sufficient security measures should be embedded in the protocol in an effort to:
 
@@ -30,8 +29,4 @@ Out of scope topics for the proposed WG are:
 - The WG will define the full set of different credential types that could be shared. A subset of these credential types adhere to a public standard. For these credential types, the format of the Provisioning Information shall be defined by the appropriate standard. Other credential types may be proprietary. For these credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the Provisioning Information.
 - The User Interface (UI) that is displayed to the sender or receiver during sending or receiving - this will depend on the device OEM’s UI and HI guidelines.
 
-
 The WG will deliver a protocol to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. The protocol will use appropriate cryptographic mechanisms to protect the transferred credentials in accordance with the security and privacy goals described above.
-
-
-The starting point for Secure Credential Transfer WG discussions shall be draft-secure-credential-transfer.
