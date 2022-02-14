@@ -31,6 +31,3 @@ Out of scope topics for the proposed WG are:
 
 
 The WG will deliver a set of APIs and workflows to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. Privacy-preserving algorithms such as field-level encryption will be used to protect data in transit.
-
-
-The starting point for Secure Credential Transfer WG discussions shall be draft-secure-credential-transfer.
