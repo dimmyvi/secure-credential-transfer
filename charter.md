@@ -25,9 +25,8 @@ The solution the WG comes up with must:
 
 Out of scope topics for the proposed WG are:
 
-- Defining the mechanism the receiver will use (which APIs) in order to provision the credential
+- Defining the mechanism the receiver will use in order to provision the credential
 - The WG will define the full set of different credential types that could be shared. A subset of these credential types adhere to a public standard. For these credential types, the format of the Provisioning Information shall be defined by the appropriate standard. Other credential types may be proprietary. For these credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the Provisioning Information.
 - The User Interface (UI) that is displayed to the sender or receiver during sending or receiving - this will depend on the device OEM’s UI and HI guidelines.
 
-
-The WG will deliver a set of APIs and workflows to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. Privacy-preserving algorithms such as field-level encryption will be used to protect data in transit.
+The WG will deliver a protocol to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. The protocol will use appropriate cryptographic mechanisms to protect the transferred credentials in accordance with the security and privacy goals described above.
