@@ -362,7 +362,7 @@ Request body is a complex structure, including the following fields:
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
     1. "type": "AEAD\_AES\_128_GCM" (refer to Encryption Format section).
     2. "data": BASE64-encoded binary value of ciphertext.
-- displayInformation (Object, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
+- displayInformation (Object, Required) - for the purposes of the Secure Credential Transfer API, this is a data structure. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
 The data structure contains the following fields:
     1. title (String, Required) - the title of the credential (e.g. "Car Key")
     2. description (String, Required) - a brief description of the credential (e.g. "a key to my personal car")
