@@ -331,6 +331,9 @@ In case of receiving a request with duplicated "Mailbox-Request-ID", Relay SHOUL
 
 All requests to CreateMailbox, ReadSecureContentFromMailbox and UpdateMailbox endpoints MUST contain this header. The value represents "Device Claim" (refer to Terminology)
 
+## Device-Attestation
+Request to CreateMailbox MAY contain this header. The value represents a deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data
+
 
 # HTTP access methods
 
