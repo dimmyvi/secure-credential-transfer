@@ -317,6 +317,7 @@ Request and response bodies SHALL be formatted as either JSON or HTML (based on 
 All Strings SHOULD be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version SHOULD be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version SHALL be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
 
+
 # HTTP Headers 
 
 ## Mailbox-Request-ID
@@ -327,9 +328,11 @@ Relay server SHOULD store the value of the last successfully processed "Mailbox-
 A key-value pair of "Device Claim" to "Mailbox-Request-ID" is suggested to store the last successfully processed request for each device. 
 In case of receiving a request with duplicated "Mailbox-Request-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
 
+
 ## Device-Claim
 
 All requests to CreateMailbox, ReadSecureContentFromMailbox and UpdateMailbox endpoints MUST contain this header. The value represents "Device Claim" (refer to Terminology)
+
 
 ## Device-Attestation
 Request to CreateMailbox MAY contain this header. The value represents a deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data
