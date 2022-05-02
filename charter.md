@@ -14,13 +14,13 @@ Sufficient security measures should be embedded in the protocol in an effort to:
 
 - Ensure only the intended recipient is able to provision the credential
 - Ensure the credential can only be provisioned once (anti-replay)
-- Ensure the sender has intent to share (secure user intent)
+- Ensure the sender has intent to share (secure user intent, proof of the fact that the share initiation is attributed to a valid device and a user)
 
 The solution the WG comes up with must:
 
-- Allow a sender to initiate a share
+- Allow a sender to initiate a share and define a relay server
 - Allow a recipient to view the share request, and provision the credential associated with the share upon receipt
-- Allow dynamic message formats based on the credential type
+- Allow dynamic message formats based on the credential type (the protocol should be able capable of carrying various types of credentials)
 - Allow sender device and receiver device to quickly perform multiple round trip communications
 
 Out of scope topics for the proposed WG are:
