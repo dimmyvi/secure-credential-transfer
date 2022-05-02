@@ -7,13 +7,13 @@ The WG charter includes the definition and standardization of a protocol that wi
 Privacy goals include:
 
 - The relay server should not see sensitive details of the share
-- The relay server should not be able to provision the credential itself, acting as an intermediary for the recipient (MiTM)
+- The relay server should not be able to provision the credential itself, acting as an intermediary for the recipient (man-in-the-middle, impersonation attack)
 - Aside from potentially the IP address, the relay server should not learn the identity of the sender or receiver 
 
 Sufficient security measures should be embedded in the protocol in an effort to:
 
 - Ensure only the intended recipient is able to provision the credential
-- Ensure the credential can only be provisioned once (Anti-replay)
+- Ensure the credential can only be provisioned once (anti-replay)
 - Ensure the sender has intent to share (secure user intent)
 
 The solution the WG comes up with must:
