@@ -23,7 +23,7 @@ The solution the WG comes up with must:
 - Allow dynamic message formats based on the credential type (the protocol should be able capable of carrying various types of credentials)
 - Allow sender device and receiver device to quickly perform multiple round trip communications
 
-Out of scope topics for the proposed WG are:
+Out of scope topics for the WG are:
 
 - Defining the mechanism the receiver will use in order to provision the credential
 - The WG will define the full set of different credential types that could be shared. A subset of these credential types adhere to a public standard. For these credential types, the format of the Provisioning Information shall be defined by the appropriate standard. Other credential types may be proprietary. For these credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the Provisioning Information.
