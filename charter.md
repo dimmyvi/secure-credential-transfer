@@ -13,7 +13,7 @@ Privacy goals include:
 Sufficient security measures should be embedded in the protocol in an effort to:
 
 - Ensure only the intended recipient is able to provision the credential
-- Ensure the credential can only be provisioned once (Anti-replay)
+- Ensure the credential can only be provisioned once (anti-replay)
 - Ensure the sender has intent to share (proof of the fact that the share initiation is attributed to a valid device and a user)
 
 The solution the WG comes up with must:
