@@ -27,8 +27,8 @@ The solution the WG comes up with must:
 
 Planned Deliverables:
 
-2022-09: WG adoption of the secure credential transfer protocol
-2023-09: Submit secure credential transfer protocol to the IESG for publication
+2022-12: WG adoption of the secure credential transfer protocol
+2023-12: Submit secure credential transfer protocol to the IESG for publication
 
 Out of scope topics for the WG are:
 
