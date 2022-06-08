@@ -22,12 +22,18 @@ The solution the WG comes up with must:
 - Allow a recipient to view the share request, and provision the credential associated with the share upon receipt
 - Allow opaque message content based on the credential type (the protocol should be able to carry various types of credentials)
 - Allow sender device and receiver device to perform multiple round trip communications within a limited time frame.
-- The WG will define the enumeration of credential types that could be shared. A subset of these credential types adhere to a public standard (e.g. Car Connectivity Consortium).
+- Support a variety of types of credentials, to include those adhering to public standards (e.g., Car Connectivity Consortium) and proprietary (i.e., non-public or closed community) formats
+- Allow opaque message content based on the credential type 
+
+Planned Deliverables:
+
+2022-09: WG adoption of the secure credential transfer protocol
+2023-09: Submit secure credential transfer protocol to the IESG for publication
 
 Out of scope topics for the WG are:
 
 - Defining the mechanism the receiver will use in order to provision the credential with the credential authority
 - The User Interface (UI) that is displayed to the sender or receiver during sending or receiving - this will depend on the device OEM’s UI and HI guidelines. 
-- For proprietary credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the Provisioning Information.
+- For proprietary credential types, the protocol the WG aims to establish shall not define the actual format nor content of each field within the encrypted data stored on the relay server. For credentials adhering to public standards, the encrypted data will be defined by that public standard. 
 
 The WG will deliver a protocol to facilitate secure credential transfer. The WG must consider all Privacy and Security considerations in an effort to perform the credential transfer in a secure manner. The protocol will use appropriate cryptographic mechanisms to protect the transferred credentials in accordance with the security and privacy goals described above.
