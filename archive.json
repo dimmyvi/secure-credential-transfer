@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-03-22T00:48:23.873519+00:00",
+  "timestamp": "2022-06-09T00:58:26.124566+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2499,6 +2499,48 @@
           "body": "",
           "createdAt": "2022-03-10T00:18:17Z",
           "updatedAt": "2022-03-10T00:18:17Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOGL7YAs45V0no",
+      "title": "Update charter.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/29",
+      "state": "MERGED",
+      "author": "castiz",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Updating per comments on this email thread: https://mailarchive.ietf.org/arch/msg/secret/XC7ihrJ5UYyU0F1vuajaqzm_Kck/.",
+      "createdAt": "2022-06-08T18:45:18Z",
+      "updatedAt": "2022-06-08T23:33:03Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "925465c8bd9a25a954960a0b9dafdffad4fd207f",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "64f38ab1825c4aff35388247f61245ff5dc48d53",
+      "closedAt": "2022-06-08T23:32:28Z",
+      "mergedAt": "2022-06-08T23:32:28Z",
+      "mergedBy": "alexpell00",
+      "mergeCommit": {
+        "oid": "561c152503e34d868df0f55d673fbd8b976fbd10"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs47o09D",
+          "commit": {
+            "abbreviatedOid": "64f38ab"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2022-06-08T23:29:07Z",
+          "updatedAt": "2022-06-08T23:29:07Z",
           "comments": []
         }
       ]
