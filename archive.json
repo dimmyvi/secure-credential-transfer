@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-09T00:58:26.124566+00:00",
+  "timestamp": "2022-06-12T01:01:39.715078+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -167,6 +167,30 @@
           "body": "Addressing this in https://github.com/dimmyvi/secure-credential-transfer/pull/22",
           "createdAt": "2022-01-13T18:19:10Z",
           "updatedAt": "2022-01-13T18:19:10Z"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "id": "I_kwDOGL7YAs5Liyxn",
+      "title": "Does/should the DeviceClaim be unique per sender/receiver and mailbox?",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/31",
+      "state": "OPEN",
+      "author": "mbratz",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hello team defining this API,\r\nCurrently I review this API definition in preparation for an implementation. I have the following question:\r\nHas the [DeviceClaim ](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#section-2-4) to be unique per sender/receiver and mailbox? Or is a sender/receiver allowed to reuse a Device Claim UUID for several mailboxes? \r\nIf it can be reused [Sender/Receiver privacy](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-sender-receiver-privacy) might be affected.\r\n\r\nThank you for clarifying, Marco",
+      "createdAt": "2022-06-10T11:21:15Z",
+      "updatedAt": "2022-06-10T16:16:54Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hello! There is nothing on the relay server preventing the sending and receiver from reusing device claim, but as you pointed out they should not. Reusing the device claim across multiple mailboxes would result in the relay server being able to track clients and correlate transfers.",
+          "createdAt": "2022-06-10T16:16:54Z",
+          "updatedAt": "2022-06-10T16:16:54Z"
         }
       ]
     }
@@ -2541,6 +2565,48 @@
           "body": "LGTM!",
           "createdAt": "2022-06-08T23:29:07Z",
           "updatedAt": "2022-06-08T23:29:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOGL7YAs45bK6h",
+      "title": "Update the out of scope topics",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/30",
+      "state": "MERGED",
+      "author": "castiz",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-06-09T22:52:58Z",
+      "updatedAt": "2022-06-09T22:54:27Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "561c152503e34d868df0f55d673fbd8b976fbd10",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "176926f5aa6dd59dfc82044fab65d892262e2009",
+      "closedAt": "2022-06-09T22:54:10Z",
+      "mergedAt": "2022-06-09T22:54:10Z",
+      "mergedBy": "alexpell00",
+      "mergeCommit": {
+        "oid": "790289ed26df10dfe3bd994aa9fcff1ae199e58c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs47upjB",
+          "commit": {
+            "abbreviatedOid": "176926f"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-06-09T22:53:35Z",
+          "updatedAt": "2022-06-09T22:53:35Z",
           "comments": []
         }
       ]
