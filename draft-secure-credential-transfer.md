@@ -47,7 +47,7 @@ normative:
       org: Car Connectivity Consortium
     title: "Digital Key – The Future of Vehicle Access"
     date: 2021-11
-    target: https://global-carconnectivity.org/wp-content/uploads/2021/11/CCC_Digital_Key_Whitepaper_Approved.pdf      
+    target: https://global-carconnectivity.org/wp-content/uploads/2021/11/CCC_Digital_Key_Whitepaper_Approved.pdf
 
 
   ISO-18013-5:
@@ -56,7 +56,7 @@ normative:
     title: "Personal identification — ISO-compliant driving licence — Part 5: Mobile driving licence (mDL) application"
     date: 2021-09
     target: https://www.iso.org/standard/69084.html
-    
+
 informative:
 
 
@@ -157,7 +157,7 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
                         |                   |                               |
                         |                   |         DeleteMailbox         |
                         |                   |<------------------------------| Provision or Register credentials
-                        |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>| 
+                        |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
                         |                   |              OK               |
 ~~~
 {: #stateless-flow-image title="Sample stateless workflow"}
@@ -168,11 +168,11 @@ The stateful workflow completes the common steps described in "Credential transf
 
 Then the Receiver device, having downloaded the encrypted Provisioning Information from the mailbox by URL and decrypted it with the Secret, generates a new structure of Provisioning Information, e.g. a digital key, and encrypts it with the same Secret, received from the Sender device. It then stores the payload in the same mailbox on the Relay server. In addition to the encrypted payload, Receiver stores a Receiver Notification Token in the given mailbox.
 
-Having received the encrypted Provisioning Information, the Relay server sends a Notification to the Sender device using the Sender Notification Token. 
+Having received the encrypted Provisioning Information, the Relay server sends a Notification to the Sender device using the Sender Notification Token.
 
 Sender device, having received the notification from the Relay server, reads secure content from the mailbox and decrypts all using the same Secret. Sender device generates new Provisioning Information, encrypts all fields using the Secret and stores all data in the same  mailbox on the Relay server.
 
-Relay server, having stored the data above, sends a notification to the Receiver device using Receiver Notification Token. Receiver device, having received the notification, reads the encrypted Provisioning Information, decrypts the data using the same Secret and uses this data to finalize credential registration or provisioning on device. 
+Relay server, having stored the data above, sends a notification to the Receiver device using Receiver Notification Token. Receiver device, having received the notification, reads the encrypted Provisioning Information, decrypts the data using the same Secret and uses this data to finalize credential registration or provisioning on device.
 
 Once the Receiver device has successfully registered or provisioned credentials, it deletes the mailbox by sending a DeleteMailbox call to the Relay server.
 Sender device may terminate the secure credential transfer by deleting the mailbox it created at any time. Deletion of the mailbox on the Relay server stops any on-going credential transfer process.
@@ -192,7 +192,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                        |                             |<----------------------------|
                        |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| Decrypt with Secret for ProvInfo1
                        |                             |       encrypted info        |
-                       |                             |                             | 
+                       |                             |                             |
                        |                             |UpdateMailbox(encrypted info)| Update with ProvInfo2
                        |                             |<----------------------------| encrypted with Secret
                        |   Push Notification         |-.-.-.-.-.-.-.-.-.-.-.-.-.->>| ProvInfo2 = new Provisioning Info
@@ -214,7 +214,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
                        |                             |        encrypted info       |
                        |                             |                             |
                        |                             |        DeleteMailbox        |
-                       |                             |<----------------------------| Provision or Register credentials 
+                       |                             |<----------------------------| Provision or Register credentials
                        |                             |-.-.-.-.-.-.-.-.-.-.-.-.-.->>|
                        |                             |             OK              |
 ~~~
@@ -224,7 +224,7 @@ Sender device may terminate the secure credential transfer by deleting the mailb
 
 The Provisioning Information is the data transfered via the Relay Server between the Sender device and Receiver device. Each use case defines its own specalized Provisioning Information format, but all formats must at least adhear to the following structure. Formats are free to define new top level keys, so clients shouldn't be surprised if a message of an unexpected format has specialized top level keys.
 
-| Key           | Type       | Required | Description 
+| Key           | Type       | Required | Description
 | ------        | ---        | ---      | ---
 | format        | String     |   Yes    | The Provisioning Information format that the message follows. This is used by the Sender device and Receiver device to know how to parse the message.
 | content       | Dictionary |   Yes    | A dictionary of content to be used for the credential transfer. See each format's specification for exact fields.
@@ -233,7 +233,7 @@ The Provisioning Information is the data transfered via the Relay Server between
 
 Each Provisioning Information format must have the message structure defined in an external specification.
 
-| Format Type                              | Spec Link               | Description 
+| Format Type                              | Spec Link               | Description
 | ---------------------------------------- | ----------------------- | ---
 | digitalwallet.carkey.ccc                 | {{CCC-Digital-Key-30}}  | A digital wallet Provisioning Information for sharing a car key that follows the Car Connectivity Consortium specification.
 | digitalwallet.generic.authorizationToken | {{ISO-18013-5}}         | A digital wallet Provisioning Information for sharing a generic pass that relies solely on an authorization token.
@@ -286,7 +286,7 @@ https://{RelayServerHost}/v{ApiVersion}/m/{MailboxIdentifier}?v={CredentialVerti
 | -----------------  | ------------------ | -------- |
 | RelayServerHost    | URL Host           | Yes      |
 | ApiVersion         | URI Path Parameter | Yes      |
-| MailboxIdentifier  | URI Path Parameter | Yes      | 
+| MailboxIdentifier  | URI Path Parameter | Yes      |
 | CredentialVertical | Query Parameter    | No       |
 | Secret             | Fragment           | No       |
 
