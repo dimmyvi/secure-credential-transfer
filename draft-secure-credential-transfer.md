@@ -312,20 +312,20 @@ The Credential Vertical query parameter can be added to the share URL by the Sen
 
 # API connection details
 
-The Relay server API endpoint MUST be accessed over HTTP using an https URI {{?RFC2818}} and SHOULD use the default https port. 
+The Relay server API endpoint MUST be accessed over HTTP using an https URI {{?RFC2818}} and SHOULD use the default https port.
 Request and response bodies SHALL be formatted as either JSON or HTML (based on the API endpoint). The communication protocol used for all interfaces SHALL be HTTPs.
 All Strings SHOULD be UTF-8 encoded (Unicode Normalization Form C (NFC)).
 An API version SHOULD be included in the URI for all interfaces. The version at the time of this document's latest update is v1. The version SHALL be incremented by 1 for major API changes or backward incompatible iterations on existing APIs.
 
 
-# HTTP Headers 
+# HTTP Headers
 
 ## Mailbox-Request-ID
 
 All requests to and from Relay server will have an HTTP header "Mailbox-Request-ID". The corresponding response to the API will have the same HTTP header, which SHALL echo the value in the request header. This is used to identify the request associated to the response for a particular API request and response pair. The value SHOULD be a UUID {{!RFC4122}}.
 The request originator SHALL match the value of this header in the response with the one sent in the request. If response is not received, caller may retry sending the request with the same value of "Mailbox-Request-ID".
 Relay server SHOULD store the value of the last successfully processed "Mailbox-Request-ID" for each device based on the caller's Device Claim.
-A key-value pair of "Device Claim" to "Mailbox-Request-ID" is suggested to store the last successfully processed request for each device. 
+A key-value pair of "Device Claim" to "Mailbox-Request-ID" is suggested to store the last successfully processed request for each device.
 In case of receiving a request with duplicated "Mailbox-Request-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
 
 
@@ -367,14 +367,14 @@ This API call consumes the following media types via the Content-Type request he
 
 This API call produces the following media types via the Content-Type response header: `application/json`
 
-### Request body 
+### Request body
 
 Request body is a complex structure, including the following fields:
 
 - payload (Object, Required) - for the purposes of Secure Credential Transfer API, this is a data structure, describing Provisioning Information specific to Credential Provider. It consists of the following 2 key-value pairs:
     1. "type": "AEAD\_AES\_128_GCM" (refer to Encryption Format section).
     2. "data": BASE64-encoded binary value of ciphertext.
-- displayInformation (Object, Required) - for the purposes of the Secure Credential Transfer API, this is a data structure. It allows an application running on a receiving device to build a visual representation of the credential to show to user. 
+- displayInformation (Object, Required) - for the purposes of the Secure Credential Transfer API, this is a data structure. It allows an application running on a receiving device to build a visual representation of the credential to show to user.
 The data structure contains the following fields:
     1. title (String, Required) - the title of the credential (e.g. "Car Key")
     2. description (String, Required) - a brief description of the credential (e.g. "a key to my personal car")
@@ -383,7 +383,7 @@ The data structure contains the following fields:
     1. type (String, Required) - notification token name. Used to define which Push Notification System to be used to notify appropriate remote device of a mailbox data update. (E.g. "com.apple.apns" for APNS)
     2. tokenData (String, Required) - notification token data (data encoded based on specific device OEM notification service rules - e.g. HEX-encoded or Base64-encoded) - application-specific - refer to appropriate Push Notification System specification.
 - mailboxConfiguration (Object, Optional) - optional mailbox configuration, defines access rights to the mailbox, mailbox expiration time. Required at the time of the mailbox creation. OEM device may provide this data in the request, Relay server shall define a default configuration, if it is not provided in the incoming request. Data structure includes the following:
-    1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete. 
+    1. accessRights (String, Optional) - optional access rights to the mailbox for Sender and  Receiver devices. Default access to the mailbox is Read and Delete.
 Value is defined as a combination of the following values: "R" - for read access, "W" - for write access, "D" - for delete access. Example" "RD" - allows to read from the mailbox and delete it.
     2. expiration (String, Required) - Mailbox expiration time in "YYYY-MM-DDThh:mm:ssZ" format (UTC time zone) {{!RFC3339}}. Mailbox has limited livetime. Once expired, it SHALL be deleted - refer to DeleteMailbox endpoint. Relay server SHOULD periodically check for expired mailboxes and delete them.
 
@@ -402,7 +402,7 @@ Value is defined as a combination of the following values: "R" - for read access
     "displayInformation" : {
         "title" : "Hotel Pass",
         "description" : "Some Hotel Pass",
-        "imageURL" : "https://example.com/sharingImage" 
+        "imageURL" : "https://example.com/sharingImage"
     },
     "payload" : {
         "type": "AEAD_AES_128_GCM",
@@ -476,7 +476,7 @@ This API call consumes the following media types via the Content-Type request he
 
 This API call produces following media types via the Content-Type request header: `application/json`
 
-### Request body 
+### Request body
 
 Request body is a complex structure, including the following fields:
 
@@ -641,7 +641,7 @@ This API call produces the following media types via the Content-Type response h
 `200`
 Status: “200” (OK)
 
-ResponseBody : 
+ResponseBody :
 
 - payload (String, Required) - for the purposes of Secure Credential Transfer API, this is a JSON metadata blob, describing Provisioning Information specific to Credential Provider.
 - displayInformation (Object, Required) - for the purposes of the Secure Credential Transfer API, this is a JSON data blob. It allows an application running on a receiving device to build a visual representation of the credential to show to user. Specific to Credential Provider.
@@ -712,7 +712,7 @@ The following threats and mitigations have been considered:
 - Sender shares with the wrong receiver
     - Sender SHOULD be encouraged to share Secret over a channel allowing authentication of the receiver (e.g. voice).
     - Provisioning Partners SHALL allow senders to cancel existing shares.
-- Malicious receiver forwards the share to 3rd party without redeeming it or the Receiver's device is compromised. 
+- Malicious receiver forwards the share to 3rd party without redeeming it or the Receiver's device is compromised.
     - No mitigation, the Sender SHOULD only share with receivers they trust.
 - Malicious receiver attempts re-use share
     - Provisioning Partners SHALL ensure that the Provisioning Information of a share can only be redeemed once.
@@ -729,10 +729,10 @@ The following threats and mitigations have been considered:
 ## Sender/Receiver privacy
 
 - At no time Relay server SHALL store or track the identities of both Sender and Receiver devices.
-- The value of the Notification Token shall not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing. 
+- The value of the Notification Token shall not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Notification token SHOULD only inform the corresponding device that there has been a data update on the mailbox associated to it (by Device Claim). Each device SHOULD keep track of all mailboxes associated with it and make read calls to appropriate mailboxes.
-- Both Sender and Receiver devices SHOULD store the URL of the Relay server they use for an active act of credential transfer. 
-- The value of DeviceAttestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.  
+- Both Sender and Receiver devices SHOULD store the URL of the Relay server they use for an active act of credential transfer.
+- The value of DeviceAttestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Display Information is not encrypted, therefore, it SHOULD not contain any information allowing to identify Sender or Receiver devices.
 
 ## Credential's confidentiality and integrity
