@@ -38,9 +38,9 @@ author:
     ins: N. Sha
     name: Nick Sha
     organization: Alphabet Inc
-    email: nicksha@google.com   
-    
-    
+    email: nicksha@google.com
+
+
 normative:
   CCC-Digital-Key-30:
     author:
