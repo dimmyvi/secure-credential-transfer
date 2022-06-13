@@ -63,7 +63,7 @@ informative:
 --- abstract
 
 This document describes a mechanism to transfer digital credentials securely between two devices.
-Secure credentials may represent a digital key to a hotel room, a digital key to a door lock in a house 
+Secure credentials may represent a digital key to a hotel room, a digital key to a door lock in a house
 or a digital key to a car. Devices that share credentials may belong to the same or two different platforms (e.g. iOS and Android).
 Secure transfer may include one or more write and read operations.
 Credential transfer needs to be performed securely due to the sensitive nature of the information.
@@ -72,17 +72,17 @@ Credential transfer needs to be performed securely due to the sensitive nature o
 
 # Introduction
 
-Today, there is no standard way of transferring digital credentials securely between two devices 
-belonging to the same platform or two different platforms. This document proposes a solution to this problem 
+Today, there is no standard way of transferring digital credentials securely between two devices
+belonging to the same platform or two different platforms. This document proposes a solution to this problem
 by introducing a Relay server which allows two devices to exchange encrypted Provisioning Information securely.
 The Relay server solves this problem by creating and managing temporary mailbox storage.
 
 Each mailbox can be referenced by devices using a unique mailbox identifier in a URL.
-The URL pointing to encrypted Provisioning Information is to be passed between devices directly 
+The URL pointing to encrypted Provisioning Information is to be passed between devices directly
 over various channels (e.g. SMS, email, messaging applications).
 The Security Considerations section provides recommendations on passing the URL and the Secret securely.
 
-This document describes a Hypertext (HTTP) Application Programming Interface (API) that allows 
+This document describes a Hypertext (HTTP) Application Programming Interface (API) that allows
 Sender and Receiver devices to interact with a Relay server in order to perform secure credential transfer.
 
 
@@ -146,15 +146,15 @@ Receiver device, having read the encrypted Provisioning Information from the Rel
     Provisioning Info   |——---------------->|                               |
     encrypted with      |<<-.-.-.-.-.-.-.-.-|                               |
     Secret              |URL link to mailbox|                               |
-                        |                   |                               | 
+                        |                   |                               |
     Send URL link to    |                   |     URL link and Secret       |
     mailbox and Secret  |-------------------------------------------------->|
-                        |                   |                               | 
+                        |                   |                               |
                         |                   | ReadSecureContentFromMailbox  |
-                        |                   |<------------------------------| 
+                        |                   |<------------------------------|
                         |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>| Decrypt with Secret to get Prov Info
                         |                   |         encrypted info        |
-                        |                   |                               | 
+                        |                   |                               |
                         |                   |         DeleteMailbox         |
                         |                   |<------------------------------| Provision or Register credentials
                         |                   |-.-.-.-.-.-.-.-.-.-.-.-.-.-.->>| 
