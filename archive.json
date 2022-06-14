@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-12T01:01:39.715078+00:00",
+  "timestamp": "2022-06-14T01:09:07.872818+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -175,15 +175,15 @@
       "id": "I_kwDOGL7YAs5Liyxn",
       "title": "Does/should the DeviceClaim be unique per sender/receiver and mailbox?",
       "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/31",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mbratz",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Hello team defining this API,\r\nCurrently I review this API definition in preparation for an implementation. I have the following question:\r\nHas the [DeviceClaim ](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#section-2-4) to be unique per sender/receiver and mailbox? Or is a sender/receiver allowed to reuse a Device Claim UUID for several mailboxes? \r\nIf it can be reused [Sender/Receiver privacy](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-sender-receiver-privacy) might be affected.\r\n\r\nThank you for clarifying, Marco",
       "createdAt": "2022-06-10T11:21:15Z",
-      "updatedAt": "2022-06-10T16:16:54Z",
-      "closedAt": null,
+      "updatedAt": "2022-06-13T16:34:35Z",
+      "closedAt": "2022-06-13T07:30:19Z",
       "comments": [
         {
           "author": "alexpell00",
@@ -191,6 +191,20 @@
           "body": "Hello! There is nothing on the relay server preventing the sending and receiver from reusing device claim, but as you pointed out they should not. Reusing the device claim across multiple mailboxes would result in the relay server being able to track clients and correlate transfers.",
           "createdAt": "2022-06-10T16:16:54Z",
           "updatedAt": "2022-06-10T16:16:54Z"
+        },
+        {
+          "author": "mbratz",
+          "authorAssociation": "NONE",
+          "body": "Thank you @alexpell00. Maybe the recommendation of avoiding reuse of the device claim can be added in the chapter \"Security considerations\" or in the description of the device claim. However we won't implement a restriction in the relay server.",
+          "createdAt": "2022-06-13T07:30:19Z",
+          "updatedAt": "2022-06-13T07:30:19Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Hi Marco, \r\nThe deviceClaim is supposed to be unique - and you're right - if it is not clearly stated in the draft now, it should be recommended. I will review the current wording and update the text with recommendation.",
+          "createdAt": "2022-06-13T16:34:35Z",
+          "updatedAt": "2022-06-13T16:34:35Z"
         }
       ]
     }
