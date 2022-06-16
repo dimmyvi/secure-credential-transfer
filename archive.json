@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-14T01:09:07.872818+00:00",
+  "timestamp": "2022-06-16T01:00:56.748679+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2621,6 +2621,84 @@
           "body": "",
           "createdAt": "2022-06-09T22:53:35Z",
           "updatedAt": "2022-06-09T22:53:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDOGL7YAs45rOP4",
+      "title": "Charter edit proposals",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/32",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Nits for style and clarity",
+      "createdAt": "2022-06-15T03:19:28Z",
+      "updatedAt": "2022-06-15T16:55:09Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "22416c9293e4d71b9412326610cf7cff0fbf2ce5",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "tfpauly-patch-1",
+      "headRefOid": "8f9634781d8ed559692ff010578e050de5f208fc",
+      "closedAt": "2022-06-15T16:55:09Z",
+      "mergedAt": "2022-06-15T16:55:08Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "010116f18050bc163e4724e5156001d374a29bed"
+      },
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Thank you Tommy for the update",
+          "createdAt": "2022-06-15T16:54:40Z",
+          "updatedAt": "2022-06-15T16:54:40Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDOGL7YAs45teWN",
+      "title": "use sender/sending and receiver/receiving",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/33",
+      "state": "MERGED",
+      "author": "bslassey",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Most of this text uses sender and receiver to describe the devices involved, editing this wording to be consistent with the rest of the text.",
+      "createdAt": "2022-06-15T14:00:48Z",
+      "updatedAt": "2022-06-15T16:58:17Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "22416c9293e4d71b9412326610cf7cff0fbf2ce5",
+      "headRepository": "bslassey/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "c6051d7e8b9f88a00d7beb378dbf038a3a3b67c1",
+      "closedAt": "2022-06-15T16:58:17Z",
+      "mergedAt": "2022-06-15T16:58:17Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "fe7e07aa31e78a8c3fc1b92666da75776202d489"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs48EmDr",
+          "commit": {
+            "abbreviatedOid": "c6051d7"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Thank you for the update!",
+          "createdAt": "2022-06-15T16:56:00Z",
+          "updatedAt": "2022-06-15T16:56:00Z",
           "comments": []
         }
       ]
