@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-16T01:00:56.748679+00:00",
+  "timestamp": "2022-06-26T01:04:16.767025+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2699,6 +2699,54 @@
           "body": "Thank you for the update!",
           "createdAt": "2022-06-15T16:56:00Z",
           "updatedAt": "2022-06-15T16:56:00Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOGL7YAs46QVMP",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/34",
+      "state": "OPEN",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing concern of hosting untrusted JS on Relay server display information landing page",
+      "createdAt": "2022-06-23T15:59:17Z",
+      "updatedAt": "2022-06-24T08:52:33Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "fe7e07aa31e78a8c3fc1b92666da75776202d489",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "dimmyvi-patch-untrusted-js",
+      "headRefOid": "127698d20177f7f61c7b7d2ec182b05236699707",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "cyberrevenger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good Dmitry!",
+          "createdAt": "2022-06-24T08:50:53Z",
+          "updatedAt": "2022-06-24T08:50:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs48sEmI",
+          "commit": {
+            "abbreviatedOid": "127698d"
+          },
+          "author": "cyberrevenger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Looks good to me ",
+          "createdAt": "2022-06-24T08:52:33Z",
+          "updatedAt": "2022-06-24T08:52:33Z",
           "comments": []
         }
       ]
