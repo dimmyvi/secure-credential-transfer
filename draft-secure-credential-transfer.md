@@ -724,7 +724,9 @@ The following threats and mitigations have been considered:
       Relay server SHALL only allow TLS connections.
       URLs displayed to user SHOULD include the https scheme.
     - MailboxIdentifier guessing:
-      the MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical
+      the MailboxIdentifier is a version 4 UUID {{!RFC4122}} which SHOULD contain 122-bits of cryptographic entropy, making brute-force attacks impractical.
+- Risk of hosting malicious or untrusted scripts by relay server preview page (ReadDisplayInformationFromMailbox)
+    - Relay server should either not allow hosting a third party JavaScripts on a preview page or implement a policy and utilize tools to maintain the trust of such scripts (e.g. force client to verify the script against a good known hash of it).
 
 ## Sender/Receiver privacy
 
