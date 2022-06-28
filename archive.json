@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-26T01:04:16.767025+00:00",
+  "timestamp": "2022-06-28T01:05:15.309897+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2708,24 +2708,26 @@
       "id": "PR_kwDOGL7YAs46QVMP",
       "title": "Update draft-secure-credential-transfer.md",
       "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/34",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "dimmyvi",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Addressing concern of hosting untrusted JS on Relay server display information landing page",
       "createdAt": "2022-06-23T15:59:17Z",
-      "updatedAt": "2022-06-24T08:52:33Z",
+      "updatedAt": "2022-06-27T19:03:38Z",
       "baseRepository": "dimmyvi/secure-credential-transfer",
       "baseRefName": "main",
       "baseRefOid": "fe7e07aa31e78a8c3fc1b92666da75776202d489",
       "headRepository": "dimmyvi/secure-credential-transfer",
       "headRefName": "dimmyvi-patch-untrusted-js",
       "headRefOid": "127698d20177f7f61c7b7d2ec182b05236699707",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-06-27T19:03:38Z",
+      "mergedAt": "2022-06-27T19:03:38Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "6c72fd630708a58e7a97fb7385b97fa6934676c2"
+      },
       "comments": [
         {
           "author": "cyberrevenger",
