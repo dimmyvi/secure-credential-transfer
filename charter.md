@@ -1,12 +1,12 @@
 # TIGRESS Charter ("Transfer dIGital cREdentialS Securely")
 
-There are many situations in which it is desirable to transfer a copy of a digital credential to another person. For example, you may want to provide access to your vehicle to a friend or a family member. You may also want to provide access to your home to your cat sitter. Or, you may want to transfer a copy of a hotel key to your spouse. Today, no such standardized method exists in a cross-platform, credential type-agnostic capacity. 
+There are many situations in which it is desirable to transfer a copy of a digital credential to another person. For example, a person may want to provide access to their vehicle to a friend or a family member. A person may also want to provide access to their home to a cat sitter. Or, a person may want to transfer a copy of a hotel key to their partner. Today, no such standardized method exists in a cross-platform, credential type-agnostic capacity. 
 
-The WG charter includes the definition and standardization of a protocol that will facilitate such credential transfers from one person's device to another person's device. The protocol will leverage a “relay server” to transfer data from sender to recipient. The scope of the transfer is limited to a single sending device and a single receiving device. Note that neither private keys nor secret symmetric keys present on the sender's device are exchanged during the transfer operation. In the transfer protocol, the "credential" being transferred from sender to recipient comprises data both necessary and sufficient for the recipient to exchange with the credential authority for new digital key material granting the recipient a subset of the sender's capabilities or entitlements.
+The WG charter includes the definition and standardization of a protocol that will facilitate such credential transfers from one person's device to another person's device. The protocol will leverage a “relay server” to transfer data from sender to recipient. The scope of the transfer is limited to a single sending device and a single receiving device. Note: neither private keys nor secret symmetric keys present on the sender's device are exchanged during the transfer operation. In the transfer protocol, the "credential" being transferred from sender to recipient comprises data both necessary and sufficient for the recipient to exchange with the credential authority for new digital key material granting the recipient a subset of the sender's capabilities or entitlements.
 
 Privacy goals include:
 
-- The relay server should not see sensitive details of the share
+- The relay server should not see sensitive details of the share (e.g. personaly identifiable information, cryptographic keys, etc)
 - The relay server should not be able to provision the credential itself, acting as an intermediary for the recipient (person-in-the-middle, impersonation attack)
 - Aside from potentially the IP address, the relay server should not learn the identity of the sender or receiver 
 
