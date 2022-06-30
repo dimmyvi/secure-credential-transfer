@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-28T01:05:15.309897+00:00",
+  "timestamp": "2022-06-30T00:59:23.474124+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2749,6 +2749,68 @@
           "body": "Looks good to me ",
           "createdAt": "2022-06-24T08:52:33Z",
           "updatedAt": "2022-06-24T08:52:33Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDOGL7YAs46lvdN",
+      "title": "Update charter.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/35",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing feedback from 06-27-2022 on email list...",
+      "createdAt": "2022-06-29T18:37:42Z",
+      "updatedAt": "2022-06-29T23:45:23Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "6c72fd630708a58e7a97fb7385b97fa6934676c2",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "charter_doc_review_feedback",
+      "headRefOid": "220e2ab5934ae1e09588593ada66dc8544204573",
+      "closedAt": "2022-06-29T23:45:23Z",
+      "mergedAt": "2022-06-29T23:45:23Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "fcbc7531461421a5f3c69820269721e04005ca33"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs49Bs-a",
+          "commit": {
+            "abbreviatedOid": "458135c"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-06-29T19:02:15Z",
+          "updatedAt": "2022-06-29T19:02:30Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\nThere are many situations in which it is desirable to transfer a copy of a digital credential to another person. For example, a person may want to provide access to their vehicle to a friend or a family member. A person may also want to provide access to their home to a cat sitter. Or, a person may want to transfer a copy of a hotel key to their partner. Today, no such standardized method exists in a cross-platform, credential type-agnostic capacity. \r\n```",
+              "createdAt": "2022-06-29T19:02:15Z",
+              "updatedAt": "2022-06-29T19:02:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs49CjZK",
+          "commit": {
+            "abbreviatedOid": "220e2ab"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-06-29T22:33:21Z",
+          "updatedAt": "2022-06-29T22:33:21Z",
           "comments": []
         }
       ]
