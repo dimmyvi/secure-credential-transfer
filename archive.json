@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-06-30T00:59:23.474124+00:00",
+  "timestamp": "2022-07-03T01:05:10.197236+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2765,7 +2765,7 @@
       "labels": [],
       "body": "Addressing feedback from 06-27-2022 on email list...",
       "createdAt": "2022-06-29T18:37:42Z",
-      "updatedAt": "2022-06-29T23:45:23Z",
+      "updatedAt": "2022-06-30T10:34:54Z",
       "baseRepository": "dimmyvi/secure-credential-transfer",
       "baseRefName": "main",
       "baseRefOid": "6c72fd630708a58e7a97fb7385b97fa6934676c2",
@@ -2778,7 +2778,15 @@
       "mergeCommit": {
         "oid": "fcbc7531461421a5f3c69820269721e04005ca33"
       },
-      "comments": [],
+      "comments": [
+        {
+          "author": "ManuelGersterB",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@dimmyvi: From content point of view it looks fine, but I found a typo in the PR: \"personaly\".\r\nAdditionally, I would add a \".\" to \"etc\"",
+          "createdAt": "2022-06-30T10:34:53Z",
+          "updatedAt": "2022-06-30T10:34:53Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOGL7YAs49Bs-a",
