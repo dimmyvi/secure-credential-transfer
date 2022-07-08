@@ -515,7 +515,7 @@ ResponseBody:
 ~~~
 {: #update-mailbox-response title="Create Mailbox Response Example"}
 
-`200 `
+`200`
 Status: “200” (OK)
 
 `201`
