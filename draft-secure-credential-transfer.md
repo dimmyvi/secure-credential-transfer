@@ -18,7 +18,7 @@ author:
     ins: D. Vinokurov
     name: Dmitry Vinokurov
     organization: Apple Inc
-    email: dvinokurov@apple.com
+    email: dvinokurov@dezcom.org
  -
     ins: M. Byington
     name: Matt Byington
@@ -39,11 +39,6 @@ author:
     name: Nick Sha
     organization: Alphabet Inc
     email: nicksha@google.com
--
-    ins: D. Vinokurov
-    name: Dmitry Vinokurov
-    organization: Apple Inc
-    email: dvinokurov@dezcom.org
 
 
 normative:
