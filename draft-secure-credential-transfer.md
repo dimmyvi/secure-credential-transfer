@@ -18,7 +18,7 @@ author:
     ins: D. Vinokurov
     name: Dmitry Vinokurov
     organization: Apple Inc
-    email: dvinokurov@apple.com
+    email: dvinokurov@apple.com, dvinokurov@dezcom.org
  -
     ins: M. Byington
     name: Matt Byington
