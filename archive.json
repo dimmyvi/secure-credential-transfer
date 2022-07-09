@@ -1,0 +1,2827 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-07-03T01:05:10.197236+00:00",
+  "repo": "dimmyvi/secure-credential-transfer",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 17,
+      "id": "I_kwDOGL7YAs5BnYzC",
+      "title": "multidisciplinary?",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/17",
+      "state": "CLOSED",
+      "author": "jgscudder",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The term \"multidisciplinary\" seems a little misplaced. My dictionary says it means \"combining or involving several academic disciplines or professional specializations in an approach to a topic or problem\", as in Computer Science and Anthropology for example. Not sure what is intended in the charter, but probably not that?",
+      "createdAt": "2022-01-12T22:20:18Z",
+      "updatedAt": "2022-03-21T17:14:04Z",
+      "closedAt": "2022-03-21T17:14:04Z",
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Charter document is re-written. The issue should have been resolved",
+          "createdAt": "2022-03-21T17:14:04Z",
+          "updatedAt": "2022-03-21T17:14:04Z"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOGL7YAs5BrX_a",
+      "title": "Register new HTTP header in HTTP Field Name Registry",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/18",
+      "state": "CLOSED",
+      "author": "rdanyliw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 8.  It appears that this protocol is trying to register a new HTTP header field (Mailbox-Request-ID).  The IANA registry to do that in is https://www.iana.org/assignments/http-fields/http-fields.xhtml (per draft-ietf-httpbis-semantics).",
+      "createdAt": "2022-01-13T14:49:33Z",
+      "updatedAt": "2022-01-25T19:05:52Z",
+      "closedAt": "2022-01-25T19:05:52Z",
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Will submit a request to register \"Mailbox-Request-ID\" header",
+          "createdAt": "2022-01-25T19:05:52Z",
+          "updatedAt": "2022-01-25T19:05:52Z"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOGL7YAs5BrYMk",
+      "title": "Crypto agility",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/19",
+      "state": "CLOSED",
+      "author": "rdanyliw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 3.3.2.  This section hard-codes which crypto algorithm can be used.  Consider if you want to explicitly enable crypto agility by say creating a registry of permissible crypto algorithms.",
+      "createdAt": "2022-01-13T14:50:03Z",
+      "updatedAt": "2022-01-25T19:22:51Z",
+      "closedAt": "2022-01-25T19:22:51Z",
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Thank you for the idea, we will discuss this internally ",
+          "createdAt": "2022-01-25T19:22:51Z",
+          "updatedAt": "2022-01-25T19:22:51Z"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOGL7YAs5BrYdd",
+      "title": "Use reserved domains in examples",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/20",
+      "state": "CLOSED",
+      "author": "rdanyliw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Sections 3, 3.4.1, 6.1.6, 6.5.4, and 7.2 all provide examples using \u201crelayserver.com\u201d and \u201chotel.com\u201d.  IETF document should only use reserved domain (see RFC6761).  For example, s/relayserver.com/relayserver.example.com/",
+      "createdAt": "2022-01-13T14:50:36Z",
+      "updatedAt": "2022-01-25T19:06:31Z",
+      "closedAt": "2022-01-25T19:06:31Z",
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Addressed in PR: https://github.com/dimmyvi/secure-credential-transfer/pull/22",
+          "createdAt": "2022-01-25T19:06:30Z",
+          "updatedAt": "2022-01-25T19:06:30Z"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOGL7YAs5BrYo4",
+      "title": "Use HTTPS in examples",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/21",
+      "state": "CLOSED",
+      "author": "rdanyliw",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 4 says that \u201cThe Relay server API endpoint MUST be accessed over HTTP using an https URI [RFC2818] and SHOULD use the default https port.\u201d  This makes sense.  However, the examples in Sections 3, 3.4, 3.4.1, and 7.2 use http://.",
+      "createdAt": "2022-01-13T14:51:02Z",
+      "updatedAt": "2022-01-13T18:19:10Z",
+      "closedAt": "2022-01-13T18:19:10Z",
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Addressing this in https://github.com/dimmyvi/secure-credential-transfer/pull/22",
+          "createdAt": "2022-01-13T18:19:10Z",
+          "updatedAt": "2022-01-13T18:19:10Z"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "id": "I_kwDOGL7YAs5Liyxn",
+      "title": "Does/should the DeviceClaim be unique per sender/receiver and mailbox?",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/issues/31",
+      "state": "CLOSED",
+      "author": "mbratz",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hello team defining this API,\r\nCurrently I review this API definition in preparation for an implementation. I have the following question:\r\nHas the [DeviceClaim ](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#section-2-4) to be unique per sender/receiver and mailbox? Or is a sender/receiver allowed to reuse a Device Claim UUID for several mailboxes? \r\nIf it can be reused [Sender/Receiver privacy](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-sender-receiver-privacy) might be affected.\r\n\r\nThank you for clarifying, Marco",
+      "createdAt": "2022-06-10T11:21:15Z",
+      "updatedAt": "2022-06-13T16:34:35Z",
+      "closedAt": "2022-06-13T07:30:19Z",
+      "comments": [
+        {
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hello! There is nothing on the relay server preventing the sending and receiver from reusing device claim, but as you pointed out they should not. Reusing the device claim across multiple mailboxes would result in the relay server being able to track clients and correlate transfers.",
+          "createdAt": "2022-06-10T16:16:54Z",
+          "updatedAt": "2022-06-10T16:16:54Z"
+        },
+        {
+          "author": "mbratz",
+          "authorAssociation": "NONE",
+          "body": "Thank you @alexpell00. Maybe the recommendation of avoiding reuse of the device claim can be added in the chapter \"Security considerations\" or in the description of the device claim. However we won't implement a restriction in the relay server.",
+          "createdAt": "2022-06-13T07:30:19Z",
+          "updatedAt": "2022-06-13T07:30:19Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Hi Marco, \r\nThe deviceClaim is supposed to be unique - and you're right - if it is not clearly stated in the draft now, it should be recommended. I will review the current wording and update the text with recommendation.",
+          "createdAt": "2022-06-13T16:34:35Z",
+          "updatedAt": "2022-06-13T16:34:35Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOGL7YAs4tHb9Z",
+      "title": "Addressing review comments from 2021-10-12",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/1",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "dimmyvi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-10-13T01:00:28Z",
+      "updatedAt": "2021-10-22T18:12:50Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "review-10-12-2021",
+      "baseRefOid": "acf3d9d2e9f8ce0ba7cde7810dee227dfcc044df",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "main",
+      "headRefOid": "b62ebe8a09a5b00e7d859192cf84b376fc30db7c",
+      "closedAt": "2021-10-22T18:12:47Z",
+      "mergedAt": "2021-10-22T18:12:47Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "068a8a0692455aa51a4b5d1333d5fbc4171312d0"
+      },
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "closing the PR",
+          "createdAt": "2021-10-22T18:12:50Z",
+          "updatedAt": "2021-10-22T18:12:50Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4ulb-h",
+          "commit": {
+            "abbreviatedOid": "fd2f344"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-18T03:50:04Z",
+          "updatedAt": "2021-10-18T03:52:40Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "The receiver device can bind to the mailbox before getting the secret. I'm not sure if it is worth making that distinction here, but wanted to call it out.",
+              "createdAt": "2021-10-18T03:50:04Z",
+              "updatedAt": "2021-10-18T03:52:40Z"
+            },
+            {
+              "originalPosition": 120,
+              "body": "The sender's device is bound to the Relay server during mailbox creation. I think it would be worth adjusting the language here to make it clear that the sender's device was bound to the relay server earlier.",
+              "createdAt": "2021-10-18T03:51:52Z",
+              "updatedAt": "2021-10-18T03:52:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4uogIS",
+          "commit": {
+            "abbreviatedOid": "fd2f344"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-18T17:26:36Z",
+          "updatedAt": "2021-10-18T17:26:36Z",
+          "comments": [
+            {
+              "originalPosition": 117,
+              "body": "Receiver device claims the mailbox at the time it makes a call to read secure content. \r\nReading OpenGraph display info doesn't require a claim token\r\n",
+              "createdAt": "2021-10-18T17:26:36Z",
+              "updatedAt": "2021-10-18T17:26:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4uogiX",
+          "commit": {
+            "abbreviatedOid": "fd2f344"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-18T17:28:22Z",
+          "updatedAt": "2021-10-18T17:28:22Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "Thanks Alex; I think it's stated above (binding a Sender device). Here just wanted to emphasize that a pair of devices are bound to the mailbox.",
+              "createdAt": "2021-10-18T17:28:22Z",
+              "updatedAt": "2021-10-18T17:28:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4uvlRT",
+          "commit": {
+            "abbreviatedOid": "fd2f344"
+          },
+          "author": "cyberrevenger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-20T09:27:53Z",
+          "updatedAt": "2021-10-20T09:27:53Z",
+          "comments": [
+            {
+              "originalPosition": 307,
+              "body": "I would propose to split this section into several sub-sections, e.g.\r\nx.1) Sender/Receiver safety\r\n- Relay server shall be trusted by both Sender and Receiver devices\r\n- Receiver must be notified by Relay server in case integrity of provided URL was altered (*NEW1)\r\nx.2) Sender/Receiver privacy\r\n- At no time Relay server shall store or track the identities of both Sender and Receiver devices.\r\nx.3) Credential's security(Confidentiality and integrity)\r\n- Content of the mailbox shall be only visible to devices having Secret.\r\n- It is recommended to send URL to the mailbox and the Secret over different channels (out-of-band) from Sender device to Receiver device (e.g. send URL over SMS and Secret over iMessage).\r\n- Relay server MUST not receive the Secret with the MailboxIdentifier at any time.\r\n- Content of the mailbox must be protected in integrity with cryptographic checksum (*NEW2)\r\n\r\nSo this way we can categorise different aspects that contributes into overall  security of such solution \r\n\r\n*NEW1: I wanted to introduce integrity over URL\r\nIdea would be to mandate Sender to compute some(subject to discuss) form of checksum over URL and deposit on Relay server along with credential's content. Thus, when Receiver presents the URL to Relay server, the Relay server can now re-compute and verify checksum stored vs computed. Having this mechanism in place we can reduce the surface of attacks where someone will try to mess up the mailbox identifier along with a secret and try to redirect Receiver into a different mailbox created by malicious actor that might contain some sort of exploit/shell code, etc. \r\n\r\n*NEW2: Another idea that I wanted to bring forward is integrity protection over content stored in the mailbox.\r\nWe can use a Secret as a Master Key(MK) and derive ENC and MAC Keys from that MK. Therefore, ENC will be used to protect content's confidentiality and MAC Key to generate(by Sender) cryptographic checksum that can be validated by Receiver upon content download.\r\n\r\nKey derivation scheme can benefit from randomness of mailbox identifier, so subject to discuss.  ",
+              "createdAt": "2021-10-20T09:27:53Z",
+              "updatedAt": "2021-10-20T09:27:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4uyQkf",
+          "commit": {
+            "abbreviatedOid": "5ca7d2c"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-20T19:47:26Z",
+          "updatedAt": "2021-10-20T19:47:26Z",
+          "comments": [
+            {
+              "originalPosition": 120,
+              "body": "Re-phrased the sentence.",
+              "createdAt": "2021-10-20T19:47:26Z",
+              "updatedAt": "2021-10-20T19:47:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4uyWuj",
+          "commit": {
+            "abbreviatedOid": "bf66a7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-20T20:16:11Z",
+          "updatedAt": "2021-10-20T20:16:11Z",
+          "comments": [
+            {
+              "originalPosition": 307,
+              "body": "Added bullet-points to the section. \r\n(*NEW1) When you say  \" checksum over URL \"  - do you mean\r\na checksum over URL string - like sha256(\"relay.apple.com/v1/m/1234-abcd\")?\r\nStore this in the mailbox, so each time Relay can compute the checksum over the URL actually called and match these 2?\r\nIf so, how does it work with DNS names and VIPs/ load balancers? \r\nThe actual application running on a mailbox may not know the actual dns name exposed to devices...\r\nWe can provide it to the app via configuration params, but that would not necessary be the actual dns name being called...\r\n\r\n(*NEW2)Or a checksum over the mailbox content (like MAC code)?\r\nWe currently use Authenticated encryption (AES-GCM) which provides both confidentiality(encryption) and integrity(mac) of the content. We have discussed the idea of key derivation based on the mailbox Identifier, but it seems not provide any actual security benefits. If the attacker can guess the mailbox Id, they still be able to both read the mailbox content and use the same identifier in key derivation...\r\nThus we still have 2 key attributes that guaranty security of the mailbox - a random unique mailbox Identifier and a secret based on strong cryptographic RNG.\r\n",
+              "createdAt": "2021-10-20T20:16:11Z",
+              "updatedAt": "2021-10-20T20:16:11Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOGL7YAs4tkC_o",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/2",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Preparing draft-02:\r\n- fixing typos\r\n- Changing Request header from \"Mailbox-Correlation-Id\" to \"Mailbox-Request-Id\" for clarity \r\n- adding Request Header name it to IANA Considerations",
+      "createdAt": "2021-10-22T18:29:25Z",
+      "updatedAt": "2021-10-28T17:26:17Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "5378edce999a8e1ea4705208546350ce529f82b8",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "draft-02",
+      "headRefOid": "eabfb256e0b32c6339bd3bedf4f0a8dddcfb2f63",
+      "closedAt": "2021-10-28T17:26:17Z",
+      "mergedAt": "2021-10-28T17:26:17Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "1e07bcb2a5194b478b9133deb6b758de636f4a2c"
+      },
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Build error? `*** Input contains HT (\"tab\") characters. Undefined behavior will ensue.`",
+          "createdAt": "2021-10-22T18:40:08Z",
+          "updatedAt": "2021-10-22T18:40:08Z"
+        },
+        {
+          "author": "flano-yuki",
+          "authorAssociation": "NONE",
+          "body": "Excuse me\r\n\r\nI found Security Considerations bullet lists are not displayed correctly on [html](https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-security-considerations)",
+          "createdAt": "2021-10-23T17:17:45Z",
+          "updatedAt": "2021-10-23T17:17:45Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Hi Tommy,\n\nThanks, will fix this on Monday.\n\nOn Saturday, October 23, 2021, yuki ***@***.***> wrote:\n\n> Excuse me\n>\n> I found Security Considerations bullet lists are not displayed correctly\n> on html\n> <https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-security-considerations>\n>\n> \u2014\n> You are receiving this because you authored the thread.\n> Reply to this email directly, view it on GitHub\n> <https://github.com/dimmyvi/secure-credential-transfer/pull/2#issuecomment-950183971>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/ABN3H5SJW77EN6NQGSSFPQ3UILU4JANCNFSM5GREJLKQ>\n> .\n> Triage notifications on the go with GitHub Mobile for iOS\n> <https://apps.apple.com/app/apple-store/id1477376905?ct=notification-email&mt=8&pt=524675>\n> or Android\n> <https://play.google.com/store/apps/details?id=com.github.android&referrer=utm_campaign%3Dnotification-email%26utm_medium%3Demail%26utm_source%3Dgithub>.\n>\n>\n\n\n-- \nBest regards,\n    Dmitry Vinokurov\n",
+          "createdAt": "2021-10-23T19:29:38Z",
+          "updatedAt": "2021-10-23T19:29:38Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Fixed both issues. IETF document does not seem to allow 3 levels of bullet\nhierarchy...\n\nOn Sat, Oct 23, 2021 at 12:29 PM D V ***@***.***> wrote:\n\n> Hi Tommy,\n>\n> Thanks, will fix this on Monday.\n>\n> On Saturday, October 23, 2021, yuki ***@***.***> wrote:\n>\n>> Excuse me\n>>\n>> I found Security Considerations bullet lists are not displayed correctly\n>> on html\n>> <https://dimmyvi.github.io/secure-credential-transfer/draft-secure-credential-transfer.html#name-security-considerations>\n>>\n>> \u2014\n>> You are receiving this because you authored the thread.\n>> Reply to this email directly, view it on GitHub\n>> <https://github.com/dimmyvi/secure-credential-transfer/pull/2#issuecomment-950183971>,\n>> or unsubscribe\n>> <https://github.com/notifications/unsubscribe-auth/ABN3H5SJW77EN6NQGSSFPQ3UILU4JANCNFSM5GREJLKQ>\n>> .\n>> Triage notifications on the go with GitHub Mobile for iOS\n>> <https://apps.apple.com/app/apple-store/id1477376905?ct=notification-email&mt=8&pt=524675>\n>> or Android\n>> <https://play.google.com/store/apps/details?id=com.github.android&referrer=utm_campaign%3Dnotification-email%26utm_medium%3Demail%26utm_source%3Dgithub>.\n>>\n>>\n>\n>\n> --\n> Best regards,\n>     Dmitry Vinokurov\n>\n\n\n-- \nBest regards,\n    Dmitry Vinokurov\n",
+          "createdAt": "2021-10-25T18:02:14Z",
+          "updatedAt": "2021-10-25T18:02:14Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Merging this PR to main branch",
+          "createdAt": "2021-10-28T17:16:04Z",
+          "updatedAt": "2021-10-28T17:16:04Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4u6y9j",
+          "commit": {
+            "abbreviatedOid": "c78cc11"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-22T18:39:38Z",
+          "updatedAt": "2021-10-22T18:39:38Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOGL7YAs4to-2V",
+      "title": "Update draft-secure-credential-transfer.md regarding specific endpoints' 401",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/3",
+      "state": "MERGED",
+      "author": "nicksha",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* Removed response `401` from ReadDisplayInformationFromMailbox. This endpoint does not need to check for device claim and should be accessible publicly. \r\n* Updated `401` description for `ReadSecureContentFromMailbox`.",
+      "createdAt": "2021-10-25T18:10:14Z",
+      "updatedAt": "2021-10-25T18:47:52Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "b62ebe8a09a5b00e7d859192cf84b376fc30db7c",
+      "headRepository": "nicksha/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "f88878e474d2230c89f35d78b4a746226c13b4e5",
+      "closedAt": "2021-10-25T18:47:52Z",
+      "mergedAt": "2021-10-25T18:47:52Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "8c4ef8ff4dfa7dda8dab18a187a25326abafc58c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4u_2hV",
+          "commit": {
+            "abbreviatedOid": "f88878e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-25T18:47:21Z",
+          "updatedAt": "2021-10-25T18:47:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOGL7YAs4tp8gj",
+      "title": "Modified workflow graphs for consistency",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/4",
+      "state": "MERGED",
+      "author": "nicksha",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* Updated workflow graphs to use endpoint api terms consistently\r\n* Updated workflow graphs to use consistent language and label placement\r\n* Updated workflow graphs to include flow lines for `encrypted info`",
+      "createdAt": "2021-10-26T01:23:54Z",
+      "updatedAt": "2021-10-26T20:05:36Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "8c4ef8ff4dfa7dda8dab18a187a25326abafc58c",
+      "headRepository": "nicksha/secure-credential-transfer",
+      "headRefName": "patch-2",
+      "headRefOid": "4b45b315d6a49da350f2291ed6ed59e81c014aaf",
+      "closedAt": "2021-10-26T20:05:36Z",
+      "mergedAt": "2021-10-26T20:05:36Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "5378edce999a8e1ea4705208546350ce529f82b8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4vFFVc",
+          "commit": {
+            "abbreviatedOid": "4b45b31"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-26T20:05:20Z",
+          "updatedAt": "2021-10-26T20:05:20Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOGL7YAs4t0pD4",
+      "title": "Minor formatting of the workflow graphs",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/5",
+      "state": "MERGED",
+      "author": "nicksha",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* All calls to the relay server from device are labeled on top of call arrow and centered.\r\n* All response from relay server are labeled below of response arrow and centered.\r\n* New lines between call/response blocks.",
+      "createdAt": "2021-10-28T22:45:17Z",
+      "updatedAt": "2021-10-28T23:58:31Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "1e07bcb2a5194b478b9133deb6b758de636f4a2c",
+      "headRepository": "nicksha/secure-credential-transfer",
+      "headRefName": "patch-3",
+      "headRefOid": "2c91f2ac10958f7c23a287512716e3da45104c2c",
+      "closedAt": "2021-10-28T23:58:30Z",
+      "mergedAt": "2021-10-28T23:58:30Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "80bb5c71b8b9a60fd74f231aa92353f433cb8b6e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4vPOru",
+          "commit": {
+            "abbreviatedOid": "2c91f2a"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-10-28T23:58:22Z",
+          "updatedAt": "2021-10-28T23:58:22Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOGL7YAs4t0vmi",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/6",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing review comments",
+      "createdAt": "2021-10-28T23:59:25Z",
+      "updatedAt": "2021-12-02T22:38:39Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "80bb5c71b8b9a60fd74f231aa92353f433cb8b6e",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "draft-02",
+      "headRefOid": "b14586518a90baaaa036f39d00ff271934f24cc6",
+      "closedAt": "2021-11-29T19:43:57Z",
+      "mergedAt": "2021-11-29T19:43:57Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "f7e50139063d1115ab1409cbd7b740f258a163bb"
+      },
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Added RelinquishMailbox endpoint - to unbind invalid Receiver device",
+          "createdAt": "2021-11-01T23:58:26Z",
+          "updatedAt": "2021-11-01T23:58:26Z"
+        },
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Merging into main branch",
+          "createdAt": "2021-11-29T19:43:52Z",
+          "updatedAt": "2021-11-29T19:43:52Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4vgeZ0",
+          "commit": {
+            "abbreviatedOid": "b145865"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-03T20:09:11Z",
+          "updatedAt": "2021-11-03T20:09:11Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "While the Relay server doesn't limit the number of round trips we've said that reusing the same symmetric key isn't sufficient from a security POV. I don't know if we need to include that here, but wanted to call out that if we were to use this for a chatty provisioning we might need to use the first few messages to upgrade the channel's encryption.",
+              "createdAt": "2021-11-03T20:09:11Z",
+              "updatedAt": "2021-11-03T20:09:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4vgfZp",
+          "commit": {
+            "abbreviatedOid": "b145865"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-03T20:13:40Z",
+          "updatedAt": "2021-11-03T20:13:40Z",
+          "comments": [
+            {
+              "originalPosition": 113,
+              "body": "If this is optional then it doesn't think it provides any security benefit. A bad actor could just not send one up. @matthewcbyington what do you think?",
+              "createdAt": "2021-11-03T20:13:40Z",
+              "updatedAt": "2021-11-03T20:13:40Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOGL7YAs4uHHvv",
+      "title": "Add Expiration Field To ReadSecureContentFromMailbox",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/7",
+      "state": "MERGED",
+      "author": "alexpell00",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR adds a new expiration field to the `ReadSecureContentFromMailbox` json response. This value can be leveraged by receiving clients to show when the share will expire.\r\n\r\nIf a sender wanted to show the share expiration in the open graph preview then they could include the date in the description string when creating the mailbox.",
+      "createdAt": "2021-11-04T19:15:22Z",
+      "updatedAt": "2021-11-10T20:09:16Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "80bb5c71b8b9a60fd74f231aa92353f433cb8b6e",
+      "headRepository": "alexpell00/secure-credential-transfer",
+      "headRefName": "expiration-field",
+      "headRefOid": "0ed7a2013496558fb815ef833fefe3a181f9a763",
+      "closedAt": "2021-11-08T19:17:34Z",
+      "mergedAt": "2021-11-08T19:17:34Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "e879b58b7c77837b2ac7dd85400a1b22ca213785"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@nicksha @crystalyq Everyone OK with this change? I am planning to merge it today if so.",
+          "createdAt": "2021-11-05T15:13:02Z",
+          "updatedAt": "2021-11-05T15:13:02Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@alexpell00 pending Google's approval we will merge this in. I concur with the change.",
+          "createdAt": "2021-11-05T15:13:24Z",
+          "updatedAt": "2021-11-05T15:13:24Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging this in given lack of concerns for a few days. Thanks @alexpell00 !",
+          "createdAt": "2021-11-08T19:17:29Z",
+          "updatedAt": "2021-11-08T19:17:29Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOGL7YAs4urutH",
+      "title": "Small updates to Create Mailbox Request and Update Mailbox Request",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/8",
+      "state": "MERGED",
+      "author": "castiz",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Updating a few small formatting issues, and fixing the Update Mailbox Request description. ",
+      "createdAt": "2021-11-17T23:40:20Z",
+      "updatedAt": "2021-11-18T21:50:00Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "e879b58b7c77837b2ac7dd85400a1b22ca213785",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "fixUpdateMailboxRequest",
+      "headRefOid": "c87ac1d967ad863c46ea661c80bdfa852ddbc0ee",
+      "closedAt": "2021-11-18T21:19:24Z",
+      "mergedAt": "2021-11-18T21:19:24Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "92df9a3ccdd30fdc2f65a8acd489548e82c89823"
+      },
+      "comments": [
+        {
+          "author": "castiz",
+          "authorAssociation": "NONE",
+          "body": "@matthewcbyington please review when you have time. I think the changes are straight forward, but let me know if you disagree with any of them.\r\n\r\nTo note, added the \"\\\" to make sure mark down viewers don't italicize the AEAD_AES_128_GCM!",
+          "createdAt": "2021-11-17T23:42:27Z",
+          "updatedAt": "2021-11-17T23:42:27Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOGL7YAs4vJymD",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/9",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "matthewcbyington",
+        "cyberrevenger",
+        "alexpell00",
+        "mlerch2306",
+        "ykarandikar"
+      ],
+      "labels": [],
+      "body": "IETF review changes:\r\n(1) Ensure notification token is optional for the device to send (some devices might not support it).",
+      "createdAt": "2021-11-29T21:45:18Z",
+      "updatedAt": "2021-12-02T22:38:33Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "f7e50139063d1115ab1409cbd7b740f258a163bb",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "draft-03",
+      "headRefOid": "119fee34d4aaff43f5b076ff98088aeed2759911",
+      "closedAt": "2021-11-30T19:49:20Z",
+      "mergedAt": "2021-11-30T19:49:20Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "db3fe5c377647a2ecadae9221c57521513781107"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This looks good to me, thanks @dimmyvi ",
+          "createdAt": "2021-11-29T23:07:44Z",
+          "updatedAt": "2021-11-29T23:07:44Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOGL7YAs4vMtiM",
+      "title": "Add Credential Vertical To Share URL",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/10",
+      "state": "MERGED",
+      "author": "alexpell00",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR adds a new \"Credential Vertical in share url\" and outlines the supported verticals.",
+      "createdAt": "2021-11-30T16:25:59Z",
+      "updatedAt": "2021-12-07T17:46:50Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "68c383283b3b8369a24b570ead9fdecc56e2ad0a",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "apelletier/vertical-in-url",
+      "headRefOid": "bad6c90e3309244e2e8f59f7e37fb93bad4f699b",
+      "closedAt": "2021-12-07T17:46:50Z",
+      "mergedAt": "2021-12-07T17:46:50Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "0d870b8b976430541f85feb31c86c19efef48966"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4w1QuG",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T16:26:23Z",
+          "updatedAt": "2021-11-30T16:26:29Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I wasn't entirely sure on the best place for this section. What does everyone think?",
+              "createdAt": "2021-11-30T16:26:23Z",
+              "updatedAt": "2021-11-30T16:26:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w1WvN",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T16:45:23Z",
+          "updatedAt": "2021-11-30T16:47:24Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nWhen a user interacts with a share URL on a Receiver device it can be helpful to know what Credential Vertical this share is for. This is particularly important if the Receiver device has multiple applications that can handle a share URL. For example, a Receiver device might want to handle a general access share in their wallet app, but handle car key shares in a specific car application.\r\n```",
+              "createdAt": "2021-11-30T16:45:23Z",
+              "updatedAt": "2021-11-30T16:47:24Z"
+            },
+            {
+              "originalPosition": 17,
+              "body": "```suggestion\r\nTo properly route a share URL, the sender can include the Credential Vertical in the share URL as a query parameter. The Credential Vertical can't be included in the encrypted payload because the Receiver device might need to open the right application before retrieving the secure payload. The Credential Vertical query parameter uses the \"v\" key and supports the below types. If no Credential Vertical is provided it will be assumed that this is a general access share URL.\r\n```",
+              "createdAt": "2021-11-30T16:46:52Z",
+              "updatedAt": "2021-11-30T16:47:24Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nThe Credential Vertical query parameter should be added to the share URL by the Sender device when constructing the full share URL that is going to be sent to the Receiver device.\r\n```",
+              "createdAt": "2021-11-30T16:47:20Z",
+              "updatedAt": "2021-11-30T16:47:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w1jhG",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "adambn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T17:28:19Z",
+          "updatedAt": "2021-11-30T17:28:19Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I suggest to add examples here",
+              "createdAt": "2021-11-30T17:28:19Z",
+              "updatedAt": "2021-11-30T17:28:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w1jyn",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "adambn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T17:29:17Z",
+          "updatedAt": "2021-11-30T17:29:17Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "maybe also add the secret so the example has all the possible parts of the URL?",
+              "createdAt": "2021-11-30T17:29:17Z",
+              "updatedAt": "2021-11-30T17:29:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w1k0B",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "adambn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T17:32:55Z",
+          "updatedAt": "2021-11-30T17:32:55Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "```suggestion\r\nhttp://relayserver.com/v1/m/{mailboxIdentifier}?v={vertical}#{Secret}\r\n```",
+              "createdAt": "2021-11-30T17:32:55Z",
+              "updatedAt": "2021-11-30T17:32:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w1lMx",
+          "commit": {
+            "abbreviatedOid": "1578f04"
+          },
+          "author": "adambn",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T17:34:24Z",
+          "updatedAt": "2021-11-30T17:34:25Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "It seems we have definitions of parts of the URL scattered across the spec, so I would say adding a dedicated section to define the URL and it's parts, including if they are required\\optional, would be better.",
+              "createdAt": "2021-11-30T17:34:24Z",
+              "updatedAt": "2021-11-30T17:34:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w3W1I",
+          "commit": {
+            "abbreviatedOid": "3ecfc89"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-01T05:26:01Z",
+          "updatedAt": "2021-12-01T05:26:02Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I noticed that too, let me combine the various URL sections. I think that will make the share url a lot clearer.",
+              "createdAt": "2021-12-01T05:26:02Z",
+              "updatedAt": "2021-12-01T05:26:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xELy1",
+          "commit": {
+            "abbreviatedOid": "3ecfc89"
+          },
+          "author": "crystalyq",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-03T22:58:41Z",
+          "updatedAt": "2021-12-03T22:59:02Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "This sentence sounds like the credential Vertical query parameter is mandatory but the previous section mentions that \"If no Credential Vertical is provided it will be assumed that this is a general access share URL.\"\r\n\r\nShould we just make it mandatory consistently across the sections? I don't see why the sender device do not why to specify this",
+              "createdAt": "2021-12-03T22:58:41Z",
+              "updatedAt": "2021-12-03T22:59:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xETwV",
+          "commit": {
+            "abbreviatedOid": "5b2414b"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-04T00:48:30Z",
+          "updatedAt": "2021-12-04T00:48:30Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I added a more general share url section, but I wasn't how much detail to go into for each field. Do you think it would be worth recapping a description for each field in this new section?",
+              "createdAt": "2021-12-04T00:48:30Z",
+              "updatedAt": "2021-12-04T00:48:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xNV9K",
+          "commit": {
+            "abbreviatedOid": "8639229"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-12-07T17:26:56Z",
+          "updatedAt": "2021-12-07T17:26:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xNYWN",
+          "commit": {
+            "abbreviatedOid": "bad6c90"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-07T17:36:18Z",
+          "updatedAt": "2021-12-07T17:36:18Z",
+          "comments": [
+            {
+              "originalPosition": 35,
+              "body": "Good point. I reworded \"should\" to \"can\", and then I think that with the table above should make it clear that it is optional.",
+              "createdAt": "2021-12-07T17:36:18Z",
+              "updatedAt": "2021-12-07T17:36:18Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOGL7YAs4vMwh1",
+      "title": "added isPushNotificationSupported to create and update mailbox response",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/11",
+      "state": "MERGED",
+      "author": "gurucharanhc",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-11-30T16:39:27Z",
+      "updatedAt": "2021-12-02T01:09:48Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "f7e50139063d1115ab1409cbd7b740f258a163bb",
+      "headRepository": "gurucharanhc/secure-credential-transfer",
+      "headRefName": "update_verticals",
+      "headRefOid": "78c33b1384bb486cd727ce20469b1652a70cd294",
+      "closedAt": "2021-12-02T01:09:48Z",
+      "mergedAt": "2021-12-02T01:09:48Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "2bf6e14fd6c8d51fd9ef91ea524a1ecde971723c"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good to me @gurucharanhc thanks! Let's give others a few hours to take a look and see how they feel about it and then we can merge it this afternoon if nobody objects.",
+          "createdAt": "2021-11-30T17:02:13Z",
+          "updatedAt": "2021-11-30T17:02:13Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM as well. ",
+          "createdAt": "2021-12-01T22:35:08Z",
+          "updatedAt": "2021-12-01T22:35:08Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4w1X8K",
+          "commit": {
+            "abbreviatedOid": "6104602"
+          },
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-11-30T16:49:16Z",
+          "updatedAt": "2021-11-30T16:49:46Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.\r\n```",
+              "createdAt": "2021-11-30T16:49:16Z",
+              "updatedAt": "2021-11-30T16:49:46Z"
+            },
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\r\n- isPushNotificationSupported (boolean, Required) - indicates whether push notification is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.\r\n```",
+              "createdAt": "2021-11-30T16:49:41Z",
+              "updatedAt": "2021-11-30T16:49:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w2iPV",
+          "commit": {
+            "abbreviatedOid": "78c33b1"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Looks good to me",
+          "createdAt": "2021-11-30T22:01:25Z",
+          "updatedAt": "2021-11-30T22:01:25Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w7jNI",
+          "commit": {
+            "abbreviatedOid": "78c33b1"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-01T23:45:58Z",
+          "updatedAt": "2021-12-01T23:45:58Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "The name seems a off, although it works. What do you think about something like `isPushNotificationTokenSupported` or `isPushNotificationTypeSupported`? And then the description would be:\r\n\r\n> indicates whether the push notification token is supported or not. The device uses this field to decide whether it should listen on the push topic or do long-polling.",
+              "createdAt": "2021-12-01T23:45:58Z",
+              "updatedAt": "2021-12-01T23:45:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4w7pYz",
+          "commit": {
+            "abbreviatedOid": "78c33b1"
+          },
+          "author": "gurucharanhc",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-02T00:38:51Z",
+          "updatedAt": "2021-12-02T00:38:51Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "I just generalized to isPushNotificationSupported instead of isPushNotificationTokenSupported or isPushNotificationTypeSupported.\r\n\r\ncase 1:  if we receive PushNotificationToken and if we don't support the notification type\r\ncase 2:  if we don't receive PushNotificationToken and if we support the notification type\r\n",
+              "createdAt": "2021-12-02T00:38:51Z",
+              "updatedAt": "2021-12-02T00:38:51Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOGL7YAs4vRwJI",
+      "title": "Remove mailboxIdentifier from CreateMailbox request",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/12",
+      "state": "MERGED",
+      "author": "nicksha",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Relay server will be generating the mailboxIdentifier and no longer needs to be provided inside the CreateMailbox request body. Remove from example.",
+      "createdAt": "2021-12-01T23:00:07Z",
+      "updatedAt": "2021-12-02T22:50:54Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "db3fe5c377647a2ecadae9221c57521513781107",
+      "headRepository": "nicksha/secure-credential-transfer",
+      "headRefName": "patch-4",
+      "headRefOid": "9893631026bf3fbeecd9cb18d26960114a3a5e11",
+      "closedAt": "2021-12-02T22:38:07Z",
+      "mergedAt": "2021-12-02T22:38:07Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "68c383283b3b8369a24b570ead9fdecc56e2ad0a"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "yep",
+          "createdAt": "2021-12-02T22:50:54Z",
+          "updatedAt": "2021-12-02T22:50:54Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4w7iyj",
+          "commit": {
+            "abbreviatedOid": "9893631"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me, @dimmyvi @matthewcbyington?",
+          "createdAt": "2021-12-01T23:42:33Z",
+          "updatedAt": "2021-12-01T23:42:33Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xABtx",
+          "commit": {
+            "abbreviatedOid": "9893631"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2021-12-02T22:37:53Z",
+          "updatedAt": "2021-12-02T22:37:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOGL7YAs4vVYtZ",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/13",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "matthewcbyington",
+        "cyberrevenger",
+        "alexpell00",
+        "adambn",
+        "mlerch2306"
+      ],
+      "labels": [],
+      "body": "Adding PIN code section ",
+      "createdAt": "2021-12-02T22:59:09Z",
+      "updatedAt": "2021-12-07T17:24:59Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "68c383283b3b8369a24b570ead9fdecc56e2ad0a",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "draft-03",
+      "headRefOid": "92695fe51879ae4248ac1430afcb610b55485177",
+      "closedAt": "2021-12-07T17:24:58Z",
+      "mergedAt": "2021-12-07T17:24:58Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "5f87b8c8757e9a19c01a187d26c90b5bcfac22ca"
+      },
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Moved Nick to Authors, hope Adam does not mind.",
+          "createdAt": "2021-12-03T17:39:21Z",
+          "updatedAt": "2021-12-03T17:39:21Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4xDdXA",
+          "commit": {
+            "abbreviatedOid": "92695fe"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-03T19:00:53Z",
+          "updatedAt": "2021-12-03T19:00:53Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "I think this is more about if the sender is ok with decreased security they can store the PIN code in the encrypted payload. Not about the available sending channels. Even when only one channel is available the sender could still delay sending the PIN code until the receiver tries to accept.",
+              "createdAt": "2021-12-03T19:00:53Z",
+              "updatedAt": "2021-12-03T19:00:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4xJnW4",
+          "commit": {
+            "abbreviatedOid": "92695fe"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-12-06T23:29:26Z",
+          "updatedAt": "2021-12-06T23:29:27Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "The point here is that PIN, being a 2-factor, needs to be sent over a different channel (what you have - phone number in addition to 1st factor secret - what you know). If out of band PIN delivery is not available, PIN transforms to the 1st factor - secret (and we just allow to encrypt it along with the mailbox payload).",
+              "createdAt": "2021-12-06T23:29:26Z",
+              "updatedAt": "2021-12-06T23:29:27Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOGL7YAs4wnvnN",
+      "title": "[Draft] Added Provisioning Information Structure And Message Format",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/14",
+      "state": "MERGED",
+      "author": "alexpell00",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Draft PR adding a message format per the BoF sync feedback.",
+      "createdAt": "2022-01-06T18:04:35Z",
+      "updatedAt": "2022-01-07T23:30:49Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "0d870b8b976430541f85feb31c86c19efef48966",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "apelletier/message-format",
+      "headRefOid": "834d6be65db9e445eed7b90a69042b5d80232dc8",
+      "closedAt": "2022-01-07T23:30:49Z",
+      "mergedAt": "2022-01-07T23:30:49Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "7124b291f9c6cd68b906b2a46181dad8b4e869d7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4ybd-I",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-06T20:56:51Z",
+          "updatedAt": "2022-01-06T20:56:52Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "\"ahead to\" -> \"adhere to\" - typo?\r\n\"MUST at least\" -> just \"MUST\" ?",
+              "createdAt": "2022-01-06T20:56:51Z",
+              "updatedAt": "2022-01-06T20:57:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ybe4O",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-06T21:01:42Z",
+          "updatedAt": "2022-01-06T21:01:42Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "need to add a link to CCC doc (https://carconnectivity.org/wp-content/uploads/2020/03/CCC_Digital_Key_2.0.pdf) in the \"References\" section and then refer to it here",
+              "createdAt": "2022-01-06T21:01:42Z",
+              "updatedAt": "2022-01-06T21:01:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ybfbx",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-06T21:04:42Z",
+          "updatedAt": "2022-01-06T21:04:42Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "Need to 1) define a reference to ISO spec in \"References\" section and then refer to it here.\r\n2) add a 3-rd type of format - \"proprietary access credentials\" and say that the format of this is proprietary and to be out of scope of this document & specific to each credential provider.",
+              "createdAt": "2022-01-06T21:04:42Z",
+              "updatedAt": "2022-01-06T21:04:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ybf4u",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-06T21:07:11Z",
+          "updatedAt": "2022-01-06T21:07:11Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "'[' and ']' symbols have sensitive nature in this document and only should be used to specifically refer to some document defined in IETF or local reference. This sentence needs re-formatting to avoid document compilation failure",
+              "createdAt": "2022-01-06T21:07:11Z",
+              "updatedAt": "2022-01-06T21:07:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ybgXc",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "CHANGES_REQUESTED",
+          "body": "please check in-line comments. \r\nAll updates must not break document compilation - please check \"Actions\" section",
+          "createdAt": "2022-01-06T21:09:47Z",
+          "updatedAt": "2022-01-06T21:09:47Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ybsrk",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-06T22:18:10Z",
+          "updatedAt": "2022-01-06T22:18:10Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "Are we also planning on defining the genericSharingData to which the format is applied to? ",
+              "createdAt": "2022-01-06T22:18:10Z",
+              "updatedAt": "2022-01-06T22:18:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ycgFQ",
+          "commit": {
+            "abbreviatedOid": "b976f7e"
+          },
+          "author": "ykarandikar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T07:06:02Z",
+          "updatedAt": "2022-01-07T07:19:11Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Possible typo? ahead -> adhere ",
+              "createdAt": "2022-01-07T07:06:02Z",
+              "updatedAt": "2022-01-07T07:19:11Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "It would be nice to have a reverse dns type consistent format for the format types.\r\n\r\ndigitalwallet.carkey.ccc\r\ndigitalwallet.generic.authorizationToken\r\ndigitalwallet.future.unknown\r\n\r\n",
+              "createdAt": "2022-01-07T07:15:20Z",
+              "updatedAt": "2022-01-07T07:19:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yej6G",
+          "commit": {
+            "abbreviatedOid": "bad85c7"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T18:19:24Z",
+          "updatedAt": "2022-01-07T18:19:24Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "Yes, updated to add that field.",
+              "createdAt": "2022-01-07T18:19:24Z",
+              "updatedAt": "2022-01-07T18:19:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye1jO",
+          "commit": {
+            "abbreviatedOid": "bad85c7"
+          },
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:52:57Z",
+          "updatedAt": "2022-01-07T19:52:57Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "Wanted to circle back on a topic we discussed earlier and get further thoughts. \r\n\r\nContext: \r\nFor hotel keys, the group proposed using tope level proprietary OEM fields to embed provisioning material.\r\n\r\nMy thoughts:\r\nWe are trying to establish a standard of using `format` and `sharingData` as a way to differentiate different credential provisioning structures. However, with hotel keys, it feels awkward that we would suddenly break this pattern and have an empty `genericData`. From the argument I'm hearing, it's because hotel keys requires apple and android specific fields and we already have similar top level OEM containers. While I can understand the convenience of this approach, I think it's too much of a happenstance. Also, while not enforceable, it breaks the principle of having the top level oem data containers be proprietary. In the hotel case, both containers would need to adhere to a strict standard. \r\n\r\nI would advocate putting all provisioning material into the `genericData` as that is the only field the `format` is currently coupled with. Otherwise, I think it weaken the standard and sets a precedent for coupling `format` to additional fields on the top level.\r\n\r\nLet me know if this discussion will be better served over email. Thanks!\r\n\r\n",
+              "createdAt": "2022-01-07T19:52:57Z",
+              "updatedAt": "2022-01-07T19:53:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye7Dn",
+          "commit": {
+            "abbreviatedOid": "bad85c7"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T20:24:08Z",
+          "updatedAt": "2022-01-07T20:24:08Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "> In the hotel case, both containers would need to adhere to a strict standard.\r\n\r\nIn the hotel case it will adhere to a standard, as you mentioned, it is a required for the system to work. We just haven't written / formalized that standard. Even though for cross platform hotel sharing all device OEM provisioning information will need to be included in the invite each OEM will only parse / read their own Information. The sender will simply be a pass through of the OEM data from the partner to the recipient.\r\n\r\n> I would advocate putting all provisioning material into the genericData as that is the only field the format is currently coupled with. Otherwise, I think it weaken the standard and sets a precedent for coupling format to additional fields on the top level.\r\n\r\nThis is why I'm not a huge fan of the including `genericData` in this spec.\r\n\r\nIf we think having format defined top level keys will weaken the standard what do you think about having `format` and `content` (name WIP) as the only two top level keys. And then all credential transfer information would live inside content. i.e.:\r\n\r\n```\r\n{\r\n\t\"format\" : \"digitalwallet.carkey.ccc\"\r\n\t\"content\": {\r\n\t    \"genericSharingData\": {\r\n\t        // ...\r\n\t    },\r\n\t    \"appleSharingData\": { ... },\r\n\t    \"androidSharingData\": { ... },\r\n\t}\r\n}\r\n```\r\n\r\nThen if we wanted to add new top level keys to the IETF standard there would be no risk that those keys collide with the keys used in the various format specs. For example, we could add a `messageIdentifier` field to the IETF spec.",
+              "createdAt": "2022-01-07T20:24:08Z",
+              "updatedAt": "2022-01-07T21:28:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfNQC",
+          "commit": {
+            "abbreviatedOid": "bad85c7"
+          },
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T22:23:42Z",
+          "updatedAt": "2022-01-07T22:23:43Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "> In the hotel case it will adhere to a standard, as you mentioned, it is a required for the system to work.\r\n\r\n> Even though for cross platform hotel sharing all device OEM provisioning information will need to be included in the invite each OEM will only parse / read their own Information.\r\n\r\nI think my reservation here is mixing a container for proprietary use with provisioning information. Forcing a standardization on a container meant for proprietary use kind of defeats its nature.\r\n\r\n> If we think having format defined top level keys will weaken the standard what do you think about having format and content (name WIP) as the only two top level keys. And then all credential transfer information would live inside content. i.e.:\r\n\r\nI like the idea of having a content and pending other's thoughts, I'm good with this.  Let me also provide an example and last argument on how it would work with current structure: \r\n\r\n```\r\n{ \r\n        \"format\" : \"digitalwallet.carkey.ccc\", \r\n        \"content\": { // this structure is fully governed by the format type and its external source\r\n        \u200b     // structure here would be outlined in the CCC. Contains sharingData, sharingDataType, etc.\r\n       \u200b },\r\n       \u200b \"appleSharingData\" : { ... }, // proprietary use, structure not defined but key may be defined in IETF to avoid collision\r\n       \u200b \"androidSharingData\" : { ... }, \r\n       \u200b \"xxxSharingData\" : { ... },\r\n}\r\n\r\n{ \r\n        \"format\" : \"digitalwallet.hotelkey.hyatt\",\r\n        \"content\": { \r\n        \u200b    \"appleHotelData\": { ... }, \r\n        \u200b    \"androidHotelData\": { ... }, \r\n       \u200b }, \r\n       \u200b \u200b\"appleSharingData\" : { ... },\r\n       \u200b \"androidSharingData\" : { ... }, \r\n       \u200b \"xxxSharingData\" : { ... }\r\n}\r\n```\r\n\r\nI think the structure of content(or genericData) need not be defined via IETF. If it contains apple/android specific containers, that's up to the discretion of that credential standard. IETF need not try to optimize by sharing existing proprietary containers. I believe this also helps simplify onboarding new credentials/formats as it removes the guess work of trying to optimize with fields outside its domain.\r\n\r\n \r\n",
+              "createdAt": "2022-01-07T22:23:42Z",
+              "updatedAt": "2022-01-07T22:23:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfSgE",
+          "commit": {
+            "abbreviatedOid": "834d6be"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T23:10:45Z",
+          "updatedAt": "2022-01-07T23:10:45Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "> I think my reservation here is mixing a container for proprietary use with provisioning information. Forcing a standardization on a container meant for proprietary use kind of defeats its nature.\r\n\r\nI agree with this, although I don't feel very strongly about it. I see the benefit in separating true proprietary or secret sauce keys from device OEM opaque blobs; where even though the contents of the blob is opaque all device OEMs know that the blob is effectively a bearer token.\r\n\r\nSince we are settled on \"format\" + \"content\" I think this discussion doesn't need to block this PR. I'll added this discussion to the agenda next week.\r\n\r\n---\r\n\r\nI was thinking it would work like:\r\n\r\n```\r\n{\r\n   \"format\": \"digitalwallet.hotelkey.hyatt\",\r\n   \"content\": {\r\n      \"appleHotelData\": {  ... },\r\n      \"androidHotelData\": {  ... },\r\n      // Device OEM Proprietary Containers\r\n      \"appleSharingData\": {  ... },\r\n      \"androidSharingData\": {  ... },\r\n      \"xxxSharingData\": {  ... }\r\n   }\r\n}\r\n```\r\n\r\nThat way there is no risk of future EITF spec changes introducing new top level keys that collide with proprietary fields. But since the usage of \"appleSharingData\" / \"androidSharingData\" is up to each device OEM the data could be put anywhere.",
+              "createdAt": "2022-01-07T23:10:45Z",
+              "updatedAt": "2022-01-07T23:10:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfSzQ",
+          "commit": {
+            "abbreviatedOid": "834d6be"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T23:14:05Z",
+          "updatedAt": "2022-01-07T23:14:05Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "I don't think this is the correct standard to link to. This should link to the generic stateless sharing spec, but we have yet to write that spec..",
+              "createdAt": "2022-01-07T23:14:05Z",
+              "updatedAt": "2022-01-07T23:14:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfTKi",
+          "commit": {
+            "abbreviatedOid": "834d6be"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T23:18:22Z",
+          "updatedAt": "2022-01-07T23:18:22Z",
+          "comments": [
+            {
+              "originalPosition": 48,
+              "body": "```suggestion\r\n    \"format\" : \"digitalwallet.carkey.ccc\",\r\n    \"content\": { \r\n        // Format specific fields\r\n    }\r\n```",
+              "createdAt": "2022-01-07T23:18:22Z",
+              "updatedAt": "2022-01-07T23:18:22Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOGL7YAs4wq4B0",
+      "title": "adding charter document for the BoF meeting",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/15",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "dimmyvi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-01-07T17:36:21Z",
+      "updatedAt": "2022-01-07T22:06:33Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "0d870b8b976430541f85feb31c86c19efef48966",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "charter-doc-addition",
+      "headRefOid": "da661f0489d1784f64164a26438ca38eda06573c",
+      "closedAt": "2022-01-07T22:06:33Z",
+      "mergedAt": "2022-01-07T22:06:33Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "86288095383a7a2f9edef8a45e008504584691fb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4yeiMG",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T18:10:11Z",
+          "updatedAt": "2022-01-07T18:10:12Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "I don't think this is needed. If the point above it is upheld then the relay server wouldn't be able to build a social graph, and our internal privacy concerns and mitigations seen unrelated to the EITF.",
+              "createdAt": "2022-01-07T18:10:12Z",
+              "updatedAt": "2022-01-07T18:10:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yeio-",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T18:12:33Z",
+          "updatedAt": "2022-01-07T18:17:50Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "The protocol doesn't enforce anything around user intent. I think we can remove this point.",
+              "createdAt": "2022-01-07T18:12:33Z",
+              "updatedAt": "2022-01-07T18:17:50Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n- Allow only the sender and receiver to mutate the sharing channel once a connection has been established.\r\n```\r\n\r\nThis seems more related to share management and is outside the scope of the IETF spec. I think we could reword this to only cover mailbox deletion.",
+              "createdAt": "2022-01-07T18:14:55Z",
+              "updatedAt": "2022-01-07T18:17:50Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "I think we should break this out a bit more. Maybe something like:\r\n\r\n- Allow a recipient to view an open graph preview of a share\r\n- Allow dynamic message formats based on the credential type\r\n- Allow sender device and receiver device to quickly perform multiple round trip communications",
+              "createdAt": "2022-01-07T18:17:40Z",
+              "updatedAt": "2022-01-07T18:17:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yenf5",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "crystalyq",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T18:38:27Z",
+          "updatedAt": "2022-01-07T18:45:29Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "I don't think this rule always applies to the sender. Because the sender client and relay server are both managed by the same organization, where the identity is already known in the ecosystem in most cases. The spec should allow proprietary oauth built on top of this spec for sender and relay communication",
+              "createdAt": "2022-01-07T18:38:27Z",
+              "updatedAt": "2022-01-07T18:45:29Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "also\r\n- The relay server should only retain the share info for a limited amount of time",
+              "createdAt": "2022-01-07T18:41:11Z",
+              "updatedAt": "2022-01-07T18:45:29Z"
+            },
+            {
+              "originalPosition": 29,
+              "body": "For other credential types, should we add that they adhere to the proprietary specs of the credential issuing authorities? ",
+              "createdAt": "2022-01-07T18:44:52Z",
+              "updatedAt": "2022-01-07T18:45:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yeqzD",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T18:55:35Z",
+          "updatedAt": "2022-01-07T18:55:36Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "+1 \r\ntermination of the credential is specific to the standards it follows, anything outside of the mailbox management should be out of scope. Also, deleting the mailbox may not result in successfully terminating a credential. Example with car keys, deleting the mailbox after sender uploads the key import request will not guarantee terminating the shared car key. ",
+              "createdAt": "2022-01-07T18:55:35Z",
+              "updatedAt": "2022-01-07T18:55:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yesfe",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:04:21Z",
+          "updatedAt": "2022-01-07T19:04:21Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "+1 ",
+              "createdAt": "2022-01-07T19:04:21Z",
+              "updatedAt": "2022-01-07T19:04:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yesIV",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "ykarandikar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:02:28Z",
+          "updatedAt": "2022-01-07T19:17:42Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "To use more inclusive language I would suggest AttackerInTheMiddle instead of ManInTheMiddle",
+              "createdAt": "2022-01-07T19:02:29Z",
+              "updatedAt": "2022-01-07T19:17:42Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "The spirit of this goal is to make sure that the relay server doesn't try to know identities of sender and receiver. \r\nIn theory sender client and relay server can be managed by separate organizations. \r\nEven in case where they are managed by same org the spirit of the goal should apply.",
+              "createdAt": "2022-01-07T19:09:28Z",
+              "updatedAt": "2022-01-07T19:17:42Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "+1\r\n\r\nRole of relay ends after the sharing flow is over (either with success or failure).\r\n\r\nRemoving the credential should fall back to lifecycle management  policies of the vertical.",
+              "createdAt": "2022-01-07T19:13:01Z",
+              "updatedAt": "2022-01-07T19:17:42Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "I would refrain from mentioning use of open graph for viewing in the charter document. Specific technologies can change in future.",
+              "createdAt": "2022-01-07T19:14:43Z",
+              "updatedAt": "2022-01-07T19:17:42Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "I'm a bit confused by bullet points that say \"WG will\" in Out of scope topics.\r\n\r\nDoes it mean that WG will not do any of the things mentioned here or it will? ",
+              "createdAt": "2022-01-07T19:17:32Z",
+              "updatedAt": "2022-01-07T19:17:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yexvM",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:32:23Z",
+          "updatedAt": "2022-01-07T19:32:24Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "IMHO, ManInTheMiddle (MITM) attack is a wide-recognized term in security. If WG feels it needs to be changed to more inclusive, we'll do it, but we shall start as it is to avoid confusion (security world is rather conservative and keeps using common vocabulary)",
+              "createdAt": "2022-01-07T19:32:23Z",
+              "updatedAt": "2022-01-07T19:32:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yeyMP",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:34:55Z",
+          "updatedAt": "2022-01-07T19:34:56Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "I believe Crystal's comment is valid - we may want to change wording from \"should not know the identity\" to something like \"should not store/track the identity\"",
+              "createdAt": "2022-01-07T19:34:55Z",
+              "updatedAt": "2022-01-07T19:34:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yeyT3",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:35:35Z",
+          "updatedAt": "2022-01-07T19:35:35Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "Agreed",
+              "createdAt": "2022-01-07T19:35:35Z",
+              "updatedAt": "2022-01-07T19:35:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yey9y",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:39:07Z",
+          "updatedAt": "2022-01-07T19:39:07Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "I believe we want to support the ability to ensure secure user intent from sender - in a form of FIDO challenge/ device attestation. It is worth mentioning that in this charter doc",
+              "createdAt": "2022-01-07T19:39:07Z",
+              "updatedAt": "2022-01-07T19:39:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yezj5",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:42:20Z",
+          "updatedAt": "2022-01-07T19:42:21Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Agree with Yogesh here - the description should be as generic as possible, the concrete details to be defined in the draft itself.",
+              "createdAt": "2022-01-07T19:42:21Z",
+              "updatedAt": "2022-01-07T19:42:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye0R2",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:46:13Z",
+          "updatedAt": "2022-01-07T19:46:13Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "Then it might require references to such specs, which is going to be challenging; thus, we believe, an opaque description used above is more appropriate.\r\nPlease feel free to add what you see it should look like here...",
+              "createdAt": "2022-01-07T19:46:13Z",
+              "updatedAt": "2022-01-07T19:46:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye0jf",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:47:47Z",
+          "updatedAt": "2022-01-07T19:47:47Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "The last 2 paragraphs are a conclusion, rather than a part of \"Out of scope\" topic.\r\nSorry for confusion.",
+              "createdAt": "2022-01-07T19:47:47Z",
+              "updatedAt": "2022-01-07T19:47:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye0qq",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:48:25Z",
+          "updatedAt": "2022-01-07T19:48:26Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "Valid point!",
+              "createdAt": "2022-01-07T19:48:25Z",
+              "updatedAt": "2022-01-07T19:48:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye1jl",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "ykarandikar",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T19:52:59Z",
+          "updatedAt": "2022-01-07T19:52:59Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "This bullet point under out of scope says \"WG will define the full set of different credential types...\"\r\n\r\nIt might be good to maybe reword that.",
+              "createdAt": "2022-01-07T19:52:59Z",
+              "updatedAt": "2022-01-07T19:52:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4ye7Zu",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T20:26:05Z",
+          "updatedAt": "2022-01-07T20:26:06Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "Makes sense. We can drop the specifics about how the preview is shown.",
+              "createdAt": "2022-01-07T20:26:05Z",
+              "updatedAt": "2022-01-07T20:26:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfGbi",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T21:34:08Z",
+          "updatedAt": "2022-01-07T21:34:08Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "removing the whole bullet point",
+              "createdAt": "2022-01-07T21:34:08Z",
+              "updatedAt": "2022-01-07T21:34:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfGq6",
+          "commit": {
+            "abbreviatedOid": "e855484"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T21:35:45Z",
+          "updatedAt": "2022-01-07T21:35:45Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "changing the wording to \"relay server should not persist the identity of the sender nor receiver\"",
+              "createdAt": "2022-01-07T21:35:45Z",
+              "updatedAt": "2022-01-07T21:35:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4yfHou",
+          "commit": {
+            "abbreviatedOid": "2a3c69b"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-07T21:42:40Z",
+          "updatedAt": "2022-01-07T21:42:41Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "let's keep the statement for now and wait for WG feedback",
+              "createdAt": "2022-01-07T21:42:40Z",
+              "updatedAt": "2022-01-07T21:42:41Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOGL7YAs4wroOM",
+      "title": "Update Message Format Type And Example",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/16",
+      "state": "MERGED",
+      "author": "alexpell00",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR address some small comments from https://github.com/dimmyvi/secure-credential-transfer/pull/14 .",
+      "createdAt": "2022-01-07T23:49:31Z",
+      "updatedAt": "2022-01-11T23:27:39Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "7124b291f9c6cd68b906b2a46181dad8b4e869d7",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "apelletier/message-format-tweaks",
+      "headRefOid": "f57ab0da776dc2d337da3eb952a75c83710abf5c",
+      "closedAt": "2022-01-11T23:27:38Z",
+      "mergedAt": "2022-01-11T23:27:38Z",
+      "mergedBy": "alexpell00",
+      "mergeCommit": {
+        "oid": "42a0ce1ff8f9ef695aca8ec490c1897edd9ede15"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM too",
+          "createdAt": "2022-01-11T17:40:07Z",
+          "updatedAt": "2022-01-11T17:40:07Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4ykvrw",
+          "commit": {
+            "abbreviatedOid": "b3cee54"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Looks good to me ",
+          "createdAt": "2022-01-11T00:36:11Z",
+          "updatedAt": "2022-01-11T00:36:11Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOGL7YAs4w87rJ",
+      "title": "address IETF review - changing all URL links to https",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/22",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "dimmyvi"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-01-13T18:18:38Z",
+      "updatedAt": "2022-01-25T19:11:57Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "42a0ce1ff8f9ef695aca8ec490c1897edd9ede15",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "ietf-feedback",
+      "headRefOid": "a6925e1fc413540fb5ca0fd5842eb1260371629b",
+      "closedAt": "2022-01-25T19:11:56Z",
+      "mergedAt": "2022-01-25T19:11:56Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "4f7c4e5c764f78221fb159c6ca23fa7d6f8dd431"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@alexpell00 @dimmyvi I left one comment. example.com is a real website. Maybe we can choose a different example.",
+          "createdAt": "2022-01-14T17:31:13Z",
+          "updatedAt": "2022-01-14T17:31:13Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Nevermind, going to the website it specifically states it is for illustrative purposes in documents so we should be good to go. My apologies. Looks good to me too @dimmyvi @alexpell00 ",
+          "createdAt": "2022-01-14T17:31:55Z",
+          "updatedAt": "2022-01-14T17:31:55Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4yzrcX",
+          "commit": {
+            "abbreviatedOid": "a6925e1"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-01-14T01:32:50Z",
+          "updatedAt": "2022-01-14T01:32:50Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOGL7YAs4xlqiQ",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/23",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing review comments",
+      "createdAt": "2022-01-25T23:31:52Z",
+      "updatedAt": "2022-03-21T17:12:59Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "ce5f1172d69ce56956d97f91dfa533e96c859a3b",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "ietf-feedback",
+      "headRefOid": "7a2c81f84952aa67ed9156c142b19f688b814897",
+      "closedAt": "2022-03-21T17:12:59Z",
+      "mergedAt": "2022-03-21T17:12:59Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "fa9127a35fff6cda5404c4d66370d5388f185112"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4zcVh3",
+          "commit": {
+            "abbreviatedOid": "b5e4913"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-01-26T02:39:40Z",
+          "updatedAt": "2022-01-26T02:39:40Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nUnauthorized - calling device is not authorized to create a mailbox. E.g. a device presented an invalid deviceClaim or deviceAttestation.\r\n```\r\nWhat do you think about this?",
+              "createdAt": "2022-01-26T02:39:40Z",
+              "updatedAt": "2022-01-26T02:39:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs4zfnGg",
+          "commit": {
+            "abbreviatedOid": "b5e4913"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Lots of great fixes \ud83d\udc4d ",
+          "createdAt": "2022-01-26T18:13:28Z",
+          "updatedAt": "2022-01-26T18:13:28Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOGL7YAs4ybJrB",
+      "title": "Privacy clarification",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/24",
+      "state": "MERGED",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-02-10T20:06:27Z",
+      "updatedAt": "2022-02-14T23:41:33Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "4f7c4e5c764f78221fb159c6ca23fa7d6f8dd431",
+      "headRepository": "ekr/secure-credential-transfer",
+      "headRefName": "privacy_clarification",
+      "headRefOid": "db1f8b261126766ed574ae6b259b325b33e67864",
+      "closedAt": "2022-02-14T23:41:33Z",
+      "mergedAt": "2022-02-14T23:41:33Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "fb63137d2032284fcd2a57ee3ddd39cb3f6ca3e2"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ekr looks good to me. Going to merge this in.",
+          "createdAt": "2022-02-14T23:41:07Z",
+          "updatedAt": "2022-02-14T23:41:07Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs40br4D",
+          "commit": {
+            "abbreviatedOid": "db1f8b2"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-11T00:27:07Z",
+          "updatedAt": "2022-02-11T00:27:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOGL7YAs4ybLxD",
+      "title": "We shouldn't commit to a specific document.",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/25",
+      "state": "MERGED",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-02-10T20:10:33Z",
+      "updatedAt": "2022-02-14T23:42:08Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "4f7c4e5c764f78221fb159c6ca23fa7d6f8dd431",
+      "headRepository": "ekr/secure-credential-transfer",
+      "headRefName": "remove_starting_draft",
+      "headRefOid": "b8adb991f574f7f020133554aa2b3a98a89e0d4d",
+      "closedAt": "2022-02-14T23:42:08Z",
+      "mergedAt": "2022-02-14T23:42:08Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "834582dae94c610f18b15ceb81ce0538ed302a21"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good; thanks @ekr ",
+          "createdAt": "2022-02-14T23:42:01Z",
+          "updatedAt": "2022-02-14T23:42:01Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs40br57",
+          "commit": {
+            "abbreviatedOid": "b8adb99"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-11T00:27:21Z",
+          "updatedAt": "2022-02-11T00:27:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOGL7YAs4ybMdP",
+      "title": "1. Remove talk of APIs because we're defining a protocol",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/26",
+      "state": "MERGED",
+      "author": "ekr",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "2. Be more vague about what kind of cryptographic mechanisms.",
+      "createdAt": "2022-02-10T20:11:49Z",
+      "updatedAt": "2022-02-14T23:45:52Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "834582dae94c610f18b15ceb81ce0538ed302a21",
+      "headRepository": "ekr/secure-credential-transfer",
+      "headRefName": "no_apis",
+      "headRefOid": "6af8441dbf86fd138c0459a71d66e3d521d7ca73",
+      "closedAt": "2022-02-14T23:45:52Z",
+      "mergedAt": "2022-02-14T23:45:52Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "a92c19c5950eb6202cc7bddab68d771135c2a3ac"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ekr there were merge conflicts from a different PR of yours that I just resolved. I'll merge this in, just letting you know.",
+          "createdAt": "2022-02-14T23:45:39Z",
+          "updatedAt": "2022-02-14T23:45:39Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs40br8I",
+          "commit": {
+            "abbreviatedOid": "a74913a"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-11T00:27:39Z",
+          "updatedAt": "2022-02-11T00:27:39Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs40lwIn",
+          "commit": {
+            "abbreviatedOid": "a74913a"
+          },
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-14T23:42:52Z",
+          "updatedAt": "2022-02-14T23:42:52Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOGL7YAs40lwhT",
+          "commit": {
+            "abbreviatedOid": "6af8441"
+          },
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-02-14T23:45:48Z",
+          "updatedAt": "2022-02-14T23:45:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "PR_kwDOGL7YAs4zTee_",
+      "title": "Added two sentences to charter document further highlighting that no \u2026",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/27",
+      "state": "MERGED",
+      "author": "matthewcbyington",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added two sentences to charter document further highlighting that no key material is actually transffered. Making this commit primarily to address Michael's feedback from the SECRET email distribution.\"\r\n[charter-clarification-feb22 19b5b2c] Added two sentences to charter document further highlighting that no key material is actually transffered. Making this commit primarily to address Michael's feedback from the SECRET email distribution.",
+      "createdAt": "2022-02-22T19:13:29Z",
+      "updatedAt": "2022-02-23T01:34:53Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "a92c19c5950eb6202cc7bddab68d771135c2a3ac",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "charter-clarification-feb22",
+      "headRefOid": "19b5b2c1e46a07600e13955e678b438a2694f918",
+      "closedAt": "2022-02-23T00:04:27Z",
+      "mergedAt": "2022-02-23T00:04:27Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "1a0cdb765d83d1ce733d607ba856d899493d399f"
+      },
+      "comments": [
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@nicksha @crystalyq @adambn we are reviewing this too but if y'all could take a look at what I wrote and see if it makes sense. This is primarily from the discussion with Michael and others on the SECRET distribution email list to try to clarify.",
+          "createdAt": "2022-02-22T19:14:45Z",
+          "updatedAt": "2022-02-22T19:36:37Z"
+        },
+        {
+          "author": "nicksha",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "LGTM.\r\n\r\nThe \"credential\" part has always created misunderstanding, thanks for clarifying further. ",
+          "createdAt": "2022-02-22T19:25:49Z",
+          "updatedAt": "2022-02-22T19:25:49Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> LGTM.\r\n> \r\n> The \"credential\" part has always created misunderstanding, thanks for clarifying further.\r\n\r\nThanks Nick. Just going to wait a bit so others see it and see how they feel before merging but feedback looks good so far on the change as well.",
+          "createdAt": "2022-02-22T19:36:21Z",
+          "updatedAt": "2022-02-22T19:36:21Z"
+        },
+        {
+          "author": "matthewcbyington",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging this now",
+          "createdAt": "2022-02-23T00:04:23Z",
+          "updatedAt": "2022-02-23T00:04:23Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs41FJ4n",
+          "commit": {
+            "abbreviatedOid": "19b5b2c"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "LGTM!",
+          "createdAt": "2022-02-23T01:34:53Z",
+          "updatedAt": "2022-02-23T01:34:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOGL7YAs40ND-A",
+      "title": "displayInformation to be an Object in CreateMailbox request",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/28",
+      "state": "MERGED",
+      "author": "nicksha",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The request body is already a JSON. The \"displayInformation\" can be an Object just like that of \"payload\" and \"notificationToken\", otherwise it would need to be wrapped as a String. \r\n\r\n```\r\n \"displayInformation\" : {\r\n        \"title\" : \"Hotel Pass\",\r\n        \"description\" : \"Some Hotel Pass\",\r\n        \"imageURL\" : \"https://example.com/sharingImage\" \r\n    },\r\n    \"payload\" : {\r\n        \"type\": \"AEAD_AES_128_GCM\",\r\n        \"data\": \"FDEC...987654321\"\r\n    }\r\n```",
+      "createdAt": "2022-03-09T23:33:32Z",
+      "updatedAt": "2022-03-14T23:47:33Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "1a0cdb765d83d1ce733d607ba856d899493d399f",
+      "headRepository": "nicksha/secure-credential-transfer",
+      "headRefName": "patch-6",
+      "headRefOid": "adac27ca17ff5af13bfcb330bc5eb3f20281d6e1",
+      "closedAt": "2022-03-14T23:47:32Z",
+      "mergedAt": "2022-03-14T23:47:32Z",
+      "mergedBy": "matthewcbyington",
+      "mergeCommit": {
+        "oid": "ce5f1172d69ce56956d97f91dfa533e96c859a3b"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs4187Py",
+          "commit": {
+            "abbreviatedOid": "adac27c"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-03-10T00:18:17Z",
+          "updatedAt": "2022-03-10T00:18:17Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOGL7YAs45V0no",
+      "title": "Update charter.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/29",
+      "state": "MERGED",
+      "author": "castiz",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Updating per comments on this email thread: https://mailarchive.ietf.org/arch/msg/secret/XC7ihrJ5UYyU0F1vuajaqzm_Kck/.",
+      "createdAt": "2022-06-08T18:45:18Z",
+      "updatedAt": "2022-06-08T23:33:03Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "925465c8bd9a25a954960a0b9dafdffad4fd207f",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "64f38ab1825c4aff35388247f61245ff5dc48d53",
+      "closedAt": "2022-06-08T23:32:28Z",
+      "mergedAt": "2022-06-08T23:32:28Z",
+      "mergedBy": "alexpell00",
+      "mergeCommit": {
+        "oid": "561c152503e34d868df0f55d673fbd8b976fbd10"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs47o09D",
+          "commit": {
+            "abbreviatedOid": "64f38ab"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM!",
+          "createdAt": "2022-06-08T23:29:07Z",
+          "updatedAt": "2022-06-08T23:29:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOGL7YAs45bK6h",
+      "title": "Update the out of scope topics",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/30",
+      "state": "MERGED",
+      "author": "castiz",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-06-09T22:52:58Z",
+      "updatedAt": "2022-06-09T22:54:27Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "561c152503e34d868df0f55d673fbd8b976fbd10",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "176926f5aa6dd59dfc82044fab65d892262e2009",
+      "closedAt": "2022-06-09T22:54:10Z",
+      "mergedAt": "2022-06-09T22:54:10Z",
+      "mergedBy": "alexpell00",
+      "mergeCommit": {
+        "oid": "790289ed26df10dfe3bd994aa9fcff1ae199e58c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs47upjB",
+          "commit": {
+            "abbreviatedOid": "176926f"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-06-09T22:53:35Z",
+          "updatedAt": "2022-06-09T22:53:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDOGL7YAs45rOP4",
+      "title": "Charter edit proposals",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/32",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Nits for style and clarity",
+      "createdAt": "2022-06-15T03:19:28Z",
+      "updatedAt": "2022-06-15T16:55:09Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "22416c9293e4d71b9412326610cf7cff0fbf2ce5",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "tfpauly-patch-1",
+      "headRefOid": "8f9634781d8ed559692ff010578e050de5f208fc",
+      "closedAt": "2022-06-15T16:55:09Z",
+      "mergedAt": "2022-06-15T16:55:08Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "010116f18050bc163e4724e5156001d374a29bed"
+      },
+      "comments": [
+        {
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "body": "Thank you Tommy for the update",
+          "createdAt": "2022-06-15T16:54:40Z",
+          "updatedAt": "2022-06-15T16:54:40Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 33,
+      "id": "PR_kwDOGL7YAs45teWN",
+      "title": "use sender/sending and receiver/receiving",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/33",
+      "state": "MERGED",
+      "author": "bslassey",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Most of this text uses sender and receiver to describe the devices involved, editing this wording to be consistent with the rest of the text.",
+      "createdAt": "2022-06-15T14:00:48Z",
+      "updatedAt": "2022-06-15T16:58:17Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "22416c9293e4d71b9412326610cf7cff0fbf2ce5",
+      "headRepository": "bslassey/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "c6051d7e8b9f88a00d7beb378dbf038a3a3b67c1",
+      "closedAt": "2022-06-15T16:58:17Z",
+      "mergedAt": "2022-06-15T16:58:17Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "fe7e07aa31e78a8c3fc1b92666da75776202d489"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs48EmDr",
+          "commit": {
+            "abbreviatedOid": "c6051d7"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Thank you for the update!",
+          "createdAt": "2022-06-15T16:56:00Z",
+          "updatedAt": "2022-06-15T16:56:00Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOGL7YAs46QVMP",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/34",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing concern of hosting untrusted JS on Relay server display information landing page",
+      "createdAt": "2022-06-23T15:59:17Z",
+      "updatedAt": "2022-06-27T19:03:38Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "fe7e07aa31e78a8c3fc1b92666da75776202d489",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "dimmyvi-patch-untrusted-js",
+      "headRefOid": "127698d20177f7f61c7b7d2ec182b05236699707",
+      "closedAt": "2022-06-27T19:03:38Z",
+      "mergedAt": "2022-06-27T19:03:38Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "6c72fd630708a58e7a97fb7385b97fa6934676c2"
+      },
+      "comments": [
+        {
+          "author": "cyberrevenger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks good Dmitry!",
+          "createdAt": "2022-06-24T08:50:53Z",
+          "updatedAt": "2022-06-24T08:50:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs48sEmI",
+          "commit": {
+            "abbreviatedOid": "127698d"
+          },
+          "author": "cyberrevenger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Looks good to me ",
+          "createdAt": "2022-06-24T08:52:33Z",
+          "updatedAt": "2022-06-24T08:52:33Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDOGL7YAs46lvdN",
+      "title": "Update charter.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/35",
+      "state": "MERGED",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing feedback from 06-27-2022 on email list...",
+      "createdAt": "2022-06-29T18:37:42Z",
+      "updatedAt": "2022-06-30T10:34:54Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "6c72fd630708a58e7a97fb7385b97fa6934676c2",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "charter_doc_review_feedback",
+      "headRefOid": "220e2ab5934ae1e09588593ada66dc8544204573",
+      "closedAt": "2022-06-29T23:45:23Z",
+      "mergedAt": "2022-06-29T23:45:23Z",
+      "mergedBy": "dimmyvi",
+      "mergeCommit": {
+        "oid": "fcbc7531461421a5f3c69820269721e04005ca33"
+      },
+      "comments": [
+        {
+          "author": "ManuelGersterB",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@dimmyvi: From content point of view it looks fine, but I found a typo in the PR: \"personaly\".\r\nAdditionally, I would add a \".\" to \"etc\"",
+          "createdAt": "2022-06-30T10:34:53Z",
+          "updatedAt": "2022-06-30T10:34:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs49Bs-a",
+          "commit": {
+            "abbreviatedOid": "458135c"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-06-29T19:02:15Z",
+          "updatedAt": "2022-06-29T19:02:30Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\nThere are many situations in which it is desirable to transfer a copy of a digital credential to another person. For example, a person may want to provide access to their vehicle to a friend or a family member. A person may also want to provide access to their home to a cat sitter. Or, a person may want to transfer a copy of a hotel key to their partner. Today, no such standardized method exists in a cross-platform, credential type-agnostic capacity. \r\n```",
+              "createdAt": "2022-06-29T19:02:15Z",
+              "updatedAt": "2022-06-29T19:02:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs49CjZK",
+          "commit": {
+            "abbreviatedOid": "220e2ab"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-06-29T22:33:21Z",
+          "updatedAt": "2022-06-29T22:33:21Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
