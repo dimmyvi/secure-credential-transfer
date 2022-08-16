@@ -772,6 +772,8 @@ in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignmen
     | Header Field Name  | Protocol | Status |   Reference   |
     +--------------------+----------+--------+---------------+
     | Mailbox-Request-ID |   http   |  std   | This document |
+    | Device-Claim       |   http   |  std   | This document |
+    | Device-Attestation |   http   |  std   |This document  |
     +--------------------+----------+--------+---------------+
 ~~~
 {: #iana-header-type-table title="Registered HTTP Header"}
