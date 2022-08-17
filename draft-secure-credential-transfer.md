@@ -764,17 +764,17 @@ the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resu
 
 # IANA Considerations
 
-This document registers a new header, "Mailbox-Request-ID",
+This document registers new headers, "Mailbox-Request-ID", "Mailbox-Device-Claim" and "Mailbox-Device-Attestation"
 in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignments/message-headers)>.
 
 ~~~
-    +--------------------+----------+--------+---------------+
-    | Header Field Name  | Protocol | Status |   Reference   |
-    +--------------------+----------+--------+---------------+
-    | Mailbox-Request-ID |   http   |  std   | This document |
-    | Device-Claim       |   http   |  std   | This document |
-    | Device-Attestation |   http   |  std   |This document  |
-    +--------------------+----------+--------+---------------+
+    +----------------------------+----------+--------+---------------+
+    | Header Field Name          | Protocol | Status |   Reference   |
+    +----------------------------+----------+--------+---------------+
+    | Mailbox-Request-ID         |   http   |  std   | This document |
+    | Mailbox-Device-Claim       |   http   |  std   | This document |
+    | Mailbox-Device-Attestation |   http   |  std   | This document |
+    +----------------------------+----------+--------+---------------+
 ~~~
 {: #iana-header-type-table title="Registered HTTP Header"}
 
