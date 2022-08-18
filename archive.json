@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-07-03T01:05:10.197236+00:00",
+  "timestamp": "2022-08-18T01:16:00.133743+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -2820,6 +2820,93 @@
           "createdAt": "2022-06-29T22:33:21Z",
           "updatedAt": "2022-06-29T22:33:21Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "id": "PR_kwDOGL7YAs49R3-W",
+      "title": "Update draft-secure-credential-transfer.md",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/36",
+      "state": "OPEN",
+      "author": "dimmyvi",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Registering new IANA headers",
+      "createdAt": "2022-08-16T21:28:54Z",
+      "updatedAt": "2022-08-17T16:14:09Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "0205ad877fb0a48eaeff2f77754b644ecfe28558",
+      "headRepository": "dimmyvi/secure-credential-transfer",
+      "headRefName": "adding_new_iana_headers",
+      "headRefOid": "7d9272d5b3ff2f88c790e32ac65d17f94fdf0ed8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOGL7YAs5AENnG",
+          "commit": {
+            "abbreviatedOid": "7b45f42"
+          },
+          "author": "alexpell00",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-08-16T22:33:19Z",
+          "updatedAt": "2022-08-16T22:33:19Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Should we prefix these with something Tigress specific?",
+              "createdAt": "2022-08-16T22:33:19Z",
+              "updatedAt": "2022-08-16T22:33:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs5AEQLN",
+          "commit": {
+            "abbreviatedOid": "7b45f42"
+          },
+          "author": "dimmyvi",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-08-16T22:51:25Z",
+          "updatedAt": "2022-08-16T22:51:26Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "like Mailbox-Device-Claim and Mailbox-Device-Attestation?",
+              "createdAt": "2022-08-16T22:51:25Z",
+              "updatedAt": "2022-08-16T22:51:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOGL7YAs5AF50n",
+          "commit": {
+            "abbreviatedOid": "7b45f42"
+          },
+          "author": "ManuelGersterB",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-08-17T08:44:41Z",
+          "updatedAt": "2022-08-17T08:44:42Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Would also vote for introducing the \"Mailbox-\" prefix as proposed by you, @dimmyvi. But please keep in mind: This would require changing \"deviceClaim (String, UUID, Required)\" in the draft at several places and a change of the corresponding CCC CR.",
+              "createdAt": "2022-08-17T08:44:41Z",
+              "updatedAt": "2022-08-17T08:44:42Z"
+            }
+          ]
         }
       ]
     }
