@@ -734,7 +734,7 @@ The following threats and mitigations have been considered:
 - The value of the Notification Token shall not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Notification token SHOULD only inform the corresponding device that there has been a data update on the mailbox associated to it (by Device Claim). Each device SHOULD keep track of all mailboxes associated with it and make read calls to appropriate mailboxes.
 - Both Sender and Receiver devices SHOULD store the URL of the Relay server they use for an active act of credential transfer.
-- The value of DeviceAttestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
+- The value of Mailbox-Device-Attestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Display Information is not encrypted, therefore, it SHOULD not contain any information allowing to identify Sender or Receiver devices.
 
 ## Credential's confidentiality and integrity
