@@ -329,13 +329,13 @@ A key-value pair of "Device Claim" to "Mailbox-Request-ID" is suggested to store
 In case of receiving a request with duplicated "Mailbox-Request-ID", Relay SHOULD respond to the caller with status code 201, ignoring the duplicate request body content.
 
 
-## Device-Claim
+## Mailbox-Device-Claim
 
 All requests to CreateMailbox, ReadSecureContentFromMailbox and UpdateMailbox endpoints MUST contain this header. The value represents "Device Claim" (refer to Terminology)
 
 
-## Device-Attestation
-Request to CreateMailbox MAY contain this header. The value represents a deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data
+## Mailbox-Device-Attestation
+Request to CreateMailbox MAY contain this header. The value represents a Device Attestation (String, Optional) - optional remote OEM device proprietary attestation data
 
 
 # HTTP access methods
@@ -356,8 +356,8 @@ Path parameters
 
 Header parameters
 
-- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+- Mailbox-Device-Attestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- Mailbox-Device-Claim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Consumes
 
@@ -445,7 +445,7 @@ Status: “201” (Created) - response to a duplicated request (duplicated "Mail
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
 `401`
-Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented an invalid deviceClaim or deviceAttestation.
+Unauthorized - calling device is not authorized to create a mailbox. E.g. a device presented an invalid device claim or device attestation.
 
 
 ## UpdateMailbox
@@ -465,8 +465,8 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+- Mailbox-Device-Attestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- Mailbox-Device-Claim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Consumes
 
@@ -526,7 +526,7 @@ The value of "Mailbox-Request-ID" of the last successfully completed request SHA
 Bad Request - invalid request has been passed (can not parse or required fields missing).
 
 `401`
-Unauthorized - calling device is not authorized to update the mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to update the mailbox. E.g. a device presented the incorrect Device Claim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
@@ -534,7 +534,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 ## DeleteMailbox
 
-An application running on a remote device can invoke this API on Relay Server to close the existing mailbox after it served its purpose. Receiver or Sender device needs to present a deviceClaim in order to close the mailbox.
+An application running on a remote device can invoke this API on Relay Server to close the existing mailbox after it served its purpose. Receiver or Sender device needs to present a Device Claim in order to close the mailbox.
 
 ### Endpoint
 
@@ -549,8 +549,8 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+- Mailbox-Device-Attestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- Mailbox-Device-Claim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Responses
 
@@ -558,7 +558,7 @@ Header parameters:
 Status: “200” (OK)
 
 `401`
-Unauthorized - calling device is not authorized to delete a mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to delete a mailbox. E.g. a device presented the incorrect Device Claim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found. Relay server may respond with 404 if the Mailbox Identifier passed by the caller is invalid or mailbox has already been deleted (as a result of duplicate DeleteMailbox request).
@@ -629,8 +629,8 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+- Mailbox-Device-Attestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- MAilbox-Device-Claim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Produces
 
@@ -664,7 +664,7 @@ ResponseBody :
 {: #read-secure-content-response title="Read Secure Content Response Example"}
 
 `401`
-Unauthorized - calling device is not authorized to read the secure content of the mailbox. E.g. a device presented the incorrect deviceClaim.
+Unauthorized - calling device is not authorized to read the secure content of the mailbox. E.g. a device presented the incorrect Device Claim.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found.
@@ -672,7 +672,7 @@ Not Found - mailbox with provided mailboxIdentifier not found.
 
 ## RelinquishMailbox
 
-An application running on a remote device can invoke this API on Relay Server to relinquish their ownership of the mailbox. Receiver device needs to present the currently established Receiver deviceClaim in order to relinquish their ownership of the mailbox. Once relinquished, the mailbox can be bound to a different Receiver device that presents its deviceClaim in a ReadSecureContentFromMailbox call.
+An application running on a remote device can invoke this API on Relay Server to relinquish their ownership of the mailbox. Receiver device needs to present the currently established Receiver Device Claim in order to relinquish their ownership of the mailbox. Once relinquished, the mailbox can be bound to a different Receiver device that presents its Device Claim in a ReadSecureContentFromMailbox call.
 
 ### Endpoint
 
@@ -687,8 +687,8 @@ Path parameters:
 
 Header parameters:
 
-- deviceAttestation (String, Optional) - optional remote OEM device proprietary attestation data.
-- deviceClaim (String, UUID, Required) - Device Claim (refer to Terminology).
+- Mailbox-Device-Attestation (String, Optional) - optional remote OEM device proprietary attestation data.
+- Mailbox-Device-Claim (String, UUID, Required) - Device Claim (refer to Terminology).
 
 ### Responses
 
@@ -700,7 +700,7 @@ Status: “201” (Created) - response to a duplicate request (duplicate "Mailbo
 The value of "Mailbox-Request-ID" of the last successfully completed request SHALL be stored based on the Device Claim passed by the caller.
 
 `401`
-Unauthorized - calling device is not authorized to relinquish a mailbox. E.g. a device presented the incorrect deviceClaim, or the device is not bound to the mailbox.
+Unauthorized - calling device is not authorized to relinquish a mailbox. E.g. a device presented the incorrect Device Claim, or the device is not bound to the mailbox.
 
 `404`
 Not Found - mailbox with provided mailboxIdentifier not found. Relay server may respond with 404 if the Mailbox Identifier passed by the caller is invalid.
@@ -734,7 +734,7 @@ The following threats and mitigations have been considered:
 - The value of the Notification Token shall not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Notification token SHOULD only inform the corresponding device that there has been a data update on the mailbox associated to it (by Device Claim). Each device SHOULD keep track of all mailboxes associated with it and make read calls to appropriate mailboxes.
 - Both Sender and Receiver devices SHOULD store the URL of the Relay server they use for an active act of credential transfer.
-- The value of DeviceAttestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
+- The value of Mailbox-Device-Attestation header parameter SHALL not contain information allowing the identification of the device providing it. It SHOULD also be different for every new share to prevent the Relay server from correlating different sharing.
 - Display Information is not encrypted, therefore, it SHOULD not contain any information allowing to identify Sender or Receiver devices.
 
 ## Credential's confidentiality and integrity
@@ -764,15 +764,17 @@ the Sender MUST append the Secret as URI fragment {{!RFC3986}}, so that the resu
 
 # IANA Considerations
 
-This document registers a new header, "Mailbox-Request-ID",
+This document registers new headers, "Mailbox-Request-ID", "Mailbox-Device-Claim" and "Mailbox-Device-Attestation"
 in the "Permanent Message Header Field Names" <[](https://www.iana.org/assignments/message-headers)>.
 
 ~~~
-    +--------------------+----------+--------+---------------+
-    | Header Field Name  | Protocol | Status |   Reference   |
-    +--------------------+----------+--------+---------------+
-    | Mailbox-Request-ID |   http   |  std   | This document |
-    +--------------------+----------+--------+---------------+
+    +----------------------------+----------+--------+---------------+
+    | Header Field Name          | Protocol | Status |   Reference   |
+    +----------------------------+----------+--------+---------------+
+    | Mailbox-Request-ID         |   http   |  std   | This document |
+    | Mailbox-Device-Claim       |   http   |  std   | This document |
+    | Mailbox-Device-Attestation |   http   |  std   | This document |
+    +----------------------------+----------+--------+---------------+
 ~~~
 {: #iana-header-type-table title="Registered HTTP Header"}
 
