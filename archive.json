@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-08-21T01:04:10.456170+00:00",
+  "timestamp": "2022-09-13T01:14:47.306897+00:00",
   "repo": "dimmyvi/secure-credential-transfer",
   "labels": [
     {
@@ -24,14 +24,14 @@
       "color": "a2eeef"
     },
     {
-      "name": "help wanted",
-      "description": "Extra attention is needed",
-      "color": "008672"
-    },
-    {
       "name": "good first issue",
       "description": "Good for newcomers",
       "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
     },
     {
       "name": "invalid",
@@ -2991,6 +2991,47 @@
           ]
         }
       ]
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDOGL7YAs4-0ZdQ",
+      "title": "Update Charter based on requirements document and IETF 114 comments",
+      "url": "https://github.com/dimmyvi/secure-credential-transfer/pull/37",
+      "state": "CLOSED",
+      "author": "castiz",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-09-12T21:54:03Z",
+      "updatedAt": "2022-09-12T22:42:34Z",
+      "baseRepository": "dimmyvi/secure-credential-transfer",
+      "baseRefName": "main",
+      "baseRefOid": "dd0b5fdb994a6ad2bb8a9c32dc4d6aac59fe727e",
+      "headRepository": "castiz/secure-credential-transfer",
+      "headRefName": "patch-1",
+      "headRefOid": "bee91be7cf0d3e3c89771ed4b2827ba0c3586a37",
+      "closedAt": "2022-09-12T22:42:31Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "castiz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@dimmyvi @alexpell00 Please review when you have time!",
+          "createdAt": "2022-09-12T21:54:27Z",
+          "updatedAt": "2022-09-12T21:54:27Z"
+        },
+        {
+          "author": "castiz",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Closing this PR. Did not know charters are generally not updated. Can reopen if required later.",
+          "createdAt": "2022-09-12T22:42:31Z",
+          "updatedAt": "2022-09-12T22:42:31Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
